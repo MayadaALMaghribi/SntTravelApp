@@ -3,7 +3,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:sntegpito/Features/imboroading/presentation/views/widgets/screen_view_one.dart';
 import 'package:sntegpito/Features/imboroading/presentation/views/widgets/screen_view_three.dart';
 import 'package:sntegpito/Features/imboroading/presentation/views/widgets/secreen_view_two.dart';
-import 'package:sntegpito/Features/welcome_screen/presentation/views/welcom_view.dart';
+import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
 
 import '../../../../../constants.dart';
 
