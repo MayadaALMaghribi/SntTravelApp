@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
 import 'package:sntegpito/Features/imboroading/presentation/views/imboroading_view.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
 
@@ -87,7 +88,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             child: ScaleTransition(
               scale: _scaleAnimation,
               child: Image.asset(
-                "assets/images_borading/Splash.png",
+                "assets/images/Splash.png",
                 width: 250,
                 height: 250,
               ),

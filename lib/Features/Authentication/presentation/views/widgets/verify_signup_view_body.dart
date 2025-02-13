@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_cubit.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_state.dart';
+import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
 
 class VerifySignupViewBody extends StatelessWidget {
   const VerifySignupViewBody({super.key,required this.email});
@@ -20,7 +21,7 @@ class VerifySignupViewBody extends StatelessWidget {
 
           Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => const HomeBottomBar()), //HomeBottomBar
+              MaterialPageRoute(builder: (context) => const HomeBottomBar()), 
               (Route) => false);
         } else if (state is VerifyFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

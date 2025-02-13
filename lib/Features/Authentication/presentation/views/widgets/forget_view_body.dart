@@ -38,7 +38,7 @@ class ForgetViewBody extends StatelessWidget {
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(90),
           child: CustomAppBar(
-            text: "Edit Text",
+            text: "",
             page: LoginView(),
           ),
         ),

@@ -5,8 +5,8 @@ import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cu
 import 'package:sntegpito/Features/Authentication/presentation/views/signup_view.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/widgets/custom_checkbox_login.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/widgets/custom_password_login.dart';
+import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
-import 'package:sntegpito/Features/welcome_screen/presentation/views/widgets/welcome_view_body.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
 import 'package:sntegpito/core/widgets/custom_button.dart';
