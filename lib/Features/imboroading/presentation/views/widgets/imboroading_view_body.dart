@@ -69,7 +69,7 @@ class _ImboroadingViewBodyState extends State<ImboroadingViewBody> {
                     if (butttext == "Finish") {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const WelcomView();
+                        return const WelcomeView();
                       }));
                     } else {
                       pageController.nextPage(

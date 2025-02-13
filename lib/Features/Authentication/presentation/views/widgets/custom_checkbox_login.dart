@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sntegpito/Features/Authentication/presentation/views/forget_view.dart';
 
 class CustomCheckboxLogin extends StatefulWidget {
   const CustomCheckboxLogin({super.key});
@@ -27,7 +28,7 @@ class _CustomCheckboxLoginState extends State<CustomCheckboxLogin> {
         TextButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const ForgetPage();
+              return const ForgetView();
             }));
           },
           child: const Text(

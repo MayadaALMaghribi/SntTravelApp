@@ -29,7 +29,7 @@ class WelcomeViewBody extends StatelessWidget {
               height: 70,
             ),
             CustomButton(
-              width: double.infinity,
+              //width: double.infinity,
               ontap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return Container();
@@ -44,7 +44,7 @@ class WelcomeViewBody extends StatelessWidget {
               height: 20,
             ),
             CustomButton(
-              width: double.infinity,
+             // width: double.infinity,
               ontap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return Container();

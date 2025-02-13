@@ -144,7 +144,7 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  Verify() async {
+  verifyy() async {
     try {
       emit(VerifyLoading());
       final response = await apiConsumer.post(EndPoint.verify,

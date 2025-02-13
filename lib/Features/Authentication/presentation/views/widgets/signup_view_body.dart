@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_cubit.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_state.dart';
+import 'package:sntegpito/Features/Authentication/presentation/views/verify_signup_view.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/widgets/custom_password_check.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
@@ -21,7 +22,7 @@ class SignupViewBody extends StatelessWidget {
 
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
-            return VerifyCodePage(
+            return VerifySignupView(
               email: context.read<UserCubit>().signUpEmail.text,
             ); //verify
           }));
