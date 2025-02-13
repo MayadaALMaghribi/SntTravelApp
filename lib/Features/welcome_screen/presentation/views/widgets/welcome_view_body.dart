@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/core/utils/styles.dart';
-
 import '../../../../../core/utils/assests.dart';
 import '../../../../../core/widgets/custom_button.dart';
-
 class WelcomeViewBody extends StatelessWidget {
   const WelcomeViewBody({super.key});
 
@@ -54,6 +52,5 @@ class WelcomeViewBody extends StatelessWidget {
         ),
       ),
     );
-    ();
   }
 }
