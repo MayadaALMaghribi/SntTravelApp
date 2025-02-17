@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/splash/presentation/views/widgets/splash_view_body.dart';
 
@@ -9,11 +8,10 @@ class SplashView extends StatefulWidget {
   State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashViewState extends State<SplashView>with SingleTickerProviderStateMixin {
-  
+class _SplashViewState extends State<SplashView>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return  SplashViewBody();
+    return const SplashViewBody();
   }
 }
-
