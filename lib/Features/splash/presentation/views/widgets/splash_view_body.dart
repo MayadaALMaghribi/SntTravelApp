@@ -74,6 +74,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
@@ -94,6 +95,5 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ),
       ),
     );
-    ;
   }
 }

@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/splash/presentation/views/widgets/splash_view_body.dart';
