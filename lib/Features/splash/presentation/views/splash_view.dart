@@ -13,7 +13,7 @@ class _SplashViewState extends State<SplashView>with SingleTickerProviderStateMi
   
   @override
   Widget build(BuildContext context) {
-    return const SplashViewBody();
+    return  SplashViewBody();
   }
 }
 

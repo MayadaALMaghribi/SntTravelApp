@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sntegpito/Features/Authentication/presentation/views/login_view.dart';
+import 'package:sntegpito/Features/Authentication/presentation/views/signup_view.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import '../../../../../core/utils/assests.dart';
 import '../../../../../core/widgets/custom_button.dart';
+
 class WelcomeViewBody extends StatelessWidget {
   const WelcomeViewBody({super.key});
 
@@ -28,25 +31,31 @@ class WelcomeViewBody extends StatelessWidget {
               height: 70,
             ),
             CustomButton(
-              title: 'Login',
-              width: double.infinity,
+              //width: double.infinity,
               ontap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Container();
+                  return const LoginView();
                 }));
               },
+              child: const Text(
+                'Login',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
             CustomButton(
-              title: 'Sign Up',
-              width: double.infinity,
+              // width: double.infinity,
               ontap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Container();
+                  return const SignupView();
                 }));
               },
+              child: const Text(
+                'Sign Up',
+                style: TextStyle(color: Colors.white),
+              ),
             )
           ],
         ),
