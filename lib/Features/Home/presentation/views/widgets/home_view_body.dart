@@ -5,7 +5,7 @@ import 'package:sntegpito/Features/Home/presentation/views/widgets/curve_painter
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_home_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {
-   HomeViewBody({super.key});
+  HomeViewBody({super.key});
   final List<String> category = [
     "Best places",
     "Most Visited",

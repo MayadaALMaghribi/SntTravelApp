@@ -6,7 +6,7 @@ import 'package:sntegpito/Features/Home/presentation/views/environmental_tourism
 import 'package:sntegpito/Features/Home/presentation/views/medical_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/regligious_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/card_col_list.dart';
-
+import 'package:sntegpito/Features/entertainment/presentation/views/entertainment_view.dart';
 
 class CategoriesCol extends StatelessWidget {
   const CategoriesCol({super.key});
@@ -35,7 +35,7 @@ class CategoriesCol extends StatelessWidget {
           onTap: () {
             if (index == 0) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const EntertainmentTourism();
+                return const EntertainmentView();
               }));
             } else if (index == 1) {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
