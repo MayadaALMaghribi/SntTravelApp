@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Home/data/model/category_model.dart';
 import 'package:sntegpito/Features/Home/presentation/views/archaeological_tourism.dart';
-import 'package:sntegpito/Features/Home/presentation/views/entertainmentTourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/environmental_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/medical_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/regligious_tourism.dart';
