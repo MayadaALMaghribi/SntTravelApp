@@ -11,7 +11,7 @@ class CustomeImageCity extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: height(context) * 0.37,
           width: double.infinity,
           child: ClipRRect(
