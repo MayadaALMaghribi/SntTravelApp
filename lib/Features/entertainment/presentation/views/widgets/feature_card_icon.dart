@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class FeatureCardIcon extends StatelessWidget {
-  const FeatureCardIcon({super.key, required this.icon, required this.text});
+  const FeatureCardIcon(
+      {super.key, required this.icon, required this.text, required this.ontap});
   final String icon;
   final String text;
+  final Function() ontap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,10 +21,13 @@ class FeatureCardIcon extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(13),
-              child: Image.asset(
-                icon,
-                width: 60,
-                height: 32,
+              child: GestureDetector(
+                onTap: ontap,
+                child: Image.asset(
+                  icon,
+                  width: 60,
+                  height: 32,
+                ),
               ),
             ),
           ),

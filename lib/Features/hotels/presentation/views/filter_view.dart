@@ -6,6 +6,6 @@ class FilterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  FilterViewBody();
+    return const FilterViewBody();
   }
 }

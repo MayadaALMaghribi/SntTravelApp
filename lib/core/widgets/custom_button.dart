@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final Widget child;
   final Function() ontap;
- // final double width;
+  // final double width;
   const CustomButton({
     super.key,
     required this.child,
@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       // استخدام SizedBox بدلاً من Container هنا
-      height: 50,
+      height: 60,
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
           minimumSize: const Size(double.infinity, 48),
         ),
         onPressed: ontap,
-        child: child, 
+        child: child,
       ),
     );
   }
