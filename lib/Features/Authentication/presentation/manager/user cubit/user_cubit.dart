@@ -79,11 +79,11 @@ class UserCubit extends Cubit<UserState> {
         final decodedToken = JwtDecoder.decode(user!.token);
         if (response.containsKey("token")) {
           CacheHelper().saveData(key: ApiKey.token, value: user!.token);
-          print(response);
+          //print(response);
         } else {
-          print(" Token not found ");
+        //  print(" Token not found ");
           emit(SignInFailure(errmessage: "Token not found"));
-          print(response);
+        //  print(response);
           return;
         }
         //print("success 1");
@@ -129,10 +129,6 @@ class UserCubit extends Cubit<UserState> {
           signupmodel = AuthModel.fromJson(jsonResponse);
 
           emit(SignUpSuccess(message: signupmodel!.message));
-          // signUpEmail.clear();
-          // signUpName.clear();
-          // signUpPassport.clear();
-          // signUpPassword.clear();
         } on ServerException catch (e) {
           emit(SignUpFailure(errmessage: e.errModel.errorMessage));
         }
@@ -151,9 +147,8 @@ class UserCubit extends Cubit<UserState> {
           isFromData: false,
           queryParameters: {ApiKey.code: codeController.text});
       verify = AuthModel.fromJson(response);
-      //codeController.clear();
       emit(VerifySuccess(message: verify!.message));
-      print(response);
+      //print(response);
     } on ServerException catch (e) {
       emit(VerifyFailure(errmessage: e.errModel.errorMessage));
     }

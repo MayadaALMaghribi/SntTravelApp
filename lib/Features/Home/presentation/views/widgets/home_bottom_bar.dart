@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Home/presentation/views/favoritepage.dart';
 import 'package:sntegpito/Features/Home/presentation/views/home_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/notifaction.dart';
-import 'package:sntegpito/Features/Home/presentation/views/side_bar_view.dart';
+import 'package:sntegpito/Features/profile/presentation/views/side_bar_view.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 
 class HomeBottomBar extends StatefulWidget {

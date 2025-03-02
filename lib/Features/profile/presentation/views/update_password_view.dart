@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/Home/presentation/views/side_bar_view.dart';
+import 'package:sntegpito/Features/profile/presentation/views/side_bar_view.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/profile%20cubit/profile_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/profile%20cubit/profile_state.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/widgets/custom_password_check.dart';

@@ -9,7 +9,7 @@ class ArchaeologicalTourism extends StatelessWidget {
       appBar: AppBar(title: const Text("Entertainment Tourism")),
       body: const Center(
         child: Text(
-          "Welcome to Entertainment Tourism Page!",
+          "Welcome to Archaeological Tourism Page!",
           style: TextStyle(fontSize: 18),
         ),
       ),

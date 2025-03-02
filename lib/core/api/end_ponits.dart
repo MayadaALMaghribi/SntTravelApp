@@ -11,7 +11,8 @@ class EndPoint {
   static String getuserprofile = "UpdateProfile/GetUserProfile";
   static String updateusername = "UpdateProfile/UpdateUserName";
   static String updatepassword = "UpdateProfile/UpdatePassword";
-  static String homepage="HomePage/GetTourismTypes";
+  static String tourismtype = "TourismType/GetTourismTypes";
+  static String imagediscount = "TourismType/image-discount";
 }
 
 class ApiKey {
@@ -26,7 +27,7 @@ class ApiKey {
   static String email = "email";
   static String passport = "passPortNumber";
   static String signupmessage = "message";
-  static String code = "verificationCode";//verificationCode
+  static String code = "verificationCode"; //verificationCode
   static String otpcode = "otp";
   static String newpassword = "newPassword";
   static String confirmpassword = "confirmPassword";
@@ -36,4 +37,5 @@ class ApiKey {
   static String getprofilepicture = "profilePicture";
   static String newusername = "newUserName";
   static String oldpassword = "oldPassword";
+  //static String tourismid = "id";
 }

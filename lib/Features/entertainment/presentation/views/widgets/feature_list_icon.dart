@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/widgets/feature_card_icon.dart';
 
 import '../../../../hotels/presentation/views/home_hotel_view.dart';
-import '../../../../hotels/presentation/views/widgets/home_hotel_view_body.dart';
 
 class FeatureListIcon extends StatelessWidget {
   const FeatureListIcon({super.key});
@@ -24,7 +23,9 @@ class FeatureListIcon extends StatelessWidget {
         FeatureCardIcon(
           icon: "assets/images/home_icon.png",
           text: "Home",
-          ontap: () {},
+          ontap: () {
+            Navigator.pop(context);
+          },
         ),
         FeatureCardIcon(
           icon: "assets/images/flight_icon.png",
