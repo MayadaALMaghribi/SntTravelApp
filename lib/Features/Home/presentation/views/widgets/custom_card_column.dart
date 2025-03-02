@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Home/data/model/tourism_type_model.dart';
 import 'package:sntegpito/Features/Home/presentation/views/archaeological_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/environmental_tourism.dart';
-import 'package:sntegpito/Features/Home/presentation/views/medical_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/regligious_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_card_image_col.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/entertainment_view.dart';
+import 'package:sntegpito/Features/medical/presentation/views/medical_view.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 
@@ -18,7 +18,7 @@ class CustomCardColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> tourismViews = [
       const EntertainmentView(),
-      const Medicalview(),
+      const MedicalView(),
       const ReligiousTourism(),
       const EnvironmentalTourism(),
       const ArchaeologicalTourism(),
