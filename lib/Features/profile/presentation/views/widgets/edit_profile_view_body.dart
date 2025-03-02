@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sntegpito/Features/Home/presentation/views/side_bar_view.dart';
+import 'package:sntegpito/Features/profile/presentation/views/side_bar_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_profile_image.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_textfield.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/list_title_side_bar.dart';

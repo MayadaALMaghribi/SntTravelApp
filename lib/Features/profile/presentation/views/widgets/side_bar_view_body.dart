@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_logout_dialog.dart';
+import 'package:sntegpito/Features/profile/presentation/views/widgets/custom_logout_dialog.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_profile_image.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/list_title_side_bar.dart';

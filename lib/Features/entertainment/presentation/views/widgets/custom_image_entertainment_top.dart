@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sntegpito/Features/entertainment/data/models/image_discount_tourism_model.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 
-class CustomImageHome extends StatelessWidget {
-  const CustomImageHome({super.key});
+class CustomImageEntertainmentTop extends StatelessWidget {
+  const CustomImageEntertainmentTop({super.key, required this.imagemodel});
+  final ImageDiscountTourismModel imagemodel;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +15,9 @@ class CustomImageHome extends StatelessWidget {
         child: Stack(children: [
           Container(
             decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage("assets/images/home_entrat.jpg"),
+              image: DecorationImage(
+                image: NetworkImage(
+                    "http://tourism.runasp.net/${imagemodel.imageUrl}"),
                 fit: BoxFit.fill,
               ),
               borderRadius: BorderRadius.circular(8),
@@ -34,20 +37,8 @@ class CustomImageHome extends StatelessWidget {
             child: RichText(
                 text: TextSpan(
               children: [
-                const TextSpan(
-                  text: "Find your best ",
-                  style: Styles.textStyle22,
-                ),
-                const TextSpan(
-                  text: "distination with \n",
-                  style: Styles.textStyle22,
-                ),
                 TextSpan(
-                  text: "20% ",
-                  style: Styles.textStyle22.copyWith(color: Colors.blue),
-                ),
-                const TextSpan(
-                  text: "Off!",
+                  text: imagemodel.message,
                   style: Styles.textStyle22,
                 ),
               ],

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
+import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/profile%20cubit/profile_cubit.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_cubit.dart';
@@ -23,6 +25,15 @@ void main() {
         create: (context) =>
             GetCubit(DioConsumer(dio: Dio()))..getuserprofile(),
       ),
+      BlocProvider(
+        create: (context) =>
+            TourismTypeCubit(DioConsumer(dio: Dio()))..getTourismType(),
+      ),
+      BlocProvider(
+        create: (context) =>
+            EntertainmentCubit(DioConsumer(dio: Dio()))..getImageDiscount(),
+      ),
+      
     ],
     child: const MyApp(),
   ));
