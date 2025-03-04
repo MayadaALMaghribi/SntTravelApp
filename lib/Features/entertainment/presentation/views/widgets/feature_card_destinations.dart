@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sntegpito/Features/entertainment/data/models/top_destinations_model.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/widgets/custom_image_destinations.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 
 class FeatureCardDestinations extends StatelessWidget {
-  const FeatureCardDestinations({super.key});
-
+  const FeatureCardDestinations({super.key, required this.topDestinationModel});
+  final TopDestinationModel topDestinationModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,23 +23,27 @@ class FeatureCardDestinations extends StatelessWidget {
           ),
         ],
       ),
-      child: const Column(
+      child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 6, left: 6, right: 6, bottom: 6),
-            child: CustomImageDestinations(),
+            padding:
+                const EdgeInsets.only(top: 6, left: 6, right: 6, bottom: 6),
+            child: CustomImageDestinations(
+              imageUrl:
+                  "http://tourism.runasp.net/${topDestinationModel.imageUrl!}",
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.place_outlined, size: 22),
-              Text("New Alamine city", style: Styles.textStyle17),
+              const Icon(Icons.place_outlined, size: 22),
+              Text(topDestinationModel.name!, style: Styles.textStyle17),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
-          Text("every city has a story waiting for you to explore!",
+          Text(topDestinationModel.description!,
               textAlign: TextAlign.center,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

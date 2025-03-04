@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image.dart';
+import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image_hotel.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/rating_test.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/rooms_view.dart';
+
 import '../../../../../core/utils/styles.dart';
 
-class CustomCardAcitvity extends StatelessWidget {
-  const CustomCardAcitvity({super.key});
+class CustomCardActivityCity extends StatelessWidget {
+  const CustomCardActivityCity({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const RoomsView();
-        }));
-      },
+      onTap: () {},
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
         child: Container(
@@ -26,7 +22,7 @@ class CustomCardAcitvity extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const CustomCardActivityImage(),
+              const CustomCardActivityImageHotel(),
               Padding(
                 padding: const EdgeInsets.only(
                     top: 8, left: 12, right: 12, bottom: 10),

@@ -18,8 +18,8 @@ class ListViewDestinationsMedical extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  // FeatureActivityView هتتغير
-                    builder: (context) => const FeatureActivityView()),
+                    // FeatureActivityView هتتغير
+                    builder: (context) => const ListViewDestinationsMedical()),
               );
             },
             child: const Padding(

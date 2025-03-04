@@ -5,8 +5,11 @@ import '../../../../../core/utils/styles.dart';
 class CustomeImageCity extends StatelessWidget {
   const CustomeImageCity({
     super.key,
+    required this.imageUrl,
+    required this.nameCity,
   });
-
+  final String imageUrl;
+  final String nameCity;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -15,16 +18,21 @@ class CustomeImageCity extends StatelessWidget {
           height: height(context) * 0.37,
           width: double.infinity,
           child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(34),
-              bottomRight: Radius.circular(34),
-            ),
-            child: Image.asset(
-              "assets/images/home_entrat.jpg",
-              // height: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            ),
-          ),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(34),
+                bottomRight: Radius.circular(34),
+              ),
+              child: Image(
+                image: NetworkImage(imageUrl),
+                fit: BoxFit.cover,
+                height: MediaQuery.of(context).size.width,
+              )
+              // Image.asset(
+              //   "assets/images/home_entrat.jpg",
+              //   // height: MediaQuery.of(context).size.width,
+              //   fit: BoxFit.cover,
+              // ),
+              ),
         ),
         Positioned(
           top: 21,
@@ -54,7 +62,7 @@ class CustomeImageCity extends StatelessWidget {
                 ),
               ),
               Text(
-                "New Alamine city",
+                nameCity,
                 style: Styles.textStyle22.copyWith(fontWeight: FontWeight.w600),
               )
             ],

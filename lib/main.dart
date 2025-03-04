@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
+import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/profile%20cubit/profile_cubit.dart';
@@ -37,8 +38,11 @@ void main() {
       BlocProvider(
         create: (context) =>
             MedicalCubit(DioConsumer(dio: Dio()))..getImageDiscounttop(),
-      )
-      
+      ),
+      BlocProvider(
+        create: (context) => TopDestinationsCubit(DioConsumer(dio: Dio()))
+          ..fetchTopDestinations(),
+      ),
     ],
     child: const MyApp(),
   ));

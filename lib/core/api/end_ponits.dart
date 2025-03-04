@@ -13,6 +13,9 @@ class EndPoint {
   static String updatepassword = "UpdateProfile/UpdatePassword";
   static String tourismtype = "TourismType/GetTourismTypes";
   static String imagediscount = "TourismType/image-discount";
+  static String getAllLocationsByTourismTypeID =
+      "Locations/GetLocationsByTourismType/1";
+  static String getActivityByLocationId = "Activitys/locations/";
 }
 
 class ApiKey {

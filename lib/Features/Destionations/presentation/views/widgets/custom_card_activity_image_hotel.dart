@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomCardActivityImage extends StatelessWidget {
-  const CustomCardActivityImage({super.key});
+class CustomCardActivityImageHotel extends StatelessWidget {
+  const CustomCardActivityImageHotel({super.key});
 
   @override
   Widget build(BuildContext context) {
