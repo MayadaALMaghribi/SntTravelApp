@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image_hotel.dart';
+import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/rating_test.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/rooms_view.dart';
 import '../../../../../core/utils/styles.dart';
@@ -26,7 +26,10 @@ class CustomCardAcitvityHotel extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const CustomCardActivityImageHotel(),
+              const CustomCardActivityImage(
+                imageUrl:
+                    "http://tourism.runasp.net/Images/Locations/AlAlamein/AlAlamein.jpg",
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                     top: 8, left: 12, right: 12, bottom: 10),

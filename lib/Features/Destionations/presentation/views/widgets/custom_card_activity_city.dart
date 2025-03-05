@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image_hotel.dart';
+import 'package:sntegpito/Features/Destionations/data/models/activites_for_cities_model.dart';
+import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/rating_test.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class CustomCardActivityCity extends StatelessWidget {
-  const CustomCardActivityCity({super.key});
-
+  const CustomCardActivityCity(
+      {super.key, required this.activitesforcitiesModel});
+  final ActivitesforcitiesModel activitesforcitiesModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,7 +24,10 @@ class CustomCardActivityCity extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const CustomCardActivityImageHotel(),
+              CustomCardActivityImage(
+                imageUrl:
+                    "http://tourism.runasp.net/${activitesforcitiesModel.imageUrl!}",
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                     top: 8, left: 12, right: 12, bottom: 10),
@@ -30,23 +35,23 @@ class CustomCardActivityCity extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Al Alamein Hotel",
+                      activitesforcitiesModel.name!,
                       style: Styles.textStyle17.copyWith(fontSize: 20),
                     ),
-                    const Text(
-                      "1000 EGP/day",
+                    Text(
+                      activitesforcitiesModel.price!.toString(),
                       style: Styles.textStyle14,
                     ),
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 8, bottom: 14),
-                child: Row(
-                  children: [
-                    Icon(Icons.place_outlined, size: 22),
-                    Text(" Sidi Abd El Rahman area", style: Styles.textStyle12),
-                  ],
+              Padding(
+                padding: const EdgeInsets.only(left: 8, bottom: 14),
+                child: Text(
+                  activitesforcitiesModel.description!,
+                  style: Styles.textStyle12,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               const Padding(

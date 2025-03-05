@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/entertainment/data/models/top_destinations_model.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/widgets/custom_image_destinations.dart';
-import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 
 class FeatureCardDestinations extends StatelessWidget {
