@@ -3,6 +3,7 @@ import 'package:sntegpito/Features/Destionations/data/models/activites_for_citie
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/rating_test.dart';
 
+import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomCardActivityCity extends StatelessWidget {
@@ -26,7 +27,7 @@ class CustomCardActivityCity extends StatelessWidget {
             children: [
               CustomCardActivityImage(
                 imageUrl:
-                    "http://tourism.runasp.net/${activitesforcitiesModel.imageUrl!}",
+                    "${EndPoint.baseImageUrl}${activitesforcitiesModel.imageUrl!}",
               ),
               Padding(
                 padding: const EdgeInsets.only(

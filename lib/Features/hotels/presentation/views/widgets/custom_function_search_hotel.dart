@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/search_hotel.dart';
 
+import '../../../../../core/cache/cache_helper.dart';
+
 class CustomFunctionSearchHotel extends StatelessWidget {
   const CustomFunctionSearchHotel({
     super.key,
@@ -13,7 +15,9 @@ class CustomFunctionSearchHotel extends StatelessWidget {
       child: TextField(
         autofocus: true,
         decoration: InputDecoration(
-          hintText: "Which place would you like ?",
+          hintText: CacheHelper().getData(key: "cityName") != null
+              ? "${CacheHelper().getData(key: "cityName")}"
+              : "Which place would you like ?",
           prefixIcon: const Icon(Icons.search, color: Colors.grey),
           fillColor: const Color.fromARGB(255, 241, 238, 238),
           border: OutlineInputBorder(
@@ -31,6 +35,10 @@ class CustomFunctionSearchHotel extends StatelessWidget {
           //contentPadding: const EdgeInsets.symmetric(vertical: 15),
         ),
         onTap: () {
+          /*Future.delayed(Duration.zero, () {
+    showResults(context);
+  });*/
+
           showSearch(context: context, delegate: SearchHotel());
         },
       ),

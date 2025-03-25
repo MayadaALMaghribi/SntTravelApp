@@ -1,4 +1,7 @@
+import '../cache/cache_helper.dart';
+
 class EndPoint {
+  static String baseImageUrl = "http://tourism.runasp.net/";
   static String baseUrl = "http://tourism.runasp.net/api/";
   static String signIn = "Acount/login";
   static String signUp = "Acount/SendVerificationCode";
@@ -16,6 +19,7 @@ class EndPoint {
   static String getAllLocationsByTourismTypeID =
       "Locations/GetLocationsByTourismType/1";
   static String getActivityByLocationId = "Activitys/locations/";
+  static String getHotelsByLocationName = "Hotels/by-location-name/";
 }
 
 class ApiKey {
@@ -40,5 +44,11 @@ class ApiKey {
   static String getprofilepicture = "profilePicture";
   static String newusername = "newUserName";
   static String oldpassword = "oldPassword";
+
   //static String tourismid = "id";
 }
+
+// class CacheHelperKey {
+//    String idChachcity =
+//       CacheHelper().getData(key: "ID_Cached_City_Destination").toString();
+// }

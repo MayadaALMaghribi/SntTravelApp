@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
+
+import '../../manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 
 class SearchHotel extends SearchDelegate {
-  final List<String> items = [
-    'Cairo',
-    'Giza',
-    'Alexandria',
-    'Luxor',
-    'Aswan',
-    'Sharm El-Sheikh',
-    'Hurghada',
-    'Siwa',
-    'Fayoum',
-    'Dahab',
-    ''
-  ]; // بيانات محلية
-
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -39,28 +29,17 @@ class SearchHotel extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return buildSuggestions(context);
+    // context.read<SearchHotelByNameCubit>().searchHotels(query);
+    context.read<SearchHotelByNameCubit>().fetchHotelsByName(cityName: query);
+    Future.microtask(() => close(context, query));
+    Future.microtask(
+        () => CacheHelper().saveData(key: "cityName", value: query));
+    return Container();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    List<String> filteredItems = items
-        .where((item) => item.toLowerCase().contains(query.toLowerCase()))
-        .toList();
-
-    return ListView.builder(
-      itemCount: filteredItems.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(filteredItems[index]),
-          onTap: () {
-            query = filteredItems[index];
-
-            showResults(context);
-          },
-        );
-      },
-    );
+    return const Center(child: Text("Search for a city..."));
   }
 }
 /**
