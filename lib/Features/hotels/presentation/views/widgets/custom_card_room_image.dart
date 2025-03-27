@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 
 class CustomCardRoomImage extends StatelessWidget {
-  const CustomCardRoomImage({super.key});
-
+  const CustomCardRoomImage({super.key, required this.imageurl});
+  final String imageurl;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -13,10 +12,10 @@ class CustomCardRoomImage extends StatelessWidget {
         bottomLeft: Radius.circular(8),
         bottomRight: Radius.circular(8),
       ),
-      child: Image.asset(
-        "assets/images/room.jpg",
+      child: Image.network(
+        imageurl,
         width: double.infinity,
-        height: 140,
+        height: 170,
         fit: BoxFit.cover,
       ),
     );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:sntegpito/Features/entertainment/presentation/views/entertainment_view.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_button_filter_hotel.dart';
-
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_function_search_hotel.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_list_view_search_hotel.dart';
+import 'package:sntegpito/core/widgets/custom_app_bar.dart';
 
 class HomeHotelViewBody extends StatelessWidget {
   const HomeHotelViewBody({super.key});
@@ -12,6 +12,13 @@ class HomeHotelViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
+        appBar:  PreferredSize(
+          preferredSize: Size.fromHeight(90),
+          child: CustomAppBar(
+            text: "",
+            page: EntertainmentView(),
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [

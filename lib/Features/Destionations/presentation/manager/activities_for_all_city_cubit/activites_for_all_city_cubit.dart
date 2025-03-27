@@ -28,8 +28,7 @@ class ActivitesForAllCityCubit extends Cubit<ActivitesForAllCityCubitState> {
           .toList();
       emit(ActivitesForAllCityCubitSucess(
           activitesforcitiesModel: activitesforcitiesModel));
-      print("idddd city :" +
-          CacheHelper().getData(key: "ID_Cached_City_Destination").toString());
+      print("idddd city :${CacheHelper().getData(key: "ID_Cached_City_Destination")}");
     } on ServerException catch (e) {
       emit(
           ActivitesForAllCityCubitFailure(errmessage: e.errModel.errorMessage));
