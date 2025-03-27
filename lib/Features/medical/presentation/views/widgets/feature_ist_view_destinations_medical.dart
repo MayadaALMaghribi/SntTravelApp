@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/medical/presentation/views/widgets/feature_card_destinations_medical.dart';
-import '../../../../Destionations/presentation/views/feature_activity_view.dart';
 
 class ListViewDestinationsMedical extends StatelessWidget {
   const ListViewDestinationsMedical({super.key});

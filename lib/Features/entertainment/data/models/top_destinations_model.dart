@@ -16,18 +16,18 @@ class TopDestinationModel {
     imageUrl = json['imageUrl'];
     description = json['description'];
     tourismType = json['tourismType'] != null
-        ? new TourismType.fromJson(json['tourismType'])
+        ? TourismType.fromJson(json['tourismType'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['imageUrl'] = this.imageUrl;
-    data['description'] = this.description;
-    if (this.tourismType != null) {
-      data['tourismType'] = this.tourismType!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['imageUrl'] = imageUrl;
+    data['description'] = description;
+    if (tourismType != null) {
+      data['tourismType'] = tourismType!.toJson();
     }
     return data;
   }

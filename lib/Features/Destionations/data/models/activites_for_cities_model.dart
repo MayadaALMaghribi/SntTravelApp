@@ -30,15 +30,15 @@ class ActivitesforcitiesModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['moreDescription'] = this.moreDescription;
-    data['price'] = this.price;
-    data['durationHours'] = this.durationHours;
-    data['imageUrl'] = this.imageUrl;
-    data['locationName'] = this.locationName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    data['moreDescription'] = moreDescription;
+    data['price'] = price;
+    data['durationHours'] = durationHours;
+    data['imageUrl'] = imageUrl;
+    data['locationName'] = locationName;
     return data;
   }
 }

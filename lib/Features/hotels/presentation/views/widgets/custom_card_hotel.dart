@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/data/models/search_hotel_by_name_model.dart';
+import 'package:sntegpito/Features/hotels/presentation/manager/cubit/roomshotel_cubit.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../../../../core/utils/styles.dart';
 import '../../../../Destionations/presentation/views/widgets/custom_card_activity_image.dart';
@@ -14,6 +17,9 @@ class CustomCardHotel extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        CacheHelper()
+            .saveData(key: 'hotel_id', value: searchHotelByNameModel.hotelId);
+        context.read<RoomsHotelCubit>().getHotelRoomsById();
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return const RoomsView();
         }));

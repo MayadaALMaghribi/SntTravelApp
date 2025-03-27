@@ -17,12 +17,12 @@ class SearchHotelByNameModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['hotelId'] = this.hotelId;
-    data['name'] = this.name;
-    data['address'] = this.address;
-    data['stars'] = this.stars;
-    data['firstImageUrl'] = this.firstImageUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['hotelId'] = hotelId;
+    data['name'] = name;
+    data['address'] = address;
+    data['stars'] = stars;
+    data['firstImageUrl'] = firstImageUrl;
     return data;
   }
 }

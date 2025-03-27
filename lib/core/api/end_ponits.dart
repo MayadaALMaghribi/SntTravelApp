@@ -1,5 +1,3 @@
-import '../cache/cache_helper.dart';
-
 class EndPoint {
   static String baseImageUrl = "http://tourism.runasp.net/";
   static String baseUrl = "http://tourism.runasp.net/api/";
@@ -20,6 +18,7 @@ class EndPoint {
       "Locations/GetLocationsByTourismType/1";
   static String getActivityByLocationId = "Activitys/locations/";
   static String getHotelsByLocationName = "Hotels/by-location-name/";
+  static String getHotelRoomsById = "Rooms/hotel-rooms/";
 }
 
 class ApiKey {
