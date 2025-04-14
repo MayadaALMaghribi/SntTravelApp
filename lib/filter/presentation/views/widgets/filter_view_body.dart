@@ -1,48 +1,8 @@
-// import 'package:flutter/material.dart';
-// import 'package:sntegpito/Features/hotels/presentation/views/rooms_view.dart';
-
-// class FilterViewBody extends StatelessWidget {
-//   const FilterViewBody({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Scaffold(
-//         appBar: AppBar(
-//           title: const Text(
-//             'Room details',
-//           ),
-//           backgroundColor: Colors.white,
-//           leading: IconButton(
-//             icon:
-//                 const Icon(Icons.close, color: Colors.black), // تغيير الأيقونة
-//             onPressed: () {
-//               Navigator.pushAndRemoveUntil(
-//                 context,
-//                 MaterialPageRoute(builder: (context) => const RoomsView()),
-//                 (Route) => false,
-//               );
-//             },
-//           ),
-//         ),
-//         body: const Column(
-//           children: [
-//             // Text(
-//             //   'Room details',
-//             //   style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w500),
-//             // ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_date_picker.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_drop_down_textfield.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_build_rating_button.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/widgets/price_range.dart';
+import 'package:sntegpito/filter/presentation/views/widgets/custom_date_picker.dart';
+import 'package:sntegpito/filter/presentation/views/widgets/custom_drop_down_textfield.dart';
+import 'package:sntegpito/filter/presentation/views/widgets/custom_build_rating_button.dart';
+import 'package:sntegpito/filter/presentation/views/widgets/price_range.dart';
 
 class FilterViewBody extends StatelessWidget {
   const FilterViewBody({super.key});
@@ -75,7 +35,7 @@ class FilterViewBody extends StatelessWidget {
                     onPressed: () => Navigator.pop(context),
                   ),
                   const Text(
-                    "Room details",
+                    "Filter",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 40),
