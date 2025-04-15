@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/filter_view.dart';
+import 'package:sntegpito/filter/presentation/views/filter_view.dart';
 
 class CustombuttonFilterHotel extends StatelessWidget {
   const CustombuttonFilterHotel({
