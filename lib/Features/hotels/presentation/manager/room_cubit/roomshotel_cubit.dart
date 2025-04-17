@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:sntegpito/Features/hotels/data/models/hotel_rooms_model.dart';
-import 'package:sntegpito/Features/hotels/presentation/manager/cubit/roomshotel_state.dart';
+import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomshotel_state.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';

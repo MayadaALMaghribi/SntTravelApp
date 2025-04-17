@@ -42,8 +42,3 @@ class SearchHotel extends SearchDelegate {
     return const Center(child: Text("Search for a city..."));
   }
 }
-/**
- *    ontap: () {
-            showSearch(context: context, delegate: HomeHotelViewBody());
-          },
- */

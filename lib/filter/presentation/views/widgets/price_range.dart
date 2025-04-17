@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PriceRange extends StatefulWidget {
-  const PriceRange({super.key});
+  final Function(double minPrice, double maxPrice) onPriceChanged;
+
+  const PriceRange({super.key, required this.onPriceChanged});
 
   @override
   State<PriceRange> createState() => _PriceRangeState();
@@ -37,6 +39,7 @@ class _PriceRangeState extends State<PriceRange> {
               _minPrice = values.start;
               _maxPrice = values.end;
             });
+            widget.onPriceChanged(_minPrice, _maxPrice);
           },
         ),
         // عشان احط السعر تحت ال slider
@@ -44,9 +47,11 @@ class _PriceRangeState extends State<PriceRange> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("\$${_minPrice.toInt()}",
-                style:const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
             Text("\$${_maxPrice.toInt()}",
-                style:const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
           ],
         ),
       ],

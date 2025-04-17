@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/custom_date_picker.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/custom_drop_down_textfield.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/custom_build_rating_button.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/price_range.dart';
+import 'package:sntegpito/filter/presentation/views/widgets/build_filter_form.dart';
 
 class FilterViewBody extends StatelessWidget {
   const FilterViewBody({super.key});
@@ -22,89 +19,7 @@ class FilterViewBody extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min, // عشان الصفحه متتمددش بطريقه كبيره
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // ال top bar x    room details
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.close, size: 24),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const Text(
-                    "Filter",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(width: 40),
-                ],
-              ),
-              const SizedBox(height: 51),
-
-              //Date
-              Row(
-                children: [
-                  Expanded(child: CustomDatePicker(label: "From")),
-                  const SizedBox(width: 10),
-                  Expanded(child: CustomDatePicker(label: "To")),
-                ],
-              ),
-              const SizedBox(height: 27),
-
-              // rooms & guests
-              Row(
-                children: [
-                  Expanded(child: CustomDropDownTextfield(label: "Rooms")),
-                  const SizedBox(width: 10),
-                  Expanded(child: CustomDropDownTextfield(label: "Guests")),
-                ],
-              ),
-              const SizedBox(height: 39),
-
-              // choose rating
-              const Text(
-                "Rating",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 16),
-              const CustomBuildRatingButton(),
-              const SizedBox(height: 39),
-
-              // price range
-              const Text(
-                "Price range",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-
-              const PriceRange(),
-
-              // apply button
-              const SizedBox(height: 39),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff247CFF),
-                    foregroundColor: Colors.white,
-                    fixedSize: const Size(304, 48),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    "Apply filters",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          child: const BuildFilterForm(),
         ),
       ),
     );
