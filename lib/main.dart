@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
-import 'package:sntegpito/Features/hotels/presentation/manager/cubit/roomshotel_cubit.dart';
+import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomshotel_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
@@ -13,6 +13,7 @@ import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cu
 import 'package:sntegpito/Features/splash/presentation/views/splash_view.dart';
 import 'package:sntegpito/core/api/dio_consumer.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
+import 'package:sntegpito/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,6 +50,9 @@ void main() {
           create: (context) => SearchHotelByNameCubit(DioConsumer(dio: Dio()))),
       BlocProvider(
         create: (context) => RoomsHotelCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) => HotelFilterCubit(DioConsumer(dio: Dio())),
       ),
     ],
     child: const MyApp(),

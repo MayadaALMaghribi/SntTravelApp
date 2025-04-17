@@ -19,6 +19,7 @@ class EndPoint {
   static String getActivityByLocationId = "Activitys/locations/";
   static String getHotelsByLocationName = "Hotels/by-location-name/";
   static String getHotelRoomsById = "Rooms/hotel-rooms/";
+  static String hotelFilter = "Hotels/filter-hotels";
 }
 
 class ApiKey {
@@ -43,7 +44,13 @@ class ApiKey {
   static String getprofilepicture = "profilePicture";
   static String newusername = "newUserName";
   static String oldpassword = "oldPassword";
-
+  static String startDateFilter = "startDate";
+  static String endDateFilter = "endDate";
+  static String guestsFilter = "guests";
+  static String roomsRequiredFilter = "roomsRequired";
+  static String minPriceFilter = "minPrice";
+  static String maxPriceFilter = "maxPrice";
+  static String minStarsFilter = "minStars";
   //static String tourismid = "id";
 }
 
