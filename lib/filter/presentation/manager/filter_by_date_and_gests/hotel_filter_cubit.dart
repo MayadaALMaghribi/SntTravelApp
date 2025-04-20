@@ -5,7 +5,7 @@ import 'package:sntegpito/Features/hotels/data/models/search_hotel_by_name_model
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
-
+/// done
 part 'hotel_filter_state.dart';
 
 class HotelFilterCubit extends Cubit<HotelFilterState> {
