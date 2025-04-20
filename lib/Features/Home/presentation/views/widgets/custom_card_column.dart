@@ -60,7 +60,7 @@ class CustomCardColumn extends StatelessWidget {
                     tourismType.name!,
                     style: Styles.textStyle17.copyWith(fontSize: 20),
                   ),
-                  CustomFunctionFavourite()
+                  const CustomFunctionFavourite()
                 ],
               ),
             ),

@@ -30,15 +30,15 @@ class HotelRoomsModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['roomName'] = this.roomName;
-    data['maxOccupancy'] = this.maxOccupancy;
-    data['roomImageUrl'] = this.roomImageUrl;
-    data['description'] = this.description;
-    data['bedCount'] = this.bedCount;
-    data['size'] = this.size;
-    data['pricePerNight'] = this.pricePerNight;
-    data['isAvailable'] = this.isAvailable;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['roomName'] = roomName;
+    data['maxOccupancy'] = maxOccupancy;
+    data['roomImageUrl'] = roomImageUrl;
+    data['description'] = description;
+    data['bedCount'] = bedCount;
+    data['size'] = size;
+    data['pricePerNight'] = pricePerNight;
+    data['isAvailable'] = isAvailable;
     return data;
   }
 }
