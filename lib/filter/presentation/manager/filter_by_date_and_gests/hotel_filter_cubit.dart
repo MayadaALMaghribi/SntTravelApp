@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:meta/meta.dart';
+import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 import 'package:sntegpito/Features/hotels/data/models/search_hotel_by_name_model.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
-
-part 'hotel_filter_state.dart';
+/// done
 
 class HotelFilterCubit extends Cubit<HotelFilterState> {
   HotelFilterCubit(this.apiConsumer) : super(HotelFilterInitial());
