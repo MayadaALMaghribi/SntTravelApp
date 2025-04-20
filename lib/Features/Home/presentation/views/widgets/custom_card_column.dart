@@ -52,8 +52,7 @@ class CustomCardColumn extends StatelessWidget {
               imageUrl: "http://tourism.runasp.net/${tourismType.imageUrl}",
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                  top: 8, left: 12, right: 12, bottom: 10),
+              padding: const EdgeInsets.only(top: 8, left: 12, right: 12),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
