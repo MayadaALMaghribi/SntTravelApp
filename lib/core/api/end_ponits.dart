@@ -20,6 +20,7 @@ class EndPoint {
   static String getHotelsByLocationName = "Hotels/by-location-name/";
   static String getHotelRoomsById = "Rooms/hotel-rooms/";
   static String hotelFilter = "Hotels/filter-hotels";
+  static String addfav = "Favourite/add-favorite";
 }
 
 class ApiKey {
@@ -51,10 +52,12 @@ class ApiKey {
   static String minPriceFilter = "minPrice";
   static String maxPriceFilter = "maxPrice";
   static String minStarsFilter = "minStars";
-  //static String tourismid = "id";
+  static String userIdfav = "userId";
+  static String itemIdfav = "itemId";
+  static String itemTypefav = "itemType";
 }
 
-// class CacheHelperKey {
-//    String idChachcity =
-//       CacheHelper().getData(key: "ID_Cached_City_Destination").toString();
-// }
+class Constants {
+  static String itemTypefav = "Activity";
+  static int useridFav = 1136;
+}

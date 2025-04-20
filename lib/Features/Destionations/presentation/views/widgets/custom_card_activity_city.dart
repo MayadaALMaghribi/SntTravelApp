@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Destionations/data/models/activites_for_cities_model.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/rating_test.dart';
+import 'package:sntegpito/core/widgets/custom_function_favourite.dart';
 
 import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/utils/styles.dart';
@@ -13,7 +14,9 @@ class CustomCardActivityCity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        print(activitesforcitiesModel.id!);
+      },
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
         child: Container(
@@ -47,7 +50,9 @@ class CustomCardActivityCity extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 8, bottom: 14),
+                padding: const EdgeInsets.only(
+                  left: 8,
+                ),
                 child: Text(
                   activitesforcitiesModel.description!,
                   style: Styles.textStyle12,
@@ -55,9 +60,19 @@ class CustomCardActivityCity extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 8),
-                child: RatingTest(),
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const RatingTest(),
+                    CustomFunctionFavourite(
+                      indexIdFav: activitesforcitiesModel.id!,
+                      itemTypefav: Constants.itemTypefav,
+                      userIdfav: Constants.useridFav,
+                    )
+                  ],
+                ),
               ),
             ],
           ),

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_state.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_card_column.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 
 class CategoriesCol extends StatelessWidget {
   const CategoriesCol({super.key});
@@ -23,7 +24,9 @@ class CategoriesCol extends StatelessWidget {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
+                //CacheHelper().saveData(key: "tourismTypeId", value: index);
                 return CustomCardColumn(tourismType: state.tourismTypes[index]);
+                
               },
               childCount: state.tourismTypes.length,
             ),
