@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_card_hotel.dart';
-import 'package:sntegpito/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
+import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomListViewSearchHotel extends StatelessWidget {

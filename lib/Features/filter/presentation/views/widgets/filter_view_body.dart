@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/build_filter_form.dart';
+import 'package:sntegpito/Features/filter/presentation/views/widgets/build_filter_form.dart';
 
 class FilterViewBody extends StatelessWidget {
   const FilterViewBody({super.key});
