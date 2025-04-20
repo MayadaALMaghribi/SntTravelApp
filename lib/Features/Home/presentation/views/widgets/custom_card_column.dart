@@ -8,6 +8,7 @@ import 'package:sntegpito/Features/entertainment/presentation/views/entertainmen
 import 'package:sntegpito/Features/medical/presentation/views/medical_view.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
+import 'package:sntegpito/core/widgets/custom_function_favourite.dart';
 
 class CustomCardColumn extends StatelessWidget {
   final TourismTypeModel tourismType;
@@ -51,11 +52,16 @@ class CustomCardColumn extends StatelessWidget {
               imageUrl: "http://tourism.runasp.net/${tourismType.imageUrl}",
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                  top: 8, left: 12, right: 12, bottom: 10),
-              child: Text(
-                tourismType.name!,
-                style: Styles.textStyle17.copyWith(fontSize: 20),
+              padding: const EdgeInsets.only(top: 8, left: 12, right: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    tourismType.name!,
+                    style: Styles.textStyle17.copyWith(fontSize: 20),
+                  ),
+                  CustomFunctionFavourite()
+                ],
               ),
             ),
             Padding(

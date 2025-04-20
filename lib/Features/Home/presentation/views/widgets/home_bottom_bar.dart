@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/Home/presentation/views/favoritepage.dart';
 import 'package:sntegpito/Features/Home/presentation/views/home_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/notifaction.dart';
+import 'package:sntegpito/Features/favourite/presentation/views/favourite_view.dart';
 import 'package:sntegpito/Features/profile/presentation/views/side_bar_view.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 
@@ -18,7 +18,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
   int _selectedIndex = 2;
   final List<Widget> _pages = [
     const SideBarView(),
-    const Favoritepage(),
+    const FavouriteView(),
     const HomeView(),
     const Notifaction(),
   ];

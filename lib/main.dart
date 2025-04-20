@@ -13,7 +13,7 @@ import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cu
 import 'package:sntegpito/Features/splash/presentation/views/splash_view.dart';
 import 'package:sntegpito/core/api/dio_consumer.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
-import 'package:sntegpito/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
+import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/custom_build_rating_button.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/custom_date_picker.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/custom_drop_down_textfield.dart';
-import 'package:sntegpito/filter/presentation/views/widgets/price_range.dart';
+import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
+import 'package:sntegpito/Features/filter/presentation/views/widgets/custom_build_rating_button.dart';
+import 'package:sntegpito/Features/filter/presentation/views/widgets/custom_date_picker.dart';
+import 'package:sntegpito/Features/filter/presentation/views/widgets/custom_drop_down_textfield.dart';
+import 'package:sntegpito/Features/filter/presentation/views/widgets/price_range.dart';
 
 class BuildFilterForm extends StatelessWidget {
   const BuildFilterForm({
