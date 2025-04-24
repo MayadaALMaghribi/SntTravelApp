@@ -22,6 +22,7 @@ class CustomFunctionFavourite extends StatefulWidget {
 bool isactive = false;
 
 class _CustomFunctionFavouriteState extends State<CustomFunctionFavourite> {
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<AddfovuriteCubit, AddfovuriteState>(
       listener: (context, state) {

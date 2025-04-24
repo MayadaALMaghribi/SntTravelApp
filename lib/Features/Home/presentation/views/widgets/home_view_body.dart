@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/categories_col.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/categories_row.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/curve_painter.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_home_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {
-  HomeViewBody({super.key});
-  final List<String> category = [
-    "Best places",
-    "Most Visited",
-    "Favourites",
-    "New Added",
-    "Hotels",
-    "Restaurants"
-  ];
+  const HomeViewBody({super.key});
+  // final List<String> category = [
+  //   "Best places",
+  //   "Most Visited",
+  //   "Favourites",
+  //   "New Added",
+  //   "Hotels",
+  //   "Restaurants"
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +62,7 @@ class HomeViewBody extends StatelessWidget {
                               ),
                             ],
                           ),
-                        ),
+                        ).animate().fade(duration: 600.ms, delay: 300.ms),
                         // المنحنى أسفل كلمة "Egypt"
                         Positioned(
                           bottom: -8, // تحديد المسافة العمودية أسفل النص
