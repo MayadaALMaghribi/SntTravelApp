@@ -30,26 +30,45 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionFavourite> {
             isactive = true;
           });
           CustomSnackBar.show(context, state.sucessmessage);
-        } else if (state is AddfovuriteFailure) {
+        } else if (state is RemovefavSucess) {
           setState(() {
             isactive = false;
           });
-          CustomSnackBar.show(context, state.errmessage, isError: true);
+          CustomSnackBar.show(context, state.errorModel.errorMessage);
+        } else if (state is RemovefavFailure || state is AddfovuriteFailure) {
+          setState(() {
+            isactive = isactive;
+          });
+          CustomSnackBar.show(
+            context,
+            (state is AddfovuriteFailure)
+                ? state.errmessage
+                : (state as RemovefavFailure).errorModel.errorMessage,
+            isError: true,
+          );
         }
       },
       builder: (context, state) {
         return IconButton(
           onPressed: () {
-            context.read<AddfovuriteCubit>().addfavourite(
-                itemIdfav: widget.indexIdFav,
-                itemTypefav: widget.itemTypefav,
-                userIdfav: widget.userIdfav);
-            print("11111111111111111111111111111" + "${widget.indexIdFav}");
-            print(widget.itemTypefav);
-            print(widget.userIdfav);
+            if (isactive) {
+              context.read<AddfovuriteCubit>().RemoveFav(
+                  itemIdfav: widget.indexIdFav,
+                  itemTypefav: widget.itemTypefav,
+                  userIdfav: widget.userIdfav);
+            } else {
+              context.read<AddfovuriteCubit>().addfavourite(
+                  itemIdfav: widget.indexIdFav,
+                  userIdfav: widget.userIdfav,
+                  itemTypefav: widget.itemTypefav);
+            }
+            print("&&&&&&&&&&&&&&&&&& indexid " + "${widget.indexIdFav}");
+            print(" item type fav " + "${widget.itemTypefav}");
+            print("Useridfav " + "${widget.userIdfav}");
           },
           icon: Icon(
             Icons.favorite,
+            size: 24,
             color: isactive
                 ? Colors.red
                 : const Color.fromARGB(255, 181, 180, 180),

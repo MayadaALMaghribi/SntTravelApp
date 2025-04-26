@@ -6,6 +6,7 @@ import 'package:sntegpito/Features/Home/presentation/views/regligious_tourism.da
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_card_image_col.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/entertainment_view.dart';
 import 'package:sntegpito/Features/medical/presentation/views/medical_view.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_function_favourite.dart';
@@ -40,7 +41,7 @@ class CustomCardColumn extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: 15),
         width: 450,
-        height: 300,
+        height: 310,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: const Color(0xff868686), width: 1),
@@ -65,9 +66,17 @@ class CustomCardColumn extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: Text(
-                tourismType.description!,
-                style: Styles.textStyle12,
+              child: Row(
+                children: [
+                  Text(
+                    tourismType.description!,
+                    style: Styles.textStyle12,
+                  ),
+                  CustomFunctionFavourite(
+                      indexIdFav: 4,
+                      itemTypefav: "Hotel",
+                      userIdfav: Constants.useridFav),
+                ],
               ),
             ),
           ],

@@ -21,7 +21,7 @@ class CustomCardActivityCity extends StatelessWidget {
         padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
         child: Container(
           width: 350,
-          height: 265,
+          height: 280,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xff868686), width: 1),

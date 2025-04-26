@@ -26,7 +26,6 @@ class CategoriesCol extends StatelessWidget {
               (context, index) {
                 //CacheHelper().saveData(key: "tourismTypeId", value: index);
                 return CustomCardColumn(tourismType: state.tourismTypes[index]);
-                
               },
               childCount: state.tourismTypes.length,
             ),

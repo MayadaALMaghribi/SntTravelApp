@@ -81,9 +81,9 @@ class UserCubit extends Cubit<UserState> {
           CacheHelper().saveData(key: ApiKey.token, value: user!.token);
           //print(response);
         } else {
-        //  print(" Token not found ");
+          //  print(" Token not found ");
           emit(SignInFailure(errmessage: "Token not found"));
-        //  print(response);
+          //  print(response);
           return;
         }
         //print("success 1");
@@ -213,8 +213,4 @@ class UserCubit extends Cubit<UserState> {
       emit(resetpassFailure(errmessage: e.errModel.errorMessage));
     }
   }
-
-  
-  
 }
-
