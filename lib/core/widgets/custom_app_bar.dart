@@ -14,12 +14,12 @@ class CustomAppBar extends StatelessWidget {
           // أيقونة الرجوع
           InkWell(
             onTap: () {
-              // Navigator.pop(context);
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => page),
-                (Route) => false,
-              );
+              Navigator.pop(context);
+              // Navigator.pushAndRemoveUntil(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => page),
+              //   (Route) => false,
+              // );
             },
             child: Container(
               padding: const EdgeInsets.all(10),

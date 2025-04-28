@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
@@ -16,12 +17,12 @@ class EntertainmentViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(90),
-          child: CustomAppBar(
+        appBar: PreferredSize(
+          preferredSize:const Size.fromHeight(90),
+          child:const CustomAppBar(
             text: "",
             page: HomeBottomBar(),
-          ),
+          ).animate().fade(duration: 600.ms, delay: 300.ms),
         ),
         backgroundColor: const Color(0xffFFFFFF),
         body: BlocBuilder<EntertainmentCubit, EntertainmentState>(
