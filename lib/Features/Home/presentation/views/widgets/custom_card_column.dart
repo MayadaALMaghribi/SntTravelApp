@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_animate/flutter_animate.dart';
-
 import 'package:sntegpito/Features/Home/data/model/tourism_type_model.dart';
 import 'package:sntegpito/Features/Home/presentation/views/archaeological_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/environmental_tourism.dart';
@@ -14,7 +11,7 @@ import 'package:sntegpito/Features/medical/presentation/views/medical_view.dart'
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
-
+import '../../../../../core/widgets/custom_function_favourite.dart';
 import '../../../../../core/widgets/custom_snak_bar.dart';
 import '../../../../favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
 
