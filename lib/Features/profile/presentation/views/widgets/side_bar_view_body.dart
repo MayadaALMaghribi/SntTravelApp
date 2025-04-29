@@ -16,7 +16,7 @@ class SideBarViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     // استخدم height(context) و width(context) للحصول على الأبعاد
     double screenHeight = MediaQuery.of(context).size.height;
-   // double screenWidth = MediaQuery.of(context).size.width;
+    // double screenWidth = MediaQuery.of(context).size.width;
     const base = "http://tourism.runasp.net/";
     //final imageUrl = Uri.encodeFull("${base}${image ?? ''}");
     //final cubit = GetCubit(DioConsumer(dio: Dio()));
@@ -56,7 +56,7 @@ class SideBarViewBody extends StatelessWidget {
                             CustomProfileImage(
                               icon: Icons.edit,
                               image: Uri.encodeFull(
-                                      "$base${state.getuserprofileModel.profilePicture ?? ''}")
+                                      "$base${state.getuserprofileModel.profilePicture}") //?? '' كان محطوط جوا القوس
                                   .toString(),
                               radiusg: 75,
                               radiuss: 70,

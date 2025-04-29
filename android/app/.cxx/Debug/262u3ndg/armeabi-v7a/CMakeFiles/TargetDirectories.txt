@@ -1,0 +1,2 @@
+C:/Users/20112/OneDrive/Desktop/SNT/SntTravelApp/android/app/.cxx/Debug/262u3ndg/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/20112/OneDrive/Desktop/SNT/SntTravelApp/android/app/.cxx/Debug/262u3ndg/armeabi-v7a/CMakeFiles/rebuild_cache.dir

@@ -13,27 +13,19 @@ import 'package:sntegpito/core/errors/exceptions.dart';
 class UserCubit extends Cubit<UserState> {
   UserCubit(this.apiConsumer) : super(SignInInitial());
   final ApiConsumer apiConsumer;
-  //Sign in Form key
+
   GlobalKey<FormState> signInFormKey = GlobalKey();
-  //Sign in email
   TextEditingController signInEmail = TextEditingController();
-  //Sign in password
   TextEditingController signInPassword = TextEditingController();
-  //Sign Up Form key
+
   GlobalKey<FormState> signUpFormKey = GlobalKey();
-  //Profile Pic
-  // XFile? profilePic;
-  //Sign up name
   TextEditingController signUpName = TextEditingController();
-  //Sign up phone number
   TextEditingController signUpPassport = TextEditingController();
-  //Sign up email
   TextEditingController signUpEmail = TextEditingController();
-  //Sign up password
   TextEditingController signUpPassword = TextEditingController();
 
   TextEditingController codeController = TextEditingController();
-  //forget password
+
   final TextEditingController forgetemail = TextEditingController();
   final GlobalKey<FormState> forgetformKey = GlobalKey<FormState>();
 
@@ -44,13 +36,6 @@ class UserCubit extends Cubit<UserState> {
   final TextEditingController newpasswordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
-  // final TextEditingController newusernameController = TextEditingController();
-  //updatepassword
-  //  final TextEditingController oldpasswordController = TextEditingController();
-  // final TextEditingController updatePasswordController =
-  //     TextEditingController();
-  // final TextEditingController confirmeupdatepassController =
-  //     TextEditingController();
 
   SignInModel? user;
   AuthModel? signupmodel,
