@@ -6,6 +6,9 @@ class HotelDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HotelDetailsViewBody();
+    return const HotelDetailsViewBody(
+      text: "",
+      location: "",
+    );
   }
 }

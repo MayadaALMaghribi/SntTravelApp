@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+Map<String, IconData> iconMapper = {
+  'pool': Icons.pool_outlined,
+  'wifi': Icons.wifi_2_bar_outlined,
+  'beach_access': Icons.beach_access_outlined,
+  'spa': Icons.spa_outlined,
+  'fitness_center': Icons.fitness_center_outlined,
+  'restaurant': Icons.restaurant_menu_outlined,
+  'kitchen': Icons.kitchen_outlined,
+  'local_bar': Icons.local_bar_outlined,
+  'waves': Icons.waves_outlined,
+  'free_breakfast': Icons.free_breakfast_outlined,
+  'apartment': Icons.apartment_outlined,
+  'local_parking': Icons.local_parking_outlined,
+  'landscape': Icons.landscape_outlined,
+  'balcony': Icons.balcony_outlined,
+  'room_service': Icons.room_service_outlined,
+  'bathtub': Icons.bathtub_outlined,
+  'smoking_rooms': Icons.smoking_rooms_outlined,
+  'family_restroom': Icons.family_restroom_outlined,
+  'access_time': Icons.access_time_filled_outlined,
+  'airport_shuttle': Icons.airport_shuttle_outlined,
+  'ac_unit': Icons.ac_unit_outlined,
+  'arrow_upward': Icons.arrow_upward_outlined,
+  'deck': Icons.deck_outlined,
+  'help_center': Icons.help_center_outlined,
+};

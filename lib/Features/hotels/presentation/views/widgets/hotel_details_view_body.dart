@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomshotel_cubit.dart';
+import 'package:sntegpito/Features/hotels/presentation/views/rooms_view.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_feature_room_feature_row.dart';
+import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_gallary_details_hotel.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_row_forbiden_stuffs.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../Destionations/presentation/views/widgets/rating_test.dart';
 
 class HotelDetailsViewBody extends StatelessWidget {
-  const HotelDetailsViewBody({super.key});
-
+  const HotelDetailsViewBody(
+      {super.key, required this.text, required this.location});
+  final String text;
+  final String location;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,9 +27,9 @@ class HotelDetailsViewBody extends StatelessWidget {
                   //mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CustomImageDetailsHotel(),
+                    const CustomGallaryDetailsHotel(),
                     Text(
-                      "Al Alamein Hotel",
+                      text,
                       style: Styles.textStyle22.copyWith(color: Colors.black),
                     ),
                     Padding(
@@ -31,10 +37,14 @@ class HotelDetailsViewBody extends StatelessWidget {
                       child: Row(
                         children: [
                           const Icon(Icons.place_outlined, size: 24),
-                          Text(
-                            " Sidi Abd El Rahman area",
-                            style: Styles.textStyle17.copyWith(
-                              color: const Color(0xff838383),
+                          Expanded(
+                            child: Text(
+                              location,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: Styles.textStyle17.copyWith(
+                                color: const Color(0xff838383),
+                              ),
                             ),
                           ),
                         ],
@@ -78,7 +88,15 @@ class HotelDetailsViewBody extends StatelessWidget {
                         "Reserve a property",
                         style: Styles.textStyle22,
                       ),
-                      ontap: () {},
+                      ontap: () {
+                        context.read<RoomsHotelCubit>().getHotelRoomsById();
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const RoomsView();
+                          //HotelDetailsViewBody
+                          //RoomsView
+                        }));
+                      },
                     )
                   ],
                 ),
@@ -86,34 +104,6 @@ class HotelDetailsViewBody extends StatelessWidget {
             ),
             const SliverFillRemaining(),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class CustomImageDetailsHotel extends StatelessWidget {
-  const CustomImageDetailsHotel({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 28, bottom: 27),
-      child: SizedBox(
-        height: 220,
-        child: AspectRatio(
-          aspectRatio: 17 / 7,
-          child: Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage("assets/images/room.jpg"),
-                fit: BoxFit.fill,
-              ),
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
         ),
       ),
     );

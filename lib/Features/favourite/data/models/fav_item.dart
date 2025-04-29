@@ -1,4 +1,3 @@
-
 class FavoriteItem {
   int? userId;
   int? itemId;
@@ -15,11 +14,11 @@ class FavoriteItem {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['userId'] = this.userId;
-    data['itemId'] = this.itemId;
-    data['itemType'] = this.itemType;
-    data['imageUrl'] = this.imageUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['userId'] = userId;
+    data['itemId'] = itemId;
+    data['itemType'] = itemType;
+    data['imageUrl'] = imageUrl;
     return data;
   }
 }

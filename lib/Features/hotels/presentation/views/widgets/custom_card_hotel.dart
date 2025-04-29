@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/data/models/search_hotel_by_name_model.dart';
-import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomshotel_cubit.dart';
+import 'package:sntegpito/Features/hotels/presentation/views/widgets/hotel_details_view_body.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
-
 import '../../../../../core/utils/styles.dart';
 import '../../../../Destionations/presentation/views/widgets/custom_card_activity_image.dart';
 import '../../../../Destionations/presentation/views/widgets/rating_test.dart';
-import '../rooms_view.dart';
 
 class CustomCardHotel extends StatelessWidget {
   const CustomCardHotel({super.key, required this.searchHotelByNameModel});
@@ -17,11 +14,13 @@ class CustomCardHotel extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        CacheHelper()
-            .saveData(key: 'hotel_id', value: searchHotelByNameModel.hotelId);
-        context.read<RoomsHotelCubit>().getHotelRoomsById();
+        CacheHelper().saveData(
+            key: Constants.idhotel, value: searchHotelByNameModel.hotelId);
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const RoomsView();
+          return HotelDetailsViewBody(
+            text: searchHotelByNameModel.name!,
+            location: searchHotelByNameModel.address!,
+          );
         }));
       },
       child: Padding(

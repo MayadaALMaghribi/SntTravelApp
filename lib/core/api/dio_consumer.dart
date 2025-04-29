@@ -89,6 +89,7 @@ class DioConsumer extends ApiConsumer {
       return response.data;
     } on DioException catch (e) {
       handleDioExceptions(e);
+      rethrow;
     }
   }
 }

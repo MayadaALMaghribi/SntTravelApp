@@ -21,6 +21,10 @@ class EndPoint {
   static String getHotelRoomsById = "Rooms/hotel-rooms/";
   static String hotelFilter = "Hotels/filter-hotels";
   static String addfav = "Favourite/add-favorite";
+  static String removefav = "Favourite/remove-favorite";
+  static String getfav = "Favourite/user-favorites/";
+  static String fetchgallery = "Hotels/hotel/";
+  static String serviceshotel = "Servicies/services/";
 }
 
 class ApiKey {
@@ -52,7 +56,7 @@ class ApiKey {
   static String minPriceFilter = "minPrice";
   static String maxPriceFilter = "maxPrice";
   static String minStarsFilter = "minStars";
-  static String userIdfav = "userId";
+  static String userIdfav = "userId"; //userId
   static String itemIdfav = "itemId";
   static String itemTypefav = "itemType";
 }
@@ -60,4 +64,5 @@ class ApiKey {
 class Constants {
   static String itemTypefav = "Activity";
   static int useridFav = 1136;
+  static String idhotel = "hotel_id";
 }

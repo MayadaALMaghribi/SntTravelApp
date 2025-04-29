@@ -16,7 +16,7 @@ class RoomsHotelCubit extends Cubit<HotelRoomsByIdState> {
       emit(HotelRoomsByIdLoading());
       final response = await apiConsumer.get(
         EndPoint.getHotelRoomsById +
-            CacheHelper().getData(key: 'hotel_id').toString(),
+            CacheHelper().getData(key: Constants.idhotel).toString(),
       );
       roomsModel = (response as List)
           .map((e) => HotelRoomsModel.fromJson(e))
