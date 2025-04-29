@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/data/models/hotel_rooms_model.dart';
-import 'package:sntegpito/Features/filter/presentation/views/filter_view.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_card_room_image.dart';
+import 'package:sntegpito/Features/hotels/presentation/views/widgets/reserve_room_button.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/booking_room/booking_room_cubit.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
 class CustomCardRoom extends StatelessWidget {
   const CustomCardRoom({super.key, required this.roomsModel});
@@ -55,7 +59,6 @@ class CustomCardRoom extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: Styles.textStyle12),
             ),
-
             Padding(
               padding: const EdgeInsets.only(left: 8, bottom: 5),
               child: Row(
@@ -108,55 +111,33 @@ class CustomCardRoom extends StatelessWidget {
                 ],
               ),
             ),
-
-            // extract widget
-            Padding(
-              padding:
-                  const EdgeInsets.only(top: 9, right: 15, left: 15, bottom: 9),
-              child: Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    //   return const FilterView();
-                    // }));
-                    // showModalBottomSheet(
-                    //   context: context,
-                    //   isScrollControlled: true, // يسمح بتمدد النافذة المنبثقة
-                    //   shape: const RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.vertical(
-                    //         top: Radius.circular(20)), // تدوير الزوايا
-                    //   ),
-                    //   builder: (context) => const FilterView(),
-                    // );
-                    showGeneralDialog(
-                      context: context,
-                      barrierDismissible:
-                          true, // يسمح بالإغلاق عند النقر خارج النافذة
-                      barrierLabel: "Close Filters", // ✅ إصلاح الخطأ هنا
-                      barrierColor:
-                          Colors.black.withOpacity(0.5), // تأثير الشفافية
-                      transitionDuration:
-                          const Duration(milliseconds: 300), // مدة الأنيميشن
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return const FilterView();
-                      },
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff247CFF),
-                    foregroundColor: Colors.white,
-                    fixedSize: const Size(304, 48),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    "Reserve a room",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  ),
-                ),
+            BlocListener<BookingRoomCubit, BookingRoomState>(
+              listener: (context, state) {
+                if (state is BookingRoomLoading) {
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is BookingRoomFailure) {
+                  CustomSnackBar.show(context, state.errmessage, isError: true);
+                } else if (state is BookingRoomSuccess) {
+                  CustomSnackBar.show(
+                      context, state.responseBookingRoomModel.message!);
+                     // Navigator.push(context, route)
+                }
+              },
+              child: ReserveRoomButton(
+                text: "Reserve a room",
+                ontap: () {
+                  context.read<BookingRoomCubit>().bookingRoom(
+                      startdate: CacheHelper().getData(key: Constants.fromDate),
+                      enddate: CacheHelper().getData(key: Constants.toDate),
+                      userid: Constants.useridFav,
+                      roomid: roomsModel.roomId!,
+                      paymethod: 1,
+                      numofguest: CacheHelper().getData(key: Constants.guests));
+                },
               ),
-            )
+            ),
           ],
         ),
       ),

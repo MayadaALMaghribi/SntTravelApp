@@ -5,6 +5,8 @@ import 'package:sntegpito/Features/filter/presentation/views/widgets/custom_buil
 import 'package:sntegpito/Features/filter/presentation/views/widgets/custom_date_picker.dart';
 import 'package:sntegpito/Features/filter/presentation/views/widgets/custom_drop_down_textfield.dart';
 import 'package:sntegpito/Features/filter/presentation/views/widgets/price_range.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 
 class BuildFilterForm extends StatelessWidget {
   const BuildFilterForm({
@@ -107,6 +109,17 @@ class BuildFilterForm extends StatelessWidget {
             onPressed: () async {
               await context.read<HotelFilterCubit>().filterHotelsByDate();
               Future.microtask(() => Navigator.pop(context));
+              CacheHelper().saveData(
+                  key: Constants.fromDate,
+                  value: context.read<HotelFilterCubit>().startDateText.text);
+              CacheHelper().saveData(
+                  key: Constants.toDate,
+                  value: context.read<HotelFilterCubit>().endDateText.text);
+              CacheHelper().saveData(
+                  key: Constants.guests,
+                  value: int.parse(
+                    context.read<HotelFilterCubit>().guestsText.text,
+                  ));
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff247CFF),

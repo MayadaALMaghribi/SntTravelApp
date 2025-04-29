@@ -10,6 +10,7 @@ import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomsh
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/services_hotel_details_cubit/services_hotel_details_cubit.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_cubit.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/booking_room/booking_room_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/profile%20cubit/profile_cubit.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_cubit.dart';
@@ -77,6 +78,9 @@ void main() async {
           }
           return cubit;
         },
+      ),
+      BlocProvider(
+        create: (context) => BookingRoomCubit(DioConsumer(dio: Dio())),
       ),
     ],
     child: const MyApp(),

@@ -4,7 +4,9 @@ import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomsh
 import 'package:sntegpito/Features/hotels/presentation/views/rooms_view.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_feature_room_feature_row.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_gallary_details_hotel.dart';
+import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_list_view_search_hotel.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_row_forbiden_stuffs.dart';
+import 'package:sntegpito/core/widgets/custom_app_bar.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../Destionations/presentation/views/widgets/rating_test.dart';
@@ -18,6 +20,13 @@ class HotelDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+         appBar:const PreferredSize(
+          preferredSize:  Size.fromHeight(90),
+          child: CustomAppBar(
+            text: "",
+            page: CustomListViewSearchHotel(),
+          ),
+        ),
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
