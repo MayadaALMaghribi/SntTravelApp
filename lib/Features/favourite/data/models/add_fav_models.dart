@@ -1,4 +1,3 @@
-
 import 'package:sntegpito/Features/favourite/data/models/fav_item.dart';
 
 class AddFavouriteModel {
@@ -12,16 +11,16 @@ class AddFavouriteModel {
     statusCode = json['statusCode'];
     message = json['message'];
     favoriteItem = json['favoriteItem'] != null
-        ? new FavoriteItem.fromJson(json['favoriteItem'])
+        ? FavoriteItem.fromJson(json['favoriteItem'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['statusCode'] = this.statusCode;
-    data['message'] = this.message;
-    if (this.favoriteItem != null) {
-      data['favoriteItem'] = this.favoriteItem!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['statusCode'] = statusCode;
+    data['message'] = message;
+    if (favoriteItem != null) {
+      data['favoriteItem'] = favoriteItem!.toJson();
     }
     return data;
   }

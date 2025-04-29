@@ -22,6 +22,9 @@ class EndPoint {
   static String hotelFilter = "Hotels/filter-hotels";
   static String addfav = "Favourite/add-favorite";
   static String removefav = "Favourite/remove-favorite";
+  static String getfav = "Favourite/user-favorites/";
+  static String fetchgallery = "Hotels/hotel/";
+  static String serviceshotel = "Servicies/services/";
 }
 
 class ApiKey {
@@ -61,4 +64,5 @@ class ApiKey {
 class Constants {
   static String itemTypefav = "Activity";
   static int useridFav = 1136;
+  static String idhotel = "hotel_id";
 }

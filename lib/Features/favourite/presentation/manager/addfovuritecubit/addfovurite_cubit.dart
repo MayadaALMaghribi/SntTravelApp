@@ -33,13 +33,12 @@ class AddfovuriteCubit extends Cubit<AddfovuriteState> {
             errmessage: "Unexpected data format from the server"));
         return;
       } else {
-        addFavouriteModel =
-            AddFavouriteModel.fromJson(response as Map<String, dynamic>);
+        addFavouriteModel = AddFavouriteModel.fromJson(response);
         emit(AddfovuriteSucess(
             sucessmessage: addFavouriteModel!.message.toString()));
       }
     } on ServerException catch (e) {
-      print("ERORR" + e.errModel.errorMessage);
+      print("ERORR${e.errModel.errorMessage}");
       emit(AddfovuriteFailure(errmessage: e.errModel.errorMessage));
     }
   }
@@ -63,9 +62,10 @@ class AddfovuriteCubit extends Cubit<AddfovuriteState> {
         errorModel = ErrorModel.fromJson(response);
         emit(RemovefavSucess(errorModel: errorModel!));
       }
-    } on ServerException catch (e) {
+    } on ServerException {
       emit(RemovefavFailure(errorModel: errorModel!));
     }
   }
 }
+
 //AuthModel.fromJson(response)
