@@ -8,6 +8,7 @@ import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
+import 'package:sntegpito/Features/payment/presentation/views/success_view.dart';
 
 class CustomCardRoom extends StatelessWidget {
   const CustomCardRoom({super.key, required this.roomsModel});
@@ -122,7 +123,15 @@ class CustomCardRoom extends StatelessWidget {
                 } else if (state is BookingRoomSuccess) {
                   CustomSnackBar.show(
                       context, state.responseBookingRoomModel.message!);
-                     // Navigator.push(context, route)
+                  CacheHelper().saveData(
+                      key: Constants.bookingId,
+                      value: state.responseBookingRoomModel.bookingId);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>const SuccessView(),
+                    ),
+                  );
                 }
               },
               child: ReserveRoomButton(

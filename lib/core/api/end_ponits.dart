@@ -28,6 +28,7 @@ class EndPoint {
   static String bookingroom = "Rooms/book";
   static String getDetailsBookingBefore =
       "Rooms/booking-details-beforePayment/";
+  static String cancelbooking = "Rooms/cancel/";
 }
 
 class ApiKey {
@@ -74,4 +75,5 @@ class Constants {
   static String fromDate = "from_date";
   static String toDate = "to_date";
   static String guests = "guest";
+  static String bookingId = "booking_id";
 }

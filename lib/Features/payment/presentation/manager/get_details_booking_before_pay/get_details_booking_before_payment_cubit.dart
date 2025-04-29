@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:sntegpito/Features/payment/data/details_booking_before_payment.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
 
 part 'get_details_booking_before_payment_state.dart';
@@ -14,17 +15,18 @@ class GetDetailsBookingBeforePaymentCubit
   final ApiConsumer apiConsumer;
   DetailsBookingBeforePaymentModel? detailsBookingBeforePaymentModel;
 
-  getDetailsBooking({required String bookingId}) async {
+  getDetailsBooking() async {
     try {
       emit(GetDetailsBookingBeforePaymentLoading());
-      final response =
-          await apiConsumer.get(EndPoint.getDetailsBookingBefore + bookingId);
-      detailsBookingBeforePaymentModel =
-          DetailsBookingBeforePaymentModel.fromJson(response);
+      final response = await apiConsumer.get(EndPoint.getDetailsBookingBefore +
+          CacheHelper().getData(key: Constants.bookingId));
+
       if (detailsBookingBeforePaymentModel == null) {
         emit(GetDetailsBookingBeforePaymentFailure(
             errmessage: "Response is null"));
       } else {
+        detailsBookingBeforePaymentModel =
+            DetailsBookingBeforePaymentModel.fromJson(response);
         emit(
           GetDetailsBookingBeforePaymentSuccess(
               detailsBookingBeforePaymentModel:
