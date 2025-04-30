@@ -11,6 +11,7 @@ import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_n
 import 'package:sntegpito/Features/hotels/presentation/manager/services_hotel_details_cubit/services_hotel_details_cubit.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/booking_room/booking_room_cubit.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/get_details_booking_before_pay/get_details_booking_before_payment_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/profile%20cubit/profile_cubit.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_cubit.dart';
@@ -81,6 +82,11 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => BookingRoomCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) =>
+            GetDetailsBookingBeforePaymentCubit(DioConsumer(dio: Dio()))
+              ..getDetailsBooking(),
       ),
     ],
     child: const MyApp(),

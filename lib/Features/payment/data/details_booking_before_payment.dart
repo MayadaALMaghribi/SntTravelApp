@@ -26,7 +26,7 @@ class BookingDetails {
   Room? room;
   String? startDate;
   String? endDate;
-  int? totalPrice;
+  double? totalPrice;
   String? paymentStatus;
   int? numberOfGuests;
   String? bookingStatus;
@@ -71,7 +71,7 @@ class BookingDetails {
 class Room {
   int? roomNumber;
   String? roomType;
-  int? pricePerNight;
+  double? pricePerNight;
 
   Room({this.roomNumber, this.roomType, this.pricePerNight});
 

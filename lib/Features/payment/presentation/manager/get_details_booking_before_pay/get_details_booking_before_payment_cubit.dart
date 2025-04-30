@@ -19,9 +19,9 @@ class GetDetailsBookingBeforePaymentCubit
     try {
       emit(GetDetailsBookingBeforePaymentLoading());
       final response = await apiConsumer.get(EndPoint.getDetailsBookingBefore +
-          CacheHelper().getData(key: Constants.bookingId));
+          CacheHelper().getData(key: Constants.bookingId).toString());
 
-      if (detailsBookingBeforePaymentModel == null) {
+      if (response == null) {
         emit(GetDetailsBookingBeforePaymentFailure(
             errmessage: "Response is null"));
       } else {
