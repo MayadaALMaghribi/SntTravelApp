@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/payment/data/details_booking_before_payment.dart';
+import 'package:sntegpito/Features/payment/data/details_booking_before_payment_model.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 
 class SucessCard extends StatelessWidget {
