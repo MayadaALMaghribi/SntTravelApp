@@ -6,11 +6,12 @@ import 'package:sntegpito/Features/entertainment/presentation/manager/entertainm
 import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/gallery_details_hotel_cubit/gallery_details_hotel_cubit.dart';
-import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomshotel_cubit.dart';
+import 'package:sntegpito/Features/room/presentation/manager/room_cubit/roomshotel_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/services_hotel_details_cubit/services_hotel_details_cubit.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/booking_room/booking_room_cubit.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/confirm_payment_cubit/confirm_payment_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/get_details_booking_before_pay/get_details_booking_before_payment_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/profile%20cubit/profile_cubit.dart';
@@ -88,6 +89,8 @@ void main() async {
             GetDetailsBookingBeforePaymentCubit(DioConsumer(dio: Dio()))
               ..getDetailsBooking(),
       ),
+      BlocProvider(
+          create: (context) => ConfirmPaymentCubit(DioConsumer(dio: Dio()))),
     ],
     child: const MyApp(),
   ));

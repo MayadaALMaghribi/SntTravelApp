@@ -1,4 +1,4 @@
-import 'package:sntegpito/Features/payment/data/items_paypal_model.dart';
+import 'package:sntegpito/Features/payment/data/models/items_paypal_model.dart';
 
 class ItemListPaypallModel {
   List<Items>? items;

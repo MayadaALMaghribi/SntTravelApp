@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/home_hotel_view.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/widgets/list_view_rooms.dart';
+import 'package:sntegpito/Features/room/presentation/view/widgets/list_view_rooms.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
 

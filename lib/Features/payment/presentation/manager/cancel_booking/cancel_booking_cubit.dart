@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:sntegpito/Features/payment/data/cancel_booking_model.dart';
+import 'package:sntegpito/Features/payment/data/models/cancel_booking_model.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
@@ -23,7 +23,7 @@ class CancelBookingCubit extends Cubit<CancelBookingState> {
         cancelBookingModel = CancelBookingModel.fromJson(response);
         emit(CancelBookingSuccess(cancelBookingModel: cancelBookingModel!));
       }
-    } on ServerException catch (e) {
+    } on ServerException {
       // TODO
     }
   }

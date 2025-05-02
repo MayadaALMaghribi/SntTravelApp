@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/hotels/presentation/manager/room_cubit/roomshotel_cubit.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/rooms_view.dart';
+import 'package:sntegpito/Features/room/presentation/manager/room_cubit/roomshotel_cubit.dart';
+import 'package:sntegpito/Features/room/presentation/view/rooms_view.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_feature_room_feature_row.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_gallary_details_hotel.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_list_view_search_hotel.dart';
@@ -20,8 +20,8 @@ class HotelDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-         appBar:const PreferredSize(
-          preferredSize:  Size.fromHeight(90),
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(90),
           child: CustomAppBar(
             text: "",
             page: CustomListViewSearchHotel(),

@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
-class CustomCheckItem extends StatelessWidget {
-  const CustomCheckItem({
+class CustomCheckItemIcon extends StatelessWidget {
+  const CustomCheckItemIcon({
     super.key,
   });
 

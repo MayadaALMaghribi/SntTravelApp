@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:sntegpito/Features/payment/data/response_booking_room_model.dart';
+import 'package:sntegpito/Features/payment/data/models/response_booking_room_model.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
