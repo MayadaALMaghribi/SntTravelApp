@@ -7,9 +7,11 @@ class HotelRoomsModel {
   int? size;
   double? pricePerNight;
   bool? isAvailable;
+  int?roomId;
 
   HotelRoomsModel(
       {this.roomName,
+      this.roomId,
       this.maxOccupancy,
       this.roomImageUrl,
       this.description,
@@ -27,6 +29,7 @@ class HotelRoomsModel {
     size = json['size'];
     pricePerNight = json['pricePerNight'];
     isAvailable = json['isAvailable'];
+    roomId=json['roomId'];
   }
 
   Map<String, dynamic> toJson() {
@@ -39,6 +42,7 @@ class HotelRoomsModel {
     data['size'] = size;
     data['pricePerNight'] = pricePerNight;
     data['isAvailable'] = isAvailable;
+    data['roomId']=roomId;
     return data;
   }
 }

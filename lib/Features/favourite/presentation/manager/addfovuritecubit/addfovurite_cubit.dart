@@ -22,7 +22,7 @@ class AddfovuriteCubit extends Cubit<AddfovuriteState> {
       emit(AddfovuriteLoading());
       final response =
           await apiConsumer.post(EndPoint.addfav, isFromData: false, data: {
-        ApiKey.userIdfav: userIdfav,
+        ApiKey.userId: userIdfav,
         ApiKey.itemIdfav: itemIdfav,
         ApiKey.itemTypefav: itemTypefav
       });
@@ -52,7 +52,7 @@ class AddfovuriteCubit extends Cubit<AddfovuriteState> {
       emit(RemovefavLoading());
       final response = await apiConsumer.delete(EndPoint.removefav, data: {
         ApiKey.itemIdfav: itemIdfav,
-        ApiKey.userIdfav: userIdfav,
+        ApiKey.userId: userIdfav,
         ApiKey.itemTypefav: itemTypefav,
       });
       if (response == null) {

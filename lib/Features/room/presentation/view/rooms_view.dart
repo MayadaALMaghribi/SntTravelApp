@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/widgets/rooms_view_body.dart';
+import 'package:sntegpito/Features/room/presentation/view/widgets/rooms_view_body.dart';
 
 class RoomsView extends StatelessWidget {
   const RoomsView({super.key});

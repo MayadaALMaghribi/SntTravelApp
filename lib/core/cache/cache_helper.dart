@@ -22,7 +22,7 @@ class CacheHelper {
     if (value is String) {
       return await sharedPreferences.setString(key, value);
     }
-
+    
     if (value is int) {
       return await sharedPreferences.setInt(key, value);
     } else {

@@ -27,10 +27,8 @@ class CustomDatePicker extends StatelessWidget {
           lastDate: DateTime(2030),
         );
 
-        if (picked != null) {
-          textController.text =
-              picked.toIso8601String().split('T')[0]; // بصيغة yyyy-MM-dd
-        }
+        textController.text =
+            picked.toString().split('T')[0]; // بصيغة yyyy-MM-dd
       },
     );
   }

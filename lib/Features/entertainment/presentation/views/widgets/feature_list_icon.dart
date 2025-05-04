@@ -3,7 +3,6 @@ import 'package:sntegpito/Features/entertainment/presentation/views/widgets/feat
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../../../hotels/presentation/views/home_hotel_view.dart';
-import '../../../../hotels/presentation/views/widgets/hotel_details_view_body.dart';
 
 class FeatureListIcon extends StatelessWidget {
   const FeatureListIcon({super.key});

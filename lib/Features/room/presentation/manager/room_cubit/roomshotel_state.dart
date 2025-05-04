@@ -1,5 +1,4 @@
-
- import 'package:sntegpito/Features/hotels/data/models/hotel_rooms_model.dart';
+import 'package:sntegpito/Features/room/data/models/hotel_rooms_model.dart';
 
 class HotelRoomsByIdState {}
 

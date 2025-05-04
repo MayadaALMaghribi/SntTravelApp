@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/rating_test.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/rooms_view.dart';
+import 'package:sntegpito/Features/room/presentation/view/rooms_view.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomCardAcitvityHotel extends StatelessWidget {
