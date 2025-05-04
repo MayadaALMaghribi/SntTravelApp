@@ -123,12 +123,10 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
   ({AmountPaypallModel amount, ItemListPaypallModel itemList})
       getTranscationData() {
     var amount = AmountPaypallModel(
-      total: "10",
-      //widget.modelbooking.bookingDetails!.totalPrice.toString(),
+      total: widget.modelbooking.bookingDetails!.totalPrice.toString(),
       currency: "USD",
       details: Details(
-        subtotal: "10",
-        //widget.modelbooking.bookingDetails!.totalPrice.toString(),
+        subtotal: widget.modelbooking.bookingDetails!.totalPrice.toString(),
         shipping: "0",
         shippingDiscount: 0,
       ),

@@ -4,9 +4,15 @@ class SearchHotelByNameModel {
   String? address;
   int? stars;
   String? firstImageUrl;
+  String? locationName;
 
   SearchHotelByNameModel(
-      {this.hotelId, this.name, this.address, this.stars, this.firstImageUrl});
+      {this.hotelId,
+      this.name,
+      this.address,
+      this.stars,
+      this.firstImageUrl,
+      this.locationName});
 
   SearchHotelByNameModel.fromJson(Map<String, dynamic> json) {
     hotelId = json['hotelId'];
@@ -14,6 +20,7 @@ class SearchHotelByNameModel {
     address = json['address'];
     stars = json['stars'];
     firstImageUrl = json['firstImageUrl'];
+    locationName = json['locationName'];
   }
 
   Map<String, dynamic> toJson() {
@@ -23,6 +30,7 @@ class SearchHotelByNameModel {
     data['address'] = address;
     data['stars'] = stars;
     data['firstImageUrl'] = firstImageUrl;
+    data['locationName'] = locationName;
     return data;
   }
 }
