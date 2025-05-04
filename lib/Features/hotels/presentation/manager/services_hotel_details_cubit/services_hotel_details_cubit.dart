@@ -23,6 +23,7 @@ class ServicesHotelDetailsCubit extends Cubit<ServicesHotelDetailsState> {
         for (var data in services['data']) {
           serviceshotel.add(ServicesHotelDetailsModel.fromJson(data));
         }
+        serviceshotel = serviceshotel.toSet().toList();
         emit(ServicesHotelDetailsSucess(
             servicesHotelDetailsModel: serviceshotel));
       }
