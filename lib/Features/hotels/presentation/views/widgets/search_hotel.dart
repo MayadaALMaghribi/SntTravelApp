@@ -31,6 +31,7 @@ class SearchHotel extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     // context.read<SearchHotelByNameCubit>().searchHotels(query);
     context.read<SearchHotelByNameCubit>().fetchHotelsByName(cityName: query);
+    CacheHelper().saveData(key: "cityName", value: query);
     Future.microtask(() => close(context, query));
 
     return Container();
