@@ -15,11 +15,11 @@ class Items {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['quantity'] = this.quantity;
-    data['price'] = this.price;
-    data['currency'] = this.currency;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['quantity'] = quantity;
+    data['price'] = price;
+    data['currency'] = currency;
     return data;
   }
 }

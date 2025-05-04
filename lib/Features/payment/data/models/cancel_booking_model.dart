@@ -12,10 +12,10 @@ class CancelBookingModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['roomId'] = this.roomId;
-    data['isAvailable'] = this.isAvailable;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['roomId'] = roomId;
+    data['isAvailable'] = isAvailable;
     return data;
   }
 }

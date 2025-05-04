@@ -21,12 +21,12 @@ class ResponseBookingRoomModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['bookingId'] = this.bookingId;
-    data['transactionId'] = this.transactionId;
-    data['expiresAt'] = this.expiresAt;
-    data['expiresInMinutes'] = this.expiresInMinutes;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['bookingId'] = bookingId;
+    data['transactionId'] = transactionId;
+    data['expiresAt'] = expiresAt;
+    data['expiresInMinutes'] = expiresInMinutes;
     return data;
   }
 }

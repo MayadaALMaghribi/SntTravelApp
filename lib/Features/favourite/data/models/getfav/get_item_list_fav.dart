@@ -30,15 +30,15 @@ class ItemDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['hotelId'] = this.hotelId;
-    data['name'] = this.name;
-    data['address'] = this.address;
-    data['pricePerNight'] = this.pricePerNight;
-    data['id'] = this.id;
-    data['description'] = this.description;
-    data['activityId'] = this.activityId;
-    data['price'] = this.price;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['hotelId'] = hotelId;
+    data['name'] = name;
+    data['address'] = address;
+    data['pricePerNight'] = pricePerNight;
+    data['id'] = id;
+    data['description'] = description;
+    data['activityId'] = activityId;
+    data['price'] = price;
     return data;
   }
 }

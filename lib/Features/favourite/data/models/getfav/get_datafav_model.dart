@@ -20,18 +20,18 @@ class Data {
     itemType = json['itemType'];
     addedAt = json['addedAt'];
     itemDetails = json['itemDetails'] != null
-        ? new ItemDetails.fromJson(json['itemDetails'])
+        ? ItemDetails.fromJson(json['itemDetails'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['favoriteId'] = this.favoriteId;
-    data['itemId'] = this.itemId;
-    data['itemType'] = this.itemType;
-    data['addedAt'] = this.addedAt;
-    if (this.itemDetails != null) {
-      data['itemDetails'] = this.itemDetails!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['favoriteId'] = favoriteId;
+    data['itemId'] = itemId;
+    data['itemType'] = itemType;
+    data['addedAt'] = addedAt;
+    if (itemDetails != null) {
+      data['itemDetails'] = itemDetails!.toJson();
     }
     return data;
   }

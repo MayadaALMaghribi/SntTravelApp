@@ -8,7 +8,7 @@ import '../../../../../core/utils/styles.dart';
 
 // ignore: must_be_immutable
 class CustomFeatureRoomFeaturesGrid extends StatelessWidget {
-  CustomFeatureRoomFeaturesGrid({
+  const CustomFeatureRoomFeaturesGrid({
     super.key,
   });
 

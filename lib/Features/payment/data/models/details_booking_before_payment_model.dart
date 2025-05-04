@@ -7,15 +7,15 @@ class DetailsBookingBeforePaymentModel {
   DetailsBookingBeforePaymentModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     bookingDetails = json['bookingDetails'] != null
-        ? new BookingDetails.fromJson(json['bookingDetails'])
+        ? BookingDetails.fromJson(json['bookingDetails'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    if (this.bookingDetails != null) {
-      data['bookingDetails'] = this.bookingDetails!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    if (bookingDetails != null) {
+      data['bookingDetails'] = bookingDetails!.toJson();
     }
     return data;
   }
@@ -43,7 +43,7 @@ class BookingDetails {
 
   BookingDetails.fromJson(Map<String, dynamic> json) {
     bookingId = json['bookingId'];
-    room = json['room'] != null ? new Room.fromJson(json['room']) : null;
+    room = json['room'] != null ? Room.fromJson(json['room']) : null;
     startDate = json['startDate'];
     endDate = json['endDate'];
     totalPrice = json['totalPrice'];
@@ -53,17 +53,17 @@ class BookingDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['bookingId'] = this.bookingId;
-    if (this.room != null) {
-      data['room'] = this.room!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['bookingId'] = bookingId;
+    if (room != null) {
+      data['room'] = room!.toJson();
     }
-    data['startDate'] = this.startDate;
-    data['endDate'] = this.endDate;
-    data['totalPrice'] = this.totalPrice;
-    data['paymentStatus'] = this.paymentStatus;
-    data['numberOfGuests'] = this.numberOfGuests;
-    data['bookingStatus'] = this.bookingStatus;
+    data['startDate'] = startDate;
+    data['endDate'] = endDate;
+    data['totalPrice'] = totalPrice;
+    data['paymentStatus'] = paymentStatus;
+    data['numberOfGuests'] = numberOfGuests;
+    data['bookingStatus'] = bookingStatus;
     return data;
   }
 }
@@ -82,10 +82,10 @@ class Room {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['roomNumber'] = this.roomNumber;
-    data['roomType'] = this.roomType;
-    data['pricePerNight'] = this.pricePerNight;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['roomNumber'] = roomNumber;
+    data['roomType'] = roomType;
+    data['pricePerNight'] = pricePerNight;
     return data;
   }
 }

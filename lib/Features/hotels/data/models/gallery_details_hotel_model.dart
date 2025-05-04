@@ -10,9 +10,9 @@ class GalleryDetailsHotelModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['mediaId'] = this.mediaId;
-    data['mediaUrl'] = this.mediaUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['mediaId'] = mediaId;
+    data['mediaUrl'] = mediaUrl;
     return data;
   }
 }

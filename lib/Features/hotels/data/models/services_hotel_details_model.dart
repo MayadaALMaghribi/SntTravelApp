@@ -15,11 +15,11 @@ class ServicesHotelDetailsModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['serviceId'] = this.serviceId;
-    data['name'] = this.name;
-    data['iconName'] = this.iconName;
-    data['iconType'] = this.iconType;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['serviceId'] = serviceId;
+    data['name'] = name;
+    data['iconName'] = iconName;
+    data['iconType'] = iconType;
     return data;
   }
 }
