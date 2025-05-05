@@ -8,11 +8,11 @@ class CategoriesRow extends StatelessWidget {
 
   // قائمة الصور المحلية
   final List<String> imageList = [
-    'assets/images_home/diving.jpg',
-    'assets/images_home/beach.jpeg',
-    'assets/images_home/pyramids.jpg',
+    'assets/images_home/downtown.jpg',
+    'assets/images_home/sea.jpg',
+    'assets/images_home/BaronPlace.jpg',
     'assets/images_home/laxuor.jpeg',
-    'assets/images_home/Aswan.jpg',
+    'assets/images_home/Al-Moez.jpg',
   ];
 
   final List<Widget> pagesList = [

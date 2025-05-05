@@ -140,13 +140,22 @@ class CustomCardRoom extends StatelessWidget {
               child: ReserveRoomButton(
                 text: "Reserve a room",
                 ontap: () {
+                  DateTime parsedStartDate = DateTime.parse(
+                      CacheHelper().getData(key: Constants.fromDate));
+                  DateTime parsedFormDate = DateTime.parse(
+                      CacheHelper().getData(key: Constants.toDate));
+                  String formattedStartDate = parsedStartDate.toIso8601String();
+                  String formattedFormDate = parsedFormDate.toIso8601String();
                   context.read<BookingRoomCubit>().bookingRoom(
-                      startdate: CacheHelper().getData(key: Constants.fromDate),
-                      enddate: CacheHelper().getData(key: Constants.toDate),
+                      startdate: formattedStartDate,
+                      enddate: formattedFormDate,
                       userid: Constants.useridFav,
                       roomid: roomsModel.roomId!,
                       paymethod: 1,
                       numofguest: CacheHelper().getData(key: Constants.guests));
+                  print(
+                    "STARTDATE" + formattedFormDate,
+                  );
                 },
               ),
             ),

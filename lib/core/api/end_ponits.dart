@@ -79,4 +79,5 @@ class Constants {
   static String guests = "guest";
   static String bookingId = "booking_id";
   static String transcationId = "transcationId";
+  static String cityName = "cityName";
 }

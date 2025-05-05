@@ -112,6 +112,8 @@ class BuildFilterForm extends StatelessWidget {
               CacheHelper().saveData(
                   key: Constants.fromDate,
                   value: context.read<HotelFilterCubit>().startDateText.text);
+              print("START DATE" +
+                  CacheHelper().getData(key: Constants.fromDate));
               CacheHelper().saveData(
                   key: Constants.toDate,
                   value: context.read<HotelFilterCubit>().endDateText.text);
