@@ -1,14 +1,18 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:sntegpito/Features/payment/data/models/amount_paypall_model.dart';
 import 'package:sntegpito/Features/payment/data/models/items_paypal_model.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/confirm_payment_cubit/confirm_payment_cubit.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/paymob_cubit/paymob_payment_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/custoum_payment_method_card.dart';
 import 'package:sntegpito/core/utils/api_keys_payment.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
+
+
+import 'package:url_launcher/url_launcher.dart';
+
 import '../../../data/models/details_booking_before_payment_model.dart';
 import '../../../data/models/item_list_paypall_model.dart';
 
@@ -59,6 +63,8 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
                   var transcationData = getTranscationData();
                   if (index == 0) {
                     executePaypallMethod(context, transcationData);
+                  } else if (index == 1) {
+                    executePaymobMethod(context);
                   }
                   activeindex = index;
 
@@ -76,6 +82,8 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
       ),
     );
   }
+
+  //paypall
 
   void executePaypallMethod(
       BuildContext context,
@@ -140,5 +148,36 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
     ];
     var itemList = ItemListPaypallModel(items: itemsRoom);
     return (amount: amount, itemList: itemList);
+  }
+
+//paymob
+
+  void executePaymobMethod(BuildContext context) async {
+    try {
+      final cubit = context.read<PaymobPaymentCubit>();
+
+      final paymentUrl = await cubit.getPaymentUrl(
+        amount: widget.modelbooking.bookingDetails!.totalPrice!.toInt(),
+        currency: "EGP",
+      );
+
+      final uri = Uri.parse(paymentUrl);
+
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        CustomSnackBar.show(
+          context,
+          "Payment link cannot be opened",
+          isError: true,
+        );
+      }
+    } catch (e) {
+      CustomSnackBar.show(
+        context,
+        "An error occurred during payment: $e",
+        isError: true,
+      );
+    }
   }
 }
