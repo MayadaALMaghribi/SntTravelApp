@@ -1,17 +1,15 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:sntegpito/Features/payment/data/models/amount_paypall_model.dart';
 import 'package:sntegpito/Features/payment/data/models/items_paypal_model.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/confirm_payment_cubit/confirm_payment_cubit.dart';
-import 'package:sntegpito/Features/payment/presentation/manager/paymob/cubit/paymob_payment_cubit.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/paymob_cubit/paymob_payment_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/custoum_payment_method_card.dart';
 import 'package:sntegpito/core/utils/api_keys_payment.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../data/models/details_booking_before_payment_model.dart';
 import '../../../data/models/item_list_paypall_model.dart';
 
@@ -81,6 +79,8 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
       ),
     );
   }
+
+  //paypall
 
   void executePaypallMethod(
       BuildContext context,

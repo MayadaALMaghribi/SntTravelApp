@@ -6,7 +6,7 @@ import 'package:sntegpito/Features/entertainment/presentation/manager/entertainm
 import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/gallery_details_hotel_cubit/gallery_details_hotel_cubit.dart';
-import 'package:sntegpito/Features/payment/presentation/manager/paymob/cubit/paymob_payment_cubit.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/paymob_cubit/paymob_payment_cubit.dart';
 import 'package:sntegpito/Features/room/presentation/manager/room_cubit/roomshotel_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/services_hotel_details_cubit/services_hotel_details_cubit.dart';
