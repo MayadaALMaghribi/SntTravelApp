@@ -15,6 +15,7 @@ class SearchHotelByNameCubit extends Cubit<SearchHotelByNameState> {
   fetchHotelsByName({required String cityName}) async {
     try {
       emit(SearchHotelByNameLoading());
+      searchHotelByNameModel.clear();
       final response =
           await apiConsumer.get(EndPoint.getHotelsByLocationName + cityName);
       for (var item in response["data"]) {
