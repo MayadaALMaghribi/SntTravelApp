@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/search_hotel.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
 
 import '../../../../../core/cache/cache_helper.dart';
 
@@ -23,7 +24,7 @@ class _CustomFunctionSearchHotelState extends State<CustomFunctionSearchHotel> {
   }
 
   void _loadCityName() {
-    final cachedCity = CacheHelper().getData(key: "cityName");
+    final cachedCity = CacheHelper().getData(key: Constants.cityName);
     setState(() {
       selectedCity = cachedCity;
     });
