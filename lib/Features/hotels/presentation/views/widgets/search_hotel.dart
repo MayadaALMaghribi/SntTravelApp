@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
@@ -31,6 +32,7 @@ class SearchHotel extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     // context.read<SearchHotelByNameCubit>().searchHotels(query);
     context.read<SearchHotelByNameCubit>().fetchHotelsByName(cityName: query);
+    CacheHelper().saveData(key: Constants.cityName, value: query);
     Future.microtask(() => close(context, query));
 
     return Container();
@@ -91,12 +93,8 @@ class SearchHotel extends SearchDelegate {
                 onTap: () async {
                   query = displayText;
 
-                  await CacheHelper().saveData(
-                      key: "cityName", value: query); // ✅ استنى لما يحفظ
-
-                  final savedCity = CacheHelper()
-                      .getData(key: "cityName"); // ✅ هتجيب القيمة الصح
-                  print("تم الحفظ: $savedCity");
+                  await CacheHelper()
+                      .saveData(key: Constants.cityName, value: query);
                   showResults(context);
                 },
               );

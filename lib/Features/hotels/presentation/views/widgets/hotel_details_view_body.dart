@@ -71,7 +71,7 @@ class HotelDetailsViewBody extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    CustomFeatureRoomFeaturesGrid(),
+                    const CustomFeatureRoomFeaturesGrid(),
                     const SizedBox(
                       height: 32,
                     ),

@@ -7,14 +7,6 @@ import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_home_a
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
-  // final List<String> category = [
-  //   "Best places",
-  //   "Most Visited",
-  //   "Favourites",
-  //   "New Added",
-  //   "Hotels",
-  //   "Restaurants"
-  // ];
 
   @override
   Widget build(BuildContext context) {
