@@ -4,7 +4,7 @@ import 'package:sntegpito/Features/room/data/models/hotel_rooms_model.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/custom_card_room_image.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/booking_room/booking_room_cubit.dart';
-import 'package:sntegpito/Features/payment/presentation/views/sucess_view.dart';
+import 'package:sntegpito/Features/payment/presentation/views/payment_view.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
@@ -129,7 +129,7 @@ class CustomCardRoom extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SuccessView(), //SucessView
+                      builder: (context) => const PaymentView(), //SucessView
                     ),
                   );
                   CacheHelper().saveData(

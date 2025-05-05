@@ -36,7 +36,7 @@ class PaymobPaymentCubit extends Cubit<PaymobPaymentState> {
         "https://accept.paymob.com/api/auth/tokens",
         data: {"api_key": ApiKeysPayment.paymobApiKey});
 
-    return response.data["token"];
+    return response["token"];
   }
 
   //2- order id
@@ -54,7 +54,7 @@ class PaymobPaymentCubit extends Cubit<PaymobPaymentState> {
         "items": [],
       },
     );
-    return response.data["id"];
+    return response["id"];
   }
 
   //3- payment key
@@ -96,7 +96,7 @@ class PaymobPaymentCubit extends Cubit<PaymobPaymentState> {
         },
       },
     );
-    return response.data["token"];
+    return response["token"];
   }
 
   //get iframe url
