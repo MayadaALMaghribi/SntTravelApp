@@ -32,8 +32,7 @@ class SearchHotel extends SearchDelegate {
     // context.read<SearchHotelByNameCubit>().searchHotels(query);
     context.read<SearchHotelByNameCubit>().fetchHotelsByName(cityName: query);
     Future.microtask(() => close(context, query));
-    Future.microtask(
-        () => CacheHelper().saveData(key: "cityName", value: query));
+
     return Container();
   }
 
@@ -89,8 +88,15 @@ class SearchHotel extends SearchDelegate {
 
               return ListTile(
                 title: Text(displayText),
-                onTap: () {
+                onTap: () async {
                   query = displayText;
+
+                  await CacheHelper().saveData(
+                      key: "cityName", value: query); // ✅ استنى لما يحفظ
+
+                  final savedCity = CacheHelper()
+                      .getData(key: "cityName"); // ✅ هتجيب القيمة الصح
+                  print("تم الحفظ: $savedCity");
                   showResults(context);
                 },
               );

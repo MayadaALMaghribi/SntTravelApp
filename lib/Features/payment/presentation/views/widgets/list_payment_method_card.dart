@@ -135,8 +135,7 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
       Items(
         name: widget.modelbooking.bookingDetails!.room!.roomType,
         quantity: 1,
-        price: "10",
-        //widget.modelbooking.bookingDetails!.totalPrice.toString(),
+        price: widget.modelbooking.bookingDetails!.totalPrice.toString(),
         currency: "USD",
       ),
     ];
