@@ -22,6 +22,7 @@ class _CustomFunctionSearchHotelState extends State<CustomFunctionSearchHotel> {
     super.initState();
     _loadCityName();
   }
+  //are done الحمدالله
 
   void _loadCityName() {
     final cachedCity = CacheHelper().getData(key: Constants.cityName);
