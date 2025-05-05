@@ -30,6 +30,7 @@ class EndPoint {
       "Rooms/booking-details-beforePayment/";
   static String cancelbooking = "Rooms/cancel/";
   static String confirmpayment = "Rooms/confirm-payment/";
+  
 }
 
 class ApiKey {

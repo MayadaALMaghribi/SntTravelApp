@@ -23,8 +23,8 @@ class CancelBookingCubit extends Cubit<CancelBookingState> {
         cancelBookingModel = CancelBookingModel.fromJson(response);
         emit(CancelBookingSuccess(cancelBookingModel: cancelBookingModel!));
       }
-    } on ServerException {
-      // TODO
+    } on ServerException catch (e) {
+      emit(CancelBookingFailutre(errMessage: e.errModel.errorMessage));
     }
   }
 }
