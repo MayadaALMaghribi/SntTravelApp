@@ -29,7 +29,7 @@ class CustomCardActivityImage extends StatelessWidget {
             right: 8,
             child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.black45,
+                  color: Colors.transparent,
                   shape: BoxShape.circle,
                 ),
                 child: CustomFunctionCart(

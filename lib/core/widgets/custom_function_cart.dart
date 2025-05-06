@@ -48,7 +48,7 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionCart> {
           context.read<AddCartCubit>().addToCart(
                 activityId: widget.activityId,
                 userId: widget.userId,
-                numOfGeusts: widget.numOfGeusts, 
+                numOfGeusts: widget.numOfGeusts,
               );
           CacheHelper().saveData(
               key: "${widget.numOfGeusts}_${widget.activityId}", value: true);
@@ -59,7 +59,7 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionCart> {
       },
       icon: Icon(
         Icons.shopping_cart_outlined,
-        color: isActive ? Colors.blue : Colors.grey,
+        color: isActive ? Colors.blue : const Color.fromARGB(255, 82, 82, 82),
       ),
     );
   }
