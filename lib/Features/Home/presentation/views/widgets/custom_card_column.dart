@@ -94,7 +94,7 @@ class CustomCardColumn extends StatelessWidget {
                     CustomFunctionFavourite(
                       indexIdFav: tourismType.id!,
                       itemTypefav: "TourismType",
-                      userIdfav: Constants.useridFav,
+                      userIdfav: Constants.userid,
                     ),
                   ],
                 ),

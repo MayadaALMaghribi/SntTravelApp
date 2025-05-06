@@ -15,7 +15,7 @@ class GetfavCubit extends Cubit<GetfavState> {
     try {
       emit(GetfavLoading());
       final response = await apiConsumer
-          .get(EndPoint.getfav + Constants.useridFav.toString());
+          .get(EndPoint.getfav + Constants.userid.toString());
       if (response == null) {
         emit(GetfavFauiler(errmessage: "response are NuLL"));
       } else {
