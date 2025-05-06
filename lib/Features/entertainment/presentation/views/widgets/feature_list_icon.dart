@@ -29,11 +29,11 @@ class FeatureListIcon extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        FeatureCardIcon(
-          icon: "assets/images/flight_icon.png",
-          text: "Flights",
-          ontap: () {},
-        ),
+        // FeatureCardIcon(
+        //   icon: "assets/images/flight_icon.png",
+        //   text: "Flights",
+        //   ontap: () {},
+        // ),
       ],
     );
   }

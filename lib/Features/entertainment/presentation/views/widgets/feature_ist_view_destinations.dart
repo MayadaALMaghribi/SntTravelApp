@@ -14,7 +14,7 @@ class ListViewDestinations extends StatelessWidget {
       builder: (context, state) {
         if (state is TopDestinationsSucess) {
           return SizedBox(
-            height: 220,
+            height: 250,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: state.topDestinationModel.length,

@@ -2,31 +2,36 @@ class ItemDetails {
   int? hotelId;
   String? name;
   String? address;
-  int? pricePerNight;
+  double? pricePerNight;
   int? id;
   String? description;
   int? activityId;
-  int? price;
+  double? price;
+  String? image;
 
-  ItemDetails(
-      {this.hotelId,
-      this.name,
-      this.address,
-      this.pricePerNight,
-      this.id,
-      this.description,
-      this.activityId,
-      this.price});
+  ItemDetails({
+    this.hotelId,
+    this.name,
+    this.address,
+    this.pricePerNight,
+    this.id,
+    this.description,
+    this.activityId,
+    this.image,
+    this.price,
+  });
 
   ItemDetails.fromJson(Map<String, dynamic> json) {
     hotelId = json['hotelId'];
     name = json['name'];
     address = json['address'];
-    pricePerNight = json['pricePerNight'];
+    pricePerNight = (json['pricePerNight'] as num?)?.toDouble();
     id = json['id'];
     description = json['description'];
-    activityId = json['activityId'];
-    price = json['price'];
+    activityId = (json['activityId'] as num?)?.toInt();
+    price = (json['price'] as num?)?.toDouble();
+    image =
+        json['image'] ?? json['imageUrl']; // للتأكد لو جالك imageUrl بدل image
   }
 
   Map<String, dynamic> toJson() {
@@ -39,6 +44,7 @@ class ItemDetails {
     data['description'] = description;
     data['activityId'] = activityId;
     data['price'] = price;
+    data['image'] = image;
     return data;
   }
 }

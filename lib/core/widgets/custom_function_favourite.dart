@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
+import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
@@ -24,7 +25,6 @@ class CustomFunctionFavourite extends StatefulWidget {
 }
 
 class _CustomFunctionFavouriteState extends State<CustomFunctionFavourite> {
-
   late bool isActive;
 
   @override
@@ -35,8 +35,6 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionFavourite> {
 
     isActive = cachedStatus ?? widget.initialIsActive;
   }
-
-
 
   @override
   Widget build(BuildContext context) {

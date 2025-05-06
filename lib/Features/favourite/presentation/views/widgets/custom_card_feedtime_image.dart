@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomCardFeedtimeImage extends StatelessWidget {
-  const CustomCardFeedtimeImage({super.key});
-
+  const CustomCardFeedtimeImage({super.key, required this.image});
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -10,14 +10,13 @@ class CustomCardFeedtimeImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Container(
-          color: Colors.blueAccent,
-          child: Image.asset(
-            "assets/destionation/temple.jpeg",
-            width: 95,
-            height: 110,
-            fit: BoxFit.cover,
-          ),
-        ),
+            color: Colors.blueAccent,
+            child: Image.network(
+              image,
+              width: 95,
+              height: 110,
+              fit: BoxFit.cover,
+            )),
       ),
     );
   }
