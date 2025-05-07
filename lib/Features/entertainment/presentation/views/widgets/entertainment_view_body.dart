@@ -18,8 +18,8 @@ class EntertainmentViewBody extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize:const Size.fromHeight(90),
-          child:const CustomAppBar(
+          preferredSize: const Size.fromHeight(90),
+          child: const CustomAppBar(
             text: "",
             page: HomeBottomBar(),
           ).animate().fade(duration: 600.ms, delay: 300.ms),
@@ -53,18 +53,6 @@ class EntertainmentViewBody extends StatelessWidget {
                   ),
                   const SliverToBoxAdapter(
                     child: ListViewDestinations(),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-                      child: CustomRowText(textblack: "Top Hotels"),
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: ListViewDestinations(),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(height: 20),
                   ),
                 ],
               );

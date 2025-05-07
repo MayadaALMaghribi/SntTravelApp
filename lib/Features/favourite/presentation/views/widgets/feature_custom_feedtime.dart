@@ -3,8 +3,16 @@ import 'package:sntegpito/Features/favourite/presentation/views/widgets/custom_c
 import '../../../../../core/utils/styles.dart';
 
 class FeatureCustomFeedtime extends StatelessWidget {
-  const FeatureCustomFeedtime({super.key});
-
+  const FeatureCustomFeedtime(
+      {super.key,
+      required this.image,
+      required this.headName,
+      required this.add,
+      required this.price});
+  final String image;
+  final String headName;
+  final String add;
+  final String price;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -12,35 +20,42 @@ class FeatureCustomFeedtime extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomCardFeedtimeImage(),
-          Column(
-            //mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 19),
-              const Text(
-                "headTiltle",
-                style: Styles.textStyle17,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                "title",
-                style: Styles.textStyle20
-                    .copyWith(color: Colors.black.withOpacity(0.4)),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                "subtitle",
-                style: Styles.textStyle15
-                    .copyWith(color: Colors.black.withOpacity(0.5)),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              )
-            ],
+          CustomCardFeedtimeImage(image: image),
+          Expanded(
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 19),
+                Text(
+                  headName,
+                  style: Styles.textStyle17.copyWith(
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  add,
+                  maxLines: 1,
+                  style: Styles.textStyle16.copyWith(
+                    //overflow: TextOverflow.ellipsis,
+                    color: Colors.black.withOpacity(0.4),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  price,
+                  style: Styles.textStyle15
+                      .copyWith(color: Colors.black.withOpacity(0.5)),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                )
+              ],
+            ),
           ),
-          const Spacer(),
+          // const Spacer(),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.close_outlined),

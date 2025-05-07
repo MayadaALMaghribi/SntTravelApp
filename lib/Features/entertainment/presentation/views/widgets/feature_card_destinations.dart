@@ -9,8 +9,7 @@ class FeatureCardDestinations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 200,
-      width: 170,
+      width: 175,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.white,
@@ -44,8 +43,7 @@ class FeatureCardDestinations extends StatelessWidget {
           ),
           Text(topDestinationModel.description!,
               textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
               style: Styles.textStyle12)
         ],
       ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/widgets/feature_custom_feedtime.dart';
+
+import '../../../../../core/api/end_ponits.dart';
 
 class FavouriteBody extends StatelessWidget {
   const FavouriteBody({super.key});
@@ -18,16 +22,55 @@ class FavouriteBody extends StatelessWidget {
           ),
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverList(
-              delegate: SliverChildBuilderDelegate(
-            childCount: 10,
-            (context, index) {
-              return const FeatureCustomFeedtime();
-            },
-          ))
-        ],
+      body: BlocBuilder<GetfavCubit, GetfavState>(
+        builder: (context, state) {
+          if (state is GetfavLoading) {
+            return const Center(
+                child: CircularProgressIndicator(
+              backgroundColor: Colors.blueAccent,
+            ));
+          } else if (state is GetfavFauiler) {
+            InitalWidgets(
+              text: state.errmessage.toString(),
+            );
+          } else if (state is GetfavSucess) {
+            return CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      childCount: state.get_fav_model.data!.length,
+                      (context, index) {
+                    String price = state.get_fav_model.data![index].itemDetails
+                            ?.pricePerNight
+                            ?.toString() ??
+                        state.get_fav_model.data![index].itemDetails?.price
+                            ?.toString() ??
+                        "0";
+                    String headName =
+                        state.get_fav_model.data![index].itemDetails?.name ??
+                            "No name";
+
+                    String add = state.get_fav_model.data![index].itemDetails
+                            ?.description ??
+                        "NO descrotion";
+
+                    String image =
+                        "${EndPoint.baseImageUrl}${state.get_fav_model.data![index].itemDetails?.image?.toString()}" ??
+                            "No image";
+
+                    return FeatureCustomFeedtime(
+                      price: price,
+                      headName: headName,
+                      add: add,
+                      image: image,
+                    );
+                  }),
+                )
+              ],
+            );
+          }
+          return const SizedBox.shrink();
+        },
       ),
     );
   }
@@ -36,8 +79,9 @@ class FavouriteBody extends StatelessWidget {
 class InitalWidgets extends StatelessWidget {
   const InitalWidgets({
     super.key,
+    required this.text,
   });
-
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -48,9 +92,9 @@ class InitalWidgets extends StatelessWidget {
           height: 350,
         ),
         const SizedBox(height: 10),
-        const Text(
-          "You don't have any",
-          style: TextStyle(
+        Text(
+          text,
+          style: const TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),

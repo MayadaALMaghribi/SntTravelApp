@@ -8,7 +8,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
         children: [
           // أيقونة الرجوع
@@ -21,22 +21,9 @@ class CustomAppBar extends StatelessWidget {
               //   (Route) => false,
               // );
             },
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 6,
-                  ),
-                ],
-              ),
-              child: const Icon(
-                Icons.chevron_left,
-                size: 25,
-              ),
+            child: const Icon(
+              Icons.keyboard_backspace,
+              size: 30,
             ),
           ),
           const Spacer(flex: 2), // يضيف فراغ بين الأيقونة والنص

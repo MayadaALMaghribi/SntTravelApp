@@ -24,7 +24,6 @@ class CustomFunctionFavourite extends StatefulWidget {
 }
 
 class _CustomFunctionFavouriteState extends State<CustomFunctionFavourite> {
-
   late bool isActive;
 
   @override
@@ -35,8 +34,6 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionFavourite> {
 
     isActive = cachedStatus ?? widget.initialIsActive;
   }
-
-
 
   @override
   Widget build(BuildContext context) {

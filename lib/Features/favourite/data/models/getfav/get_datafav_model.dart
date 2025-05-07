@@ -5,6 +5,7 @@ class Data {
   int? itemId;
   String? itemType;
   String? addedAt;
+  bool? isFavorite;
   ItemDetails? itemDetails;
 
   Data(
@@ -12,12 +13,14 @@ class Data {
       this.itemId,
       this.itemType,
       this.addedAt,
+      this.isFavorite,
       this.itemDetails});
 
   Data.fromJson(Map<String, dynamic> json) {
     favoriteId = json['favoriteId'];
     itemId = json['itemId'];
     itemType = json['itemType'];
+    isFavorite = json['isFavorite'];
     addedAt = json['addedAt'];
     itemDetails = json['itemDetails'] != null
         ? ItemDetails.fromJson(json['itemDetails'])
@@ -30,6 +33,7 @@ class Data {
     data['itemId'] = itemId;
     data['itemType'] = itemType;
     data['addedAt'] = addedAt;
+    data['isFavorite'] = isFavorite;
     if (itemDetails != null) {
       data['itemDetails'] = itemDetails!.toJson();
     }

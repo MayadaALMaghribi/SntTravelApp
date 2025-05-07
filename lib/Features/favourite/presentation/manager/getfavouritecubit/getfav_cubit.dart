@@ -10,7 +10,7 @@ part 'getfav_state.dart';
 class GetfavCubit extends Cubit<GetfavState> {
   GetfavCubit(this.apiConsumer) : super(GetfavInitial());
   final ApiConsumer apiConsumer;
-  List<GetFavouriteModel> itemfavModel = [];
+  GetFavouriteModel? itemfavModel;
   fetchGetFav() async {
     try {
       emit(GetfavLoading());
@@ -19,10 +19,8 @@ class GetfavCubit extends Cubit<GetfavState> {
       if (response == null) {
         emit(GetfavFauiler(errmessage: "response are NuLL"));
       } else {
-        itemfavModel = (response as List)
-            .map((e) => GetFavouriteModel.fromJson(e))
-            .toList();
-        emit(GetfavSucess(get_fav_model: itemfavModel));
+        itemfavModel = GetFavouriteModel.fromJson(response);
+        emit(GetfavSucess(get_fav_model: itemfavModel!));
       }
     } on ServerException catch (e) {
       emit(GetfavFauiler(errmessage: e.errModel.errorMessage));
