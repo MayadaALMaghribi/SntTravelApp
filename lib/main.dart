@@ -94,12 +94,10 @@ void main() async {
       BlocProvider(
           create: (context) => ConfirmPaymentCubit(DioConsumer(dio: Dio()))),
       BlocProvider(
-
           create: (context) =>
               GetfavCubit(DioConsumer(dio: Dio()))..fetchGetFav()),
-
+      BlocProvider(
           create: (context) => PaymobPaymentCubit(DioConsumer(dio: Dio()))),
-
     ],
     child: const MyApp(),
   ));

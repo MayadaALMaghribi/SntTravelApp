@@ -26,7 +26,7 @@ class PaymobPaymentCubit extends Cubit<PaymobPaymentState> {
       return paymentKey;
     } on ServerException catch (e) {
       emit(PaymobPaymentFailure(errorMessage: e.errModel.errorMessage));
-      throw (e);
+      rethrow;
     }
   }
 
