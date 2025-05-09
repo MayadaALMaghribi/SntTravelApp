@@ -20,9 +20,8 @@ class GetAllActivityCartCubit extends Cubit<GetAllActivityCartState> {
       if (response == null) {
         emit(GetAllActivityCartFailure(errmessage: "response are null"));
       } else {
-        allActivityCartModel = (response as List)
-            .map((e) => AllActivityCartModel.fromJson(e))
-            .toList();
+       final model = AllActivityCartModel.fromJson(response);
+allActivityCartModel = [model];
         emit(GetAllActivityCartSuccess(
             allactivitycartmodel: allActivityCartModel));
       }

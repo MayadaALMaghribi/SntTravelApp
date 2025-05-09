@@ -1,50 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/data/models/all_activity_cart_model.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/cart_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/widgets/custom_image_activity_booked.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomCardActivityBooked extends StatelessWidget {
-  const CustomCardActivityBooked({super.key});
+  const CustomCardActivityBooked({super.key, required this.data});
+  final Data data;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 140,
+    return Container(
+      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(color: Colors.grey.withOpacity(0.2), blurRadius: 4),
+        ],
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomImageActivityBooked(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 19),
-              const Text(
-                "headTiltle",
-                style: Styles.textStyle17,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                "title",
-                style: Styles.textStyle20
-                    .copyWith(color: Colors.black.withOpacity(0.4)),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                "subtitle",
-                style: Styles.textStyle15
-                    .copyWith(color: Colors.black.withOpacity(0.5)),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              )
-            ],
+          // الصورة
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: CustomImageActivityBooked(
+              imageUrl: data.image ?? '',
+            ),
           ),
-          const Spacer(),
+
+          const SizedBox(width: 12),
+
+          // المحتوى
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  data.activityName ?? '',
+                  style:
+                      Styles.textStyle17.copyWith(fontWeight: FontWeight.w800),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "${data.pricePerPerson ?? 0} EGP/Person",
+                  style: Styles.textStyle15
+                      .copyWith(color: Colors.black.withOpacity(0.7)),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  "${data.peopleCount ?? 0} Guests",
+                  style: Styles.textStyle15
+                      .copyWith(color: Colors.black.withOpacity(0.5)),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  data.locationNames?.join(', ') ?? 'No locations',
+                  style: Styles.textStyle15
+                      .copyWith(color: Colors.black.withOpacity(0.5)),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ],
+            ),
+          ),
+
+          // زر الإغلاق
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.read<CartCubit>().removeFromCart(
+                  userId: Constants.userid, activityId: data.activityId!, context: context);
+            },
             icon: const Icon(Icons.close_outlined),
             color: Colors.black,
-          )
+          ),
         ],
       ),
     );

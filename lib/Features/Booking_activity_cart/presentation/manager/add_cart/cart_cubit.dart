@@ -1,22 +1,30 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/data/models/add_cart_model.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/data/models/all_activity_cart_model.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_all_activity_cart/get_all_activity_cart_cubit.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/error_model.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
 
-part 'add_cart_state.dart';
+part 'cart_state.dart';
 
-class AddCartCubit extends Cubit<AddCartState> {
-  AddCartCubit(this.apiConsumer) : super(AddCartInitial());
+class CartCubit extends Cubit<CartState> {
+  CartCubit(this.apiConsumer) : super(AddCartInitial());
   final ApiConsumer apiConsumer;
   AddCartModel? addCartModel;
   ErrorModel? errorModel;
-  addToCart(
-      {required int userId,
-      required int activityId,
-      required int numOfGeusts}) async {
+
+  // add to cart
+  addToCart({
+    required int userId,
+    required int activityId,
+    required int numOfGeusts,
+    required BuildContext context,
+  }) async {
     try {
       emit(AddCartLoading());
       final response =
@@ -34,6 +42,7 @@ class AddCartCubit extends Cubit<AddCartState> {
       } else {
         addCartModel = AddCartModel.fromJson(response);
         emit(AddCartSuccess(successmessage: addCartModel!.message.toString()));
+        context.read<GetAllActivityCartCubit>().fetchAllActivityCart();
       }
     } on ServerException catch (e) {
       emit(AddCartFailure(errmessage: e.errModel.errorMessage));
@@ -44,6 +53,7 @@ class AddCartCubit extends Cubit<AddCartState> {
   removeFromCart({
     required int userId,
     required int activityId,
+    required BuildContext context,
   }) async {
     try {
       emit(RemoveCartLoading());
@@ -56,6 +66,7 @@ class AddCartCubit extends Cubit<AddCartState> {
         errorModel =
             ErrorModel.fromJson(response); //عشان نفس ال model بتاع الايرور
         emit(RemoveCartSuccess(errorModel: errorModel!));
+        context.read<GetAllActivityCartCubit>().fetchAllActivityCart();
       }
     } on ServerException catch (e) {
       emit(RemoveCartFailure(errorModel: errorModel!));

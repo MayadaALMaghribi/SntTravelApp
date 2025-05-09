@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/add_cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_all_activity_cart/get_all_activity_cart_cubit.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
@@ -98,7 +99,11 @@ void main() async {
         create: (context) => PaymobPaymentCubit(DioConsumer(dio: Dio())),
       ),
       BlocProvider(
-        create: (context) => AddCartCubit(DioConsumer(dio: Dio())),
+        create: (context) => CartCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) => GetAllActivityCartCubit(DioConsumer(dio: Dio()))
+          ..fetchAllActivityCart(),
       ),
     ],
     child: const MyApp(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/add_cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/cart_cubit.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
 class CustomFunctionCart extends StatefulWidget {
@@ -38,17 +38,17 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionCart> {
     return IconButton(
       onPressed: () {
         if (isActive) {
-          context.read<AddCartCubit>().removeFromCart(
+          context.read<CartCubit>().removeFromCart(
                 activityId: widget.activityId,
-                userId: widget.userId,
+                userId: widget.userId, context: context,
               );
           CacheHelper().saveData(
               key: "${widget.numOfGeusts}_${widget.activityId}", value: false);
         } else {
-          context.read<AddCartCubit>().addToCart(
+          context.read<CartCubit>().addToCart(
                 activityId: widget.activityId,
                 userId: widget.userId,
-                numOfGeusts: widget.numOfGeusts,
+                numOfGeusts: widget.numOfGeusts, context: context,
               );
           CacheHelper().saveData(
               key: "${widget.numOfGeusts}_${widget.activityId}", value: true);
