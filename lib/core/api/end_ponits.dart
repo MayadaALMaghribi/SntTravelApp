@@ -32,6 +32,7 @@ class EndPoint {
   static String confirmpayment = "Rooms/confirm-payment/";
   static String addcart = "AddToCart/add-to-cart";
   static String removecart = "AddToCart/remove-from-cart/";
+  static String getAllActivityCart = "AddToCart/cart/";
 }
 
 class ApiKey {
@@ -82,5 +83,5 @@ class Constants {
   static String bookingId = "booking_id";
   static String transcationId = "transcationId";
   static String cityName = "cityName";
-  static String activityid="activity_id";
+  static String activityid = "activity_id";
 }

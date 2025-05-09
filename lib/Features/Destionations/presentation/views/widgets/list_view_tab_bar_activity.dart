@@ -19,7 +19,8 @@ class ListViewTabBarActivity extends StatelessWidget {
               itemCount: state.activitesforcitiesModel.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 4),
+                  padding:
+                      const EdgeInsets.only(bottom: 4, right: 12, left: 12),
                   child: CustomCardActivityCity(
                     activitesforcitiesModel:
                         state.activitesforcitiesModel[index],

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:sntegpito/Features/Cart/data/models/add_cart_model.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/data/models/add_cart_model.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/error_model.dart';
