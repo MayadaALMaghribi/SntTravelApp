@@ -14,15 +14,13 @@ class GetfavCubit extends Cubit<GetfavState> {
   fetchGetFav() async {
     try {
       emit(GetfavLoading());
-      final response =
-          await apiConsumer.get(EndPoint.getfav + Constants.userid.toString());
+      final response = await apiConsumer
+          .get(EndPoint.getfav + Constants.userid.toString());
       if (response == null) {
         emit(GetfavFauiler(errmessage: "response are NuLL"));
       } else {
-        itemfavModel = (response as List)
-            .map((e) => GetFavouriteModel.fromJson(e))
-            .toList();
-        emit(GetfavSucess(getfavmodel: itemfavModel));
+        itemfavModel = GetFavouriteModel.fromJson(response);
+        emit(GetfavSucess(get_fav_model: itemfavModel!));
       }
     } on ServerException catch (e) {
       emit(GetfavFauiler(errmessage: e.errModel.errorMessage));

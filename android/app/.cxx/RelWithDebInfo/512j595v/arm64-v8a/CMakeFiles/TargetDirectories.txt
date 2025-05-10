@@ -1,0 +1,2 @@
+E:/SNT/SntTravelApp/android/app/.cxx/RelWithDebInfo/512j595v/arm64-v8a/CMakeFiles/edit_cache.dir
+E:/SNT/SntTravelApp/android/app/.cxx/RelWithDebInfo/512j595v/arm64-v8a/CMakeFiles/rebuild_cache.dir
