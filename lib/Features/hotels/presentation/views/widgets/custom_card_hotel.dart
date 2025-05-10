@@ -4,7 +4,7 @@ import 'package:sntegpito/Features/hotels/presentation/views/widgets/hotel_detai
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../Destionations/presentation/views/widgets/custom_card_activity_image.dart';
+import '../../../../Destionations/presentation/views/widgets/custom_card_hotel_image.dart';
 import '../../../../Destionations/presentation/views/widgets/rating_test.dart';
 
 class CustomCardHotel extends StatelessWidget {
@@ -35,7 +35,7 @@ class CustomCardHotel extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomCardActivityImage(
+              CustomCardHotelImage(
                 imageUrl: searchHotelByNameModel.firstImageUrl != null &&
                         searchHotelByNameModel.firstImageUrl!.isNotEmpty
                     ? "${EndPoint.baseImageUrl}${searchHotelByNameModel.firstImageUrl}"

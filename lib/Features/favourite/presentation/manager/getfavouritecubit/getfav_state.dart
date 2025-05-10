@@ -8,9 +8,9 @@ final class GetfavInitial extends GetfavState {}
 final class GetfavLoading extends GetfavState {}
 
 final class GetfavSucess extends GetfavState {
-  final GetFavouriteModel get_fav_model;
+  final List<GetFavouriteModel> getfavmodel;
 
-  GetfavSucess({required this.get_fav_model});
+  GetfavSucess({required this.getfavmodel});
 }
 
 final class GetfavFauiler extends GetfavState {
