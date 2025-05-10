@@ -33,6 +33,12 @@ class EndPoint {
   static String addcart = "AddToCart/add-to-cart";
   static String removecart = "AddToCart/remove-from-cart/";
   static String getAllActivityCart = "AddToCart/cart/";
+  static String prepareActivityBooking =
+      "BookingsActivity/prepare-activity-booking";
+  static String getactivityForBooking =
+      "BookingsActivity/get-activities-for-booking";
+  static String confirmmActivityBooking =
+      "BookingsActivity/confirm-activity-booking";
 }
 
 class ApiKey {

@@ -2,7 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/confirm_activity_booking/confirm_activity_booking_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_all_activity_cart/get_all_activity_cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/prepare_activity_booking/prepare_activity_before_booking_cubit.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
@@ -104,6 +107,18 @@ void main() async {
       BlocProvider(
         create: (context) => GetAllActivityCartCubit(DioConsumer(dio: Dio()))
           ..fetchAllActivityCart(),
+      ),
+      BlocProvider(
+        create: (context) =>
+            PrepareActivityBeforeBookingCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) =>
+            GetActivityForBookingCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) =>
+            ConfirmActivityBookingCubit(DioConsumer(dio: Dio())),
       ),
     ],
     child: const MyApp(),

@@ -69,7 +69,7 @@ class CartCubit extends Cubit<CartState> {
         context.read<GetAllActivityCartCubit>().fetchAllActivityCart();
       }
     } on ServerException catch (e) {
-      emit(RemoveCartFailure(errorModel: errorModel!));
+      emit(RemoveCartFailure(errorModel: e.errModel));
     }
   }
 }

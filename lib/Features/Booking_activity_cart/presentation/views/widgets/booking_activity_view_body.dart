@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_all_activity_cart/get_all_activity_cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/prepare_activity_booking/prepare_activity_before_booking_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/trip_planner_view.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/widgets/custom_card_activity_booked.dart';
-import 'package:sntegpito/core/utils/styles.dart';
+import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
 class BookingActivityViewBody extends StatelessWidget {
@@ -46,10 +50,72 @@ class BookingActivityViewBody extends StatelessWidget {
                     },
                   ),
                 ),
-                Text(
-                  "Total Price :",
-                  style: Styles.textStyle15
-                      .copyWith(color: Colors.black.withOpacity(0.7)),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Total Price:",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "${state.allactivitycartmodel.first.totalPrice} EGP",
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        BlocListener<PrepareActivityBeforeBookingCubit,
+                            PrepareActivityBeforeBookingState>(
+                          listener: (context, state) {
+                            if (state is PrepareActivityBeforeBookingLoading) {
+                              Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            } else if (state
+                                is PrepareActivityBeforeBookingFailure) {
+                              CustomSnackBar.show(context, state.errmessage,
+                                  isError: true);
+                            } else if (state
+                                is PrepareActivityBeforeBookingSuccess) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TripPlannerView(
+                                    prepareActivityBookingModel:
+                                        state.prepareActivityBookingModel,
+                                  ),
+                                ),
+                              );
+                              context
+                                  .read<GetActivityForBookingCubit>()
+                                  .getActivityBooking(userid: Constants.userid);
+                            }
+                          },
+                          child: ReserveRoomButton(
+                            text: "Book Now",
+                            ontap: () {
+                              context
+                                  .read<PrepareActivityBeforeBookingCubit>()
+                                  .prepare(userId: Constants.userid);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
