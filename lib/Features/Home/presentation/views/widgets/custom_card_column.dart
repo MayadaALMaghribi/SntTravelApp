@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:sntegpito/Features/Home/data/model/tourism_type_model.dart';
-import 'package:sntegpito/Features/Home/presentation/views/archaeological_tourism.dart';
-import 'package:sntegpito/Features/Home/presentation/views/environmental_tourism.dart';
-import 'package:sntegpito/Features/Home/presentation/views/regligious_tourism.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_card_image_col.dart';
-import 'package:sntegpito/Features/entertainment/presentation/views/entertainment_view.dart';
-import 'package:sntegpito/Features/medical/presentation/views/medical_view.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import '../../../../../core/widgets/custom_function_favourite.dart';
 import '../../../../../core/widgets/custom_snak_bar.dart';
+import '../../../../entertainment/presentation/views/widgets/entertainment_view_body.dart';
 import '../../../../favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
+import '../../../../favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 
 class CustomCardColumn extends StatelessWidget {
   final TourismTypeModel tourismType;
@@ -21,20 +18,14 @@ class CustomCardColumn extends StatelessWidget {
   const CustomCardColumn({super.key, required this.tourismType});
   @override
   Widget build(BuildContext context) {
-    final List<Widget> tourismViews = [
-      const EntertainmentView(),
-      const MedicalView(),
-      const ReligiousTourism(),
-      const EnvironmentalTourism(),
-      const ArchaeologicalTourism(),
-    ];
-
     return BlocListener<AddfovuriteCubit, AddfovuriteState>(
       listener: (context, state) {
         if (state is AddfovuriteSucess) {
           CustomSnackBar.show(context, state.sucessmessage);
+          context.read<GetfavCubit>().fetchGetFav();
         } else if (state is RemovefavSucess) {
           CustomSnackBar.show(context, state.errorModel.errorMessage);
+          context.read<GetfavCubit>().fetchGetFav();
         } else if (state is RemovefavFailure || state is AddfovuriteFailure) {
           CustomSnackBar.show(
             context,
@@ -52,7 +43,8 @@ class CustomCardColumn extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => tourismViews[tourismType.id! - 1],
+              builder: (context) => EntertainmentViewBody(),
+              //tourismViews[tourismType.id! - 1],
             ),
           );
         },

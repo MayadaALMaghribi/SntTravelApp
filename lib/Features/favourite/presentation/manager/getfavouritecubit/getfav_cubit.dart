@@ -10,7 +10,7 @@ part 'getfav_state.dart';
 class GetfavCubit extends Cubit<GetfavState> {
   GetfavCubit(this.apiConsumer) : super(GetfavInitial());
   final ApiConsumer apiConsumer;
-  List<GetFavouriteModel> itemfavModel = [];
+  GetFavouriteModel? itemfavModel;
   fetchGetFav() async {
     try {
       emit(GetfavLoading());

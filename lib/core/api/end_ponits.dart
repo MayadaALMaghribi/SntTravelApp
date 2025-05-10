@@ -15,7 +15,7 @@ class EndPoint {
   static String tourismtype = "TourismType/GetTourismTypes";
   static String imagediscount = "TourismType/image-discount";
   static String getAllLocationsByTourismTypeID =
-      "Locations/GetLocationsByTourismType/1";
+      "Locations/GetLocationsByTourismType/";
   static String getActivityByLocationId = "Activitys/locations/";
   static String getHotelsByLocationName = "Hotels/by-location-name/";
   static String getHotelRoomsById = "Rooms/hotel-rooms/";
