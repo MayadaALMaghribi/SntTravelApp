@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/widgets/feature_custom_feedtime.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
 
-import '../../../../../core/api/end_ponits.dart';
-
-class FavouriteBody extends StatelessWidget {
-  const FavouriteBody({super.key});
+class FavouriteViewBody extends StatelessWidget {
+  const FavouriteViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

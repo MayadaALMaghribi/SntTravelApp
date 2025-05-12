@@ -1,0 +1,2 @@
+E:/SNT/SntTravelApp/android/app/.cxx/Debug/2k5u2h1v/x86_64/CMakeFiles/edit_cache.dir
+E:/SNT/SntTravelApp/android/app/.cxx/Debug/2k5u2h1v/x86_64/CMakeFiles/rebuild_cache.dir

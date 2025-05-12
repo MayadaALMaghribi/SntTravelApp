@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/booking_activity_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/home_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/notifaction.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/favourite_view.dart';
@@ -21,6 +22,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
     const FavouriteView(),
     const HomeView(),
     const Notifaction(),
+    const BookingActivityView(),
   ];
 
   @override
@@ -29,7 +31,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
         body: _pages[_selectedIndex],
         bottomNavigationBar: CurvedNavigationBar(
           animationDuration: const Duration(milliseconds: 300),
-          items: List.generate(4, (index) {
+          items: List.generate(_pages.length, (index) {
             return AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
               transitionBuilder: (child, animation) {
@@ -80,6 +82,8 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
         return Icons.home;
       case 3:
         return Icons.notifications;
+      case 4:
+        return Icons.shopping_cart;
       default:
         return Icons.home;
     }

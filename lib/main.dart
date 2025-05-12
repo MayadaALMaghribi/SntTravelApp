@@ -1,11 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/confirm_activity_booking/confirm_activity_booking_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_all_activity_cart/get_all_activity_cart_cubit.dart';
+import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/prepare_activity_booking/prepare_activity_before_booking_cubit.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
-import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/gallery_details_hotel_cubit/gallery_details_hotel_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/paymob_cubit/paymob_payment_cubit.dart';
 import 'package:sntegpito/Features/room/presentation/manager/room_cubit/roomshotel_cubit.dart';
@@ -92,12 +96,30 @@ void main() async {
               ..getDetailsBooking(),
       ),
       BlocProvider(
-          create: (context) => ConfirmPaymentCubit(DioConsumer(dio: Dio()))),
+        create: (context) => ConfirmPaymentCubit(DioConsumer(dio: Dio())),
+      ),
       BlocProvider(
-          create: (context) =>
-              GetfavCubit(DioConsumer(dio: Dio()))..fetchGetFav()),
+        create: (context) => PaymobPaymentCubit(DioConsumer(dio: Dio())),
+      ),
       BlocProvider(
-          create: (context) => PaymobPaymentCubit(DioConsumer(dio: Dio()))),
+        create: (context) => CartCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) => GetAllActivityCartCubit(DioConsumer(dio: Dio()))
+          ..fetchAllActivityCart(),
+      ),
+      BlocProvider(
+        create: (context) =>
+            PrepareActivityBeforeBookingCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) =>
+            GetActivityForBookingCubit(DioConsumer(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) =>
+            ConfirmActivityBookingCubit(DioConsumer(dio: Dio())),
+      ),
     ],
     child: const MyApp(),
   ));
