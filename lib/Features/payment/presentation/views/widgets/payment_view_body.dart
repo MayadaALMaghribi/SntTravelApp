@@ -64,11 +64,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                       child: ReserveRoomButton(
                         text: "Confirm Payment",
                         ontap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) => CustomPayListenr()),
-                          // );
+                         
                           showModalBottomSheet(
                               backgroundColor: Colors.white,
                               context: context,
