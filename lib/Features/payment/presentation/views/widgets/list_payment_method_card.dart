@@ -9,10 +9,7 @@ import 'package:sntegpito/Features/payment/presentation/manager/paymob_cubit/pay
 import 'package:sntegpito/Features/payment/presentation/views/widgets/custoum_payment_method_card.dart';
 import 'package:sntegpito/core/utils/api_keys_payment.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
-
-
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../data/models/details_booking_before_payment_model.dart';
 import '../../../data/models/item_list_paypall_model.dart';
 
