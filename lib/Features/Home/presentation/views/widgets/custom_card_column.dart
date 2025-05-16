@@ -9,7 +9,7 @@ import 'package:sntegpito/core/utils/styles.dart';
 import '../../../../../core/widgets/custom_function_favourite.dart';
 import '../../../../../core/widgets/custom_snak_bar.dart';
 import '../../../../entertainment/presentation/views/widgets/entertainment_view_body.dart';
-import '../../../../favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
+import '../../../../favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
 import '../../../../favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 
 class CustomCardColumn extends StatelessWidget {

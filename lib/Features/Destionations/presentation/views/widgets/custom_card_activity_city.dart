@@ -128,7 +128,7 @@ import 'package:sntegpito/Features/Destionations/data/models/activites_for_citie
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_card_activity_image_.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_guest_counter.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/rating_test.dart';
-import 'package:sntegpito/Features/favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
+import 'package:sntegpito/Features/favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/widgets/custom_function_favourite.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';

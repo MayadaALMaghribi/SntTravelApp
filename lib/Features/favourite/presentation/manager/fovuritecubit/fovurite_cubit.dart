@@ -7,7 +7,7 @@ import 'package:sntegpito/core/errors/exceptions.dart';
 import '../../../../../core/errors/error_model.dart';
 import '../../../data/models/add_fav_models.dart';
 
-part 'addfovurite_state.dart';
+part 'fovurite_state.dart';
 
 class AddfovuriteCubit extends Cubit<AddfovuriteState> {
   AddfovuriteCubit(this.apiConsumer) : super(AddfovuriteInitial());

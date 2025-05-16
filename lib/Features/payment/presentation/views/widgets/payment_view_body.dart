@@ -7,6 +7,8 @@ import 'package:sntegpito/Features/payment/presentation/views/widgets/payment_me
 import 'package:sntegpito/Features/payment/presentation/views/widgets/success_card.dart';
 
 import '../../../../room/presentation/view/widgets/reserve_room_button.dart';
+import '../../../data/models/orginzation_models_booking/data_booking_for_payment.dart';
+import '../../../data/models/orginzation_models_booking/room_data_booking_going_topay.dart';
 
 class PaymentViewBody extends StatefulWidget {
   const PaymentViewBody({super.key});
@@ -64,17 +66,33 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                       child: ReserveRoomButton(
                         text: "Confirm Payment",
                         ontap: () {
-                         
+                          RoomBookingData bookingData = RoomBookingData(
+                              price: state.detailsBookingBeforePaymentModel
+                                  .bookingDetails!.totalPrice!,
+                              roomname: state.detailsBookingBeforePaymentModel
+                                  .bookingDetails!.room!.roomType!);
                           showModalBottomSheet(
                               backgroundColor: Colors.white,
                               context: context,
                               builder: (context) {
                                 return PaymentMethodBottomSheet(
-                                  modelbooking:
-                                      state.detailsBookingBeforePaymentModel,
+                                  baseBookingData: bookingData,
+                                  //state.detailsBookingBeforePaymentModel,
                                 );
                               });
                         },
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: MediaQuery.sizeOf(context).height * .2 - 130,
+                    left: 0,
+                    right: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: ReserveRoomButton(
+                        text: "cancel Payment",
+                        ontap: () {},
                       ),
                     ),
                   ),
