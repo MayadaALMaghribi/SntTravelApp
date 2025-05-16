@@ -19,7 +19,7 @@ class FilterViewBody extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const BuildFilterForm(),
+          child: BuildFilterForm(),
         ),
       ),
     );
