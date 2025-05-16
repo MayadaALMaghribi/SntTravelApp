@@ -84,37 +84,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                       ),
                     ),
                   ),
-                  BlocListener<CancelBookingCubit, CancelBookingState>(
-                    listener: (context, state) {
-                      if (state is CancelBookingLoading) {
-                        Center(
-                          child: CircularProgressIndicator(
-                            color: Colors.blueAccent,
-                          ),
-                        );
-                      } else if (state is CancelBookingSuccess) {
-                        CustomSnackBar.show(context,
-                            state.cancelBookingModel.message.toString());
-                      } else if (state is CancelBookingFailutre) {
-                        CustomSnackBar.show(context, state.errMessage,
-                            isError: true);
-                      }
-                    },
-                    child: Positioned(
-                      bottom: MediaQuery.sizeOf(context).height * .2 - 130,
-                      left: 0,
-                      right: 0,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: ReserveRoomButton(
-                          text: "cancel Payment",
-                          ontap: () {
-                            context.read<CancelBookingCubit>().cancelBooking();
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
+                  CancelBooking(context),
                   Positioned(
                     bottom: MediaQuery.sizeOf(context).height * .2,
                     right: -20,
@@ -127,6 +97,40 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
             }
             return const SizedBox.shrink();
           },
+        ),
+      ),
+    );
+  }
+
+  BlocListener<CancelBookingCubit, CancelBookingState> CancelBooking(
+      BuildContext context) {
+    return BlocListener<CancelBookingCubit, CancelBookingState>(
+      listener: (context, state) {
+        if (state is CancelBookingLoading) {
+          Center(
+            child: CircularProgressIndicator(
+              color: Colors.blueAccent,
+            ),
+          );
+        } else if (state is CancelBookingSuccess) {
+          CustomSnackBar.show(
+              context, state.cancelBookingModel.message.toString());
+        } else if (state is CancelBookingFailutre) {
+          CustomSnackBar.show(context, state.errMessage, isError: true);
+        }
+      },
+      child: Positioned(
+        bottom: MediaQuery.sizeOf(context).height * .2 - 130,
+        left: 0,
+        right: 0,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: ReserveRoomButton(
+            text: "Cancel Payment",
+            ontap: () {
+              context.read<CancelBookingCubit>().cancelBooking();
+            },
+          ),
         ),
       ),
     );
