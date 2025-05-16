@@ -79,9 +79,13 @@ class CustomCardColumn extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      tourismType.description!,
-                      style: Styles.textStyle12,
+                    Expanded(
+                      child: Text(
+                        tourismType.description!,
+                        style: Styles.textStyle12,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     CustomFunctionFavourite(
                       indexIdFav: tourismType.id!,
