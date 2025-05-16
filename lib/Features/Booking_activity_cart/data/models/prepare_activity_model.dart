@@ -1,4 +1,4 @@
-class PrepareActivityBookingModel{
+class PrepareActivityBookingModel {
   int? statusCode;
   String? message;
   int? bookingId;
@@ -15,11 +15,11 @@ class PrepareActivityBookingModel{
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['statusCode'] = this.statusCode;
-    data['message'] = this.message;
-    data['bookingId'] = this.bookingId;
-    data['hasRoom'] = this.hasRoom;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['statusCode'] = statusCode;
+    data['message'] = message;
+    data['bookingId'] = bookingId;
+    data['hasRoom'] = hasRoom;
     return data;
   }
 }

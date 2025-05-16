@@ -14,16 +14,16 @@ class AllActivityCartModel {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['statusCode'] = this.statusCode;
-    data['message'] = this.message;
-    data['totalPrice'] = this.totalPrice;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['statusCode'] = statusCode;
+    data['message'] = message;
+    data['totalPrice'] = totalPrice;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -60,14 +60,14 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['activityId'] = this.activityId;
-    data['activityName'] = this.activityName;
-    data['image'] = this.image;
-    data['pricePerPerson'] = this.pricePerPerson;
-    data['peopleCount'] = this.peopleCount;
-    data['totalForThisActivity'] = this.totalForThisActivity;
-    data['locationNames'] = this.locationNames;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['activityId'] = activityId;
+    data['activityName'] = activityName;
+    data['image'] = image;
+    data['pricePerPerson'] = pricePerPerson;
+    data['peopleCount'] = peopleCount;
+    data['totalForThisActivity'] = totalForThisActivity;
+    data['locationNames'] = locationNames;
     return data;
   }
 }

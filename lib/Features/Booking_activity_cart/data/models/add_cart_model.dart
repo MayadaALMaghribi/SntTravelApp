@@ -9,16 +9,16 @@ class AddCartModel {
     statusCode = json['statusCode'];
     message = json['message'];
     addedActivity = json['addedActivity'] != null
-        ? new AddedActivity.fromJson(json['addedActivity'])
+        ? AddedActivity.fromJson(json['addedActivity'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['statusCode'] = this.statusCode;
-    data['message'] = this.message;
-    if (this.addedActivity != null) {
-      data['addedActivity'] = this.addedActivity!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['statusCode'] = statusCode;
+    data['message'] = message;
+    if (addedActivity != null) {
+      data['addedActivity'] = addedActivity!.toJson();
     }
     return data;
   }
@@ -59,16 +59,16 @@ class AddedActivity {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['userId'] = this.userId;
-    data['activityId'] = this.activityId;
-    data['activityName'] = this.activityName;
-    data['activityPrice'] = this.activityPrice;
-    data['activityImageUrl'] = this.activityImageUrl;
-    data['locationName'] = this.locationName;
-    data['numberOfGuests'] = this.numberOfGuests;
-    data['addedAt'] = this.addedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['userId'] = userId;
+    data['activityId'] = activityId;
+    data['activityName'] = activityName;
+    data['activityPrice'] = activityPrice;
+    data['activityImageUrl'] = activityImageUrl;
+    data['locationName'] = locationName;
+    data['numberOfGuests'] = numberOfGuests;
+    data['addedAt'] = addedAt;
     return data;
   }
 }

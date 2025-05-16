@@ -1,7 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_all_activity_cart/get_all_activity_cart_cubit.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
@@ -30,7 +28,7 @@ class ConfirmActivityBookingCubit extends Cubit<ConfirmActivityBookingState> {
           isFromData: false);
       model = ErrorModel.fromJson(response);
       emit(ConfirmActivityBookingSuccess(message: model!.errorMessage));
-       context.read<GetAllActivityCartCubit>().fetchAllActivityCart();
+      context.read<GetAllActivityCartCubit>().fetchAllActivityCart();
     } on ServerException catch (e) {
       emit(ConfirmActivityBookingFailure(errmessage: e.errModel.errorMessage));
     }

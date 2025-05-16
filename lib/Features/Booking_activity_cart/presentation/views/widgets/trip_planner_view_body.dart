@@ -7,7 +7,6 @@ import 'package:sntegpito/Features/Booking_activity_cart/data/models/get_activit
 import 'package:sntegpito/Features/Booking_activity_cart/data/models/prepare_activity_model.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/confirm_activity_booking/confirm_activity_booking_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
-import 'package:sntegpito/Features/payment/presentation/views/widgets/payment_method_bottom_sheet.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
@@ -244,7 +243,6 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                       CustomSnackBar.show(context, state.errmessage,
                           isError: true);
                     } else if (state is ConfirmActivityBookingSuccess) {
-                      
                       CustomSnackBar.show(context, state.message,
                           isError: false);
                     }
@@ -252,8 +250,7 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                   child: ReserveRoomButton(
                     text: "Confirm Booking",
                     ontap: () {
-                      final List<Map<String, dynamic>> activitiesToSend =
-                          []; 
+                      final List<Map<String, dynamic>> activitiesToSend = [];
                       for (int i = 0; i < dailyActivities.length; i++) {
                         for (var activity in dailyActivities[i]) {
                           activitiesToSend.add({
@@ -263,7 +260,7 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                             "numberOfGuests": 2, // ✅ activity.numOfGuest,
                             "startDate": startDate!
                                 .add(Duration(days: i))
-                                .toIso8601String(), 
+                                .toIso8601String(),
                           });
                         }
                       }
@@ -273,9 +270,8 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                           .confirmBooking(
                             context: context,
                             userid: Constants.userid,
-                            activities: activitiesToSend, 
+                            activities: activitiesToSend,
                           );
-                      
                     },
                   ),
                 ),
