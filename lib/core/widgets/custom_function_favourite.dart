@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/favourite/presentation/manager/addfovuritecubit/addfovurite_cubit.dart';
+import 'package:sntegpito/Features/favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
 
 import 'package:sntegpito/core/cache/cache_helper.dart';
 

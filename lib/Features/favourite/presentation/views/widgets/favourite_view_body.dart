@@ -54,7 +54,7 @@ class FavouriteViewBody extends StatelessWidget {
                         "NO descrotion";
 
                     String image =
-                        "${EndPoint.baseImageUrl}${state.get_fav_model.data![index].itemDetails?.image?.toString()}" ??
+                        "${state.get_fav_model.data![index].itemDetails?.image?.toString()}" ??
                             "No image";
 
                     return FeatureCustomFeedtime(

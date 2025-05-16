@@ -1,4 +1,4 @@
-part of 'addfovurite_cubit.dart';
+part of 'fovurite_cubit.dart';
 
 @immutable
 sealed class AddfovuriteState {}
