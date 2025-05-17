@@ -26,13 +26,7 @@ class CustomeImageCity extends StatelessWidget {
                 image: NetworkImage(imageUrl),
                 fit: BoxFit.cover,
                 height: MediaQuery.of(context).size.width,
-              )
-              // Image.asset(
-              //   "assets/images/home_entrat.jpg",
-              //   // height: MediaQuery.of(context).size.width,
-              //   fit: BoxFit.cover,
-              // ),
-              ),
+              )),
         ),
         Positioned(
           top: 21,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/payment/presentation/manager/cancel_booking/cancel_booking_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/get_details_booking_before_pay/get_details_booking_before_payment_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/custom_check_item.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/custom_dished_line.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/payment_method_bottom_sheet.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/success_card.dart';
-
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import '../../../../room/presentation/view/widgets/reserve_room_button.dart';
-import '../../../data/models/orginzation_models_booking/data_booking_for_payment.dart';
 import '../../../data/models/orginzation_models_booking/room_data_booking_going_topay.dart';
 
 class PaymentViewBody extends StatefulWidget {
@@ -84,18 +84,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                       ),
                     ),
                   ),
-                  Positioned(
-                    bottom: MediaQuery.sizeOf(context).height * .2 - 130,
-                    left: 0,
-                    right: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: ReserveRoomButton(
-                        text: "cancel Payment",
-                        ontap: () {},
-                      ),
-                    ),
-                  ),
+                  CancelBooking(context),
                   Positioned(
                     bottom: MediaQuery.sizeOf(context).height * .2,
                     right: -20,
@@ -108,6 +97,40 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
             }
             return const SizedBox.shrink();
           },
+        ),
+      ),
+    );
+  }
+
+  BlocListener<CancelBookingCubit, CancelBookingState> CancelBooking(
+      BuildContext context) {
+    return BlocListener<CancelBookingCubit, CancelBookingState>(
+      listener: (context, state) {
+        if (state is CancelBookingLoading) {
+          Center(
+            child: CircularProgressIndicator(
+              color: Colors.blueAccent,
+            ),
+          );
+        } else if (state is CancelBookingSuccess) {
+          CustomSnackBar.show(
+              context, state.cancelBookingModel.message.toString());
+        } else if (state is CancelBookingFailutre) {
+          CustomSnackBar.show(context, state.errMessage, isError: true);
+        }
+      },
+      child: Positioned(
+        bottom: MediaQuery.sizeOf(context).height * .2 - 130,
+        left: 0,
+        right: 0,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: ReserveRoomButton(
+            text: "Cancel Payment",
+            ontap: () {
+              context.read<CancelBookingCubit>().cancelBooking();
+            },
+          ),
         ),
       ),
     );

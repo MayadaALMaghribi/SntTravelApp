@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/hotels/presentation/views/home_hotel_view.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/list_view_rooms.dart';
 import 'package:sntegpito/core/utils/styles.dart';
-import 'package:sntegpito/core/widgets/custom_app_bar.dart';
 
 class RoomsViewBody extends StatelessWidget {
   const RoomsViewBody({super.key});
@@ -11,19 +9,23 @@ class RoomsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(90),
-          child: CustomAppBar(
-            text: "",
-            page: HomeHotelView(),
-          ),
-        ),
         backgroundColor: const Color(0xffFFFFFF),
         body: Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              IconButton(
+                alignment: Alignment.topLeft,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 30,
+                ),
+              ),
               Text(
                 'Available Rooms',
                 style: Styles.textStyle22.copyWith(

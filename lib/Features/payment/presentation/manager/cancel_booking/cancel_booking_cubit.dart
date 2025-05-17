@@ -16,7 +16,7 @@ class CancelBookingCubit extends Cubit<CancelBookingState> {
     try {
       emit(CancelBookingLoading());
       final response = await apiConsumer.delete(EndPoint.cancelbooking +
-          CacheHelper().getData(key: Constants.bookingId));
+          CacheHelper().getData(key: Constants.bookingId).toString());
       if (response == null) {
         emit(CancelBookingFailutre(errMessage: "response is null"));
       } else {

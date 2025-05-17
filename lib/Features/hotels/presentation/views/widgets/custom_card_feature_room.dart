@@ -33,9 +33,12 @@ class CustomCardFeatureRoom extends StatelessWidget {
             color: const Color(0xff838383),
             size: 24,
           ),
-          Text(text,
-              style:
-                  Styles.textStyle12.copyWith(overflow: TextOverflow.ellipsis))
+          Expanded(
+            child: Text(text,
+                style: Styles.textStyle12.copyWith(
+                  overflow: TextOverflow.ellipsis,
+                )),
+          )
         ],
       ),
     );

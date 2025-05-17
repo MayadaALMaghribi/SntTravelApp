@@ -40,7 +40,8 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionCart> {
         if (isActive) {
           context.read<CartCubit>().removeFromCart(
                 activityId: widget.activityId,
-                userId: widget.userId, context: context,
+                userId: widget.userId,
+                context: context,
               );
           CacheHelper().saveData(
               key: "${widget.numOfGeusts}_${widget.activityId}", value: false);
@@ -48,7 +49,8 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionCart> {
           context.read<CartCubit>().addToCart(
                 activityId: widget.activityId,
                 userId: widget.userId,
-                numOfGeusts: widget.numOfGeusts, context: context,
+                numOfGeusts: widget.numOfGeusts,
+                context: context,
               );
           CacheHelper().saveData(
               key: "${widget.numOfGeusts}_${widget.activityId}", value: true);
@@ -58,7 +60,7 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionCart> {
         });
       },
       icon: Icon(
-        Icons.shopping_cart_outlined,
+        Icons.add_location_outlined,
         color: isActive ? Colors.blue : const Color.fromARGB(255, 82, 82, 82),
       ),
     );
