@@ -25,19 +25,32 @@ class HotelDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(90),
-          child: CustomAppBar(
-            text: "",
-            page: CustomListViewSearchHotel(),
-          ),
-        ),
+        // appBar: const PreferredSize(
+        //   preferredSize: Size.fromHeight(90),
+        //   child: CustomAppBar(
+        //     text: "",
+        //     page: CustomListViewSearchHotel(),
+        //   ),
+        // ),
         body: LayoutBuilder(
           builder: (context, constraints) {
             final isTablet = constraints.maxWidth >= 600;
 
             return CustomScrollView(
               slivers: [
+                SliverToBoxAdapter(
+                  child: IconButton(
+                    alignment: Alignment.topLeft,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                  ),
+                ),
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: EdgeInsets.symmetric(

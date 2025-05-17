@@ -12,18 +12,14 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         children: [
           // أيقونة الرجوع
-          InkWell(
-            onTap: () {
+          IconButton(
+            onPressed: () {
               Navigator.pop(context);
-              // Navigator.pushAndRemoveUntil(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => page),
-              //   (Route) => false,
-              // );
             },
-            child: const Icon(
-              Icons.keyboard_backspace,
-              size: 30,
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+              size: 35,
             ),
           ),
           const Spacer(flex: 2), // يضيف فراغ بين الأيقونة والنص

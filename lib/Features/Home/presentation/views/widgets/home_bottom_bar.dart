@@ -83,7 +83,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
       case 3:
         return Icons.notifications;
       case 4:
-        return Icons.shopping_cart;
+        return Icons.event;
       default:
         return Icons.home;
     }

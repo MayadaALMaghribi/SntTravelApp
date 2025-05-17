@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
 import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_state.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/widgets/custom_image_entertainment_top.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/widgets/custom_row_text.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/widgets/feature_ist_view_destinations.dart';
 import 'package:sntegpito/Features/entertainment/presentation/views/widgets/feature_list_icon.dart';
-import 'package:sntegpito/core/widgets/custom_app_bar.dart';
 
 class EntertainmentViewBody extends StatelessWidget {
   const EntertainmentViewBody({super.key});
@@ -17,13 +15,6 @@ class EntertainmentViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(90),
-          child: const CustomAppBar(
-            text: "",
-            page: HomeBottomBar(),
-          ).animate().fade(duration: 600.ms, delay: 300.ms),
-        ),
         backgroundColor: const Color(0xffFFFFFF),
         body: BlocBuilder<EntertainmentCubit, EntertainmentState>(
           builder: (context, state) {
@@ -35,9 +26,22 @@ class EntertainmentViewBody extends StatelessWidget {
               return CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
+                    child: IconButton(
+                      alignment: Alignment.topLeft,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.black,
+                        size: 35,
+                      ),
+                    ).animate().fade(duration: 600.ms, delay: 300.ms),
+                  ),
+                  SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsets.only(
-                          left: 16, right: 16, top: 26, bottom: 44),
+                          left: 16, right: 16, top: 20, bottom: 44),
                       child: CustomImageEntertainmentTop(
                           imagemodel: state.imagemodel),
                     ),
