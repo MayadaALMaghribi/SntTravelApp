@@ -186,18 +186,9 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                                   (activity) => ListTile(
                                     leading:
                                         const Icon(Icons.check_circle_outline),
-                                    title:
-                                        Text(activity.activityName ?? ""), // ✅
+                                    title: Text(activity.activityName ?? ""),
                                   ),
                                 ),
-
-                                // ...dailyActivities[index].map(
-                                //   (activity) => ListTile(
-                                //     leading:
-                                //         const Icon(Icons.check_circle_outline),
-                                //     title: Text(activity),
-                                //   ),
-                                // ),
                                 if (dailyActivities[index].isEmpty)
                                   const Padding(
                                     padding:
@@ -257,7 +248,7 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                             "activityId": activity.activityId,
                             "activityName": activity.activityName,
                             "activityPrice": activity.activityPrice,
-                            "numberOfGuests": 2, // ✅ activity.numOfGuest,
+                            "numberOfGuests": activity.numberOfGuests,
                             "startDate": startDate!
                                 .add(Duration(days: i))
                                 .toIso8601String(),
@@ -344,8 +335,7 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                   ); // ✅ تم التعديل هنا: جلب الكائن كامل
 
                   setState(() {
-                    dailyActivities[selectedDayIndex]
-                        .add(selectedActivity); // ✅ كان بيضيف String بس
+                    dailyActivities[selectedDayIndex].add(selectedActivity);
                   });
                   Navigator.pop(context);
                 }
