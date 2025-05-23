@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../Booking_activity_cart/presentation/views/widgets/custom_image_activity_booked.dart';
 
@@ -8,11 +12,15 @@ class FeatureCustomFeedtime extends StatelessWidget {
       required this.image,
       required this.headName,
       required this.add,
-      required this.price});
+      required this.price,
+      required this.itemfav,
+      required this.typefav});
   final String image;
   final String headName;
   final String add;
   final String price;
+  final int itemfav;
+  final String typefav;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -69,7 +77,15 @@ class FeatureCustomFeedtime extends StatelessWidget {
 
           // زر الإغلاق
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.read<FovuriteCubit>().RemoveFav(
+                  itemIdfav: itemfav,
+                  userIdfav: CacheHelper().getData(key: Constants.userId),
+                  itemTypefav: typefav,
+                  context: context);
+              CacheHelper()
+                  .saveData(key: "${typefav}_${itemfav}", value: false);
+            },
             icon: const Icon(Icons.close_outlined),
             color: Colors.black,
           ),

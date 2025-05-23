@@ -27,6 +27,7 @@ import 'package:sntegpito/Features/splash/presentation/views/splash_view.dart';
 import 'package:sntegpito/core/api/dio_consumer.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
+import 'package:sntegpito/core/utils/constant.dart';
 
 import 'core/api/end_ponits.dart';
 
@@ -74,7 +75,7 @@ void main() async {
         create: (context) => HotelFilterCubit(DioConsumer(dio: Dio())),
       ),
       BlocProvider(
-        create: (context) => AddfovuriteCubit(DioConsumer(dio: Dio())),
+        create: (context) => FovuriteCubit(DioConsumer(dio: Dio())),
       ),
       BlocProvider(
         create: (context) => GalleryDetailsHotelCubit(DioConsumer(dio: Dio())),

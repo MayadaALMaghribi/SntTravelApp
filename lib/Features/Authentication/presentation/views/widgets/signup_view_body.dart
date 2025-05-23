@@ -6,6 +6,7 @@ import 'package:sntegpito/Features/Authentication/presentation/views/verify_sign
 import 'package:sntegpito/Features/Authentication/presentation/views/widgets/custom_password_check.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import 'package:sntegpito/core/widgets/custom_textformfield.dart';
 
 class SignupViewBody extends StatelessWidget {
@@ -16,9 +17,7 @@ class SignupViewBody extends StatelessWidget {
     return BlocListener<UserCubit, UserState>(
       listener: (context, state) {
         if (state is SignUpSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)), //message from database
-          );
+          CustomSnackBar.show(context, state.message);
 
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
@@ -31,9 +30,8 @@ class SignupViewBody extends StatelessWidget {
           // context.read<UserCubit>().signUpPassport.clear();
           // context.read<UserCubit>().signUpPassword.clear();
         } else if (state is SignUpFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('signup failed: ${state.errmessage}')),
-          );
+          CustomSnackBar.show(context, 'signup failed: ${state.errmessage}',
+              isError: true);
         }
       },
       child: Scaffold(

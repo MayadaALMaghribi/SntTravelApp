@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/booking_activity_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/home_view.dart';
-import 'package:sntegpito/Features/Home/presentation/views/notifaction.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/favourite_view.dart';
 import 'package:sntegpito/Features/profile/presentation/views/side_bar_view.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
@@ -21,8 +20,8 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
     const SideBarView(),
     const FavouriteView(),
     const HomeView(),
-    const Notifaction(),
     const BookingActivityView(),
+    //const Notifaction(),
   ];
 
   @override
@@ -81,8 +80,6 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
       case 2:
         return Icons.home;
       case 3:
-        return Icons.notifications;
-      case 4:
         return Icons.event;
       default:
         return Icons.home;

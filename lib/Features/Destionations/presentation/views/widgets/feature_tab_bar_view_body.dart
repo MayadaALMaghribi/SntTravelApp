@@ -12,7 +12,7 @@ class _CustomState extends State<FeatureTabBarViewBody> {
   @override
   Widget build(BuildContext context) {
     return const DefaultTabController(
-      length: 3,
+      length: 2,
       child: Column(
         children: [
           TabBar(
@@ -21,16 +21,12 @@ class _CustomState extends State<FeatureTabBarViewBody> {
             indicatorSize: TabBarIndicatorSize.tab,
             tabs: [
               Tab(
-                icon: Icon(Icons.home_work_sharp),
-                text: "Hotels",
-              ),
+                  icon: Icon(Icons.directions_boat_filled_outlined),
+                  text: "Activity"),
               Tab(
                 icon: Icon(Icons.directions_car_filled_outlined),
                 text: "Cars",
               ),
-              Tab(
-                  icon: Icon(Icons.directions_boat_filled_outlined),
-                  text: "Activity"),
             ],
           ),
           CustomListTabBar()

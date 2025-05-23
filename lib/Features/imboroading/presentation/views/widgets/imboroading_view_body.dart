@@ -6,6 +6,7 @@ import 'package:sntegpito/Features/imboroading/presentation/views/widgets/screen
 import 'package:sntegpito/Features/imboroading/presentation/views/widgets/secreen_view_two.dart';
 
 import '../../../../../constants.dart';
+import '../../../../welcome_screen/presentation/views/welcome_view.dart';
 
 class ImboroadingViewBody extends StatefulWidget {
   const ImboroadingViewBody({super.key});
@@ -69,7 +70,7 @@ class _ImboroadingViewBodyState extends State<ImboroadingViewBody> {
                     if (butttext == "Finish") {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const HomeBottomBar(); //WelcomeView
+                        return const WelcomeView(); //WelcomeView
                       }));
                     } else {
                       pageController.nextPage(

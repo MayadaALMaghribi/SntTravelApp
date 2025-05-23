@@ -10,6 +10,7 @@ import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_vie
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
 import 'package:sntegpito/core/widgets/custom_button.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import 'package:sntegpito/core/widgets/custom_textformfield.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -20,23 +21,13 @@ class LoginViewBody extends StatelessWidget {
     return BlocListener<UserCubit, UserState>(
       listener: (context, state) {
         if (state is SignInSuccess) {
-          //http://tourism.runasp.net/posters/DefualtProfile.jpeg
-          // نجاح تسجيل الدخول
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Login Successful")),
-          );
-
+          CustomSnackBar.show(context, "Login Successful");
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
             return const HomeBottomBar();
           }));
-          // context.read<UserCubit>().signInEmail.clear();
-          // context.read<UserCubit>().signInPassword.clear();
         } else if (state is SignInFailure) {
-          // فشل تسجيل الدخول
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login failed: ${state.errmessage}')),
-          );
+          CustomSnackBar.show(context, 'Login failed: ${state.errmessage}');
         }
       },
       child: Scaffold(
@@ -132,74 +123,7 @@ class LoginViewBody extends StatelessWidget {
                                 'Login',
                                 style: TextStyle(color: Colors.white),
                               ),
-                        // () {
-                        //   state is SignInLoading
-                        //       ? null // تعطيل الزر أثناء التحميل
-                        //       : () {
-                        //           if (context
-                        //                   .read<UserCubit>()
-                        //                   .signInEmail
-                        //                   .text
-                        //                   .isNotEmpty &&
-                        //               context
-                        //                   .read<UserCubit>()
-                        //                   .signInPassword
-                        //                   .text
-                        //                   .isNotEmpty) {
-                        //             context.read<UserCubit>().signIn();
-                        //           } else {
-                        //             ScaffoldMessenger.of(context).showSnackBar(
-                        //               const SnackBar(
-                        //                   content:
-                        //                       Text('Please fill all fields')),
-                        //             );
-                        //           }
-                        //         };
-                        // },
                       ),
-
-                      // child: ElevatedButton(
-                      //   onPressed: state is SignInLoading
-                      //       ? null // تعطيل الزر أثناء التحميل
-                      //       : () {
-                      //           if (context
-                      //                   .read<UserCubit>()
-                      //                   .signInEmail
-                      //                   .text
-                      //                   .isNotEmpty &&
-                      //               context
-                      //                   .read<UserCubit>()
-                      //                   .signInPassword
-                      //                   .text
-                      //                   .isNotEmpty) {
-                      //             context.read<UserCubit>().signIn();
-                      //           } else {
-                      //             ScaffoldMessenger.of(context).showSnackBar(
-                      //               const SnackBar(
-                      //                   content:
-                      //                       Text('Please fill all fields')),
-                      //             );
-                      //           }
-                      //         },
-                      //   style: ElevatedButton.styleFrom(
-                      //     padding: const EdgeInsets.symmetric(vertical: 16),
-                      //     minimumSize: const Size(double.infinity, 48),
-                      //     backgroundColor: const Color(0xff49AEE4),
-                      //   ),
-                      //   child: state is SignInLoading
-                      //       ? const SizedBox(
-                      //           height: 24,
-                      //           width: 24,
-                      //           child: CircularProgressIndicator(
-                      //             color: Colors.white,
-                      //             strokeWidth: 2.5,
-                      //           ),
-                      //         )
-                      //       : const Text(
-                      //           'Login',
-                      //           style: TextStyle(color: Colors.white),
-                      //         ),
-                      // ),
                     ),
                     const SizedBox(height: 20),
                     Row(

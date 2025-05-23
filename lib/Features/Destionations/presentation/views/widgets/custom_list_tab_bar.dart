@@ -24,14 +24,15 @@ class CustomListTabBar extends StatelessWidget {
         height: 400,
         child: TabBarView(
           children: [
-            ListViewTabBarHotel(),
+            //ListViewTabBarHotel(),
+
+            ListViewTabBarActivity(),
             Center(
               child: Text(
                 "Favorites Page",
                 style: TextStyle(fontSize: 20),
               ),
             ),
-            ListViewTabBarActivity(),
           ],
         ),
       ),

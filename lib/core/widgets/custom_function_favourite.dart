@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
+import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
@@ -40,19 +41,23 @@ class _CustomFunctionFavouriteState extends State<CustomFunctionFavourite> {
     return IconButton(
       onPressed: () {
         if (isActive) {
-          context.read<AddfovuriteCubit>().RemoveFav(
+          context.read<FovuriteCubit>().RemoveFav(
               itemIdfav: widget.indexIdFav,
               itemTypefav: widget.itemTypefav,
-              userIdfav: widget.userIdfav);
+              userIdfav: widget.userIdfav,
+              context: context);
           CacheHelper().saveData(
               key: "${widget.itemTypefav}_${widget.indexIdFav}", value: false);
+          context.read<GetfavCubit>().fetchGetFav();
         } else {
-          context.read<AddfovuriteCubit>().addfavourite(
+          context.read<FovuriteCubit>().addfavourite(
               itemIdfav: widget.indexIdFav,
               userIdfav: widget.userIdfav,
-              itemTypefav: widget.itemTypefav);
+              itemTypefav: widget.itemTypefav,
+              context: context);
           CacheHelper().saveData(
               key: "${widget.itemTypefav}_${widget.indexIdFav}", value: true);
+          context.read<GetfavCubit>().fetchGetFav();
         }
         setState(() {
           isActive = !isActive;

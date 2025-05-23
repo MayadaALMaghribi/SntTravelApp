@@ -5,13 +5,13 @@ import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cu
 import 'package:sntegpito/Features/Authentication/presentation/views/login_view.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/widgets/custom_password_check.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/widgets/custom_password_login.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
 class ResetpasswordViewBody extends StatelessWidget {
   const ResetpasswordViewBody({super.key});
-   // bool _obscureConfirmPassword = true;
+  // bool _obscureConfirmPassword = true;
   final bool _isPasswordMatch = true;
   //final bool _isPasswordEmpty = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +25,7 @@ class ResetpasswordViewBody extends StatelessWidget {
             ),
           );
         } else if (state is resetpassFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(state.errmessage),
-          ));
+          CustomSnackBar.show(context, state.errmessage);
         }
       },
       child: Scaffold(

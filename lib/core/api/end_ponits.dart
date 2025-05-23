@@ -78,16 +78,3 @@ class ApiKey {
   static String numberofguests = "numberOfGuests";
   static String activityId = "activityId";
 }
-
-class Constants {
-  static String itemTypefav = "Activity";
-  static int userid = 1136;
-  static String idhotel = "hotel_id";
-  static String fromDate = "from_date";
-  static String toDate = "to_date";
-  static String guests = "guest";
-  static String bookingId = "booking_id";
-  static String transcationId = "transcationId";
-  static String cityName = "cityName";
-  static String activityid = "activity_id";
-}

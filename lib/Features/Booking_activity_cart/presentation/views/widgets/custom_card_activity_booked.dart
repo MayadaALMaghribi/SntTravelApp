@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/data/models/all_activity_cart_model.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/cart_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/widgets/custom_image_activity_booked.dart';
-import 'package:sntegpito/core/api/end_ponits.dart';
+import '../../../../../core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomCardActivityBooked extends StatelessWidget {
@@ -75,7 +76,11 @@ class CustomCardActivityBooked extends StatelessWidget {
           IconButton(
             onPressed: () {
               context.read<CartCubit>().removeFromCart(
-                  userId: Constants.userid, activityId: data.activityId!, context: context);
+                  userId: CacheHelper().getData(key: Constants.userId),
+                  activityId: data.activityId!,
+                  context: context);
+              CacheHelper().saveData(
+                  key: "${data.peopleCount}_${data.activityId!}", value: false);
             },
             icon: const Icon(Icons.close_outlined),
             color: Colors.black,

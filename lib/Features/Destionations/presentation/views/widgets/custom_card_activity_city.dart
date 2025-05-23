@@ -9,6 +9,9 @@ import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/widgets/custom_function_favourite.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
+import '../../../../../core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
+
 class CustomCardActivityCity extends StatefulWidget {
   const CustomCardActivityCity(
       {super.key, required this.activitesforcitiesModel});
@@ -36,7 +39,7 @@ class _CustomCardActivityCityState extends State<CustomCardActivityCity> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AddfovuriteCubit, AddfovuriteState>(
+    return BlocListener<FovuriteCubit, AddfovuriteState>(
       listener: (context, state) {
         if (state is AddfovuriteSucess) {
           CustomSnackBar.show(context, state.sucessmessage);
@@ -55,8 +58,8 @@ class _CustomCardActivityCityState extends State<CustomCardActivityCity> {
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
         child: Container(
-          width: 350,
-          height: 350,
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: MediaQuery.of(context).size.height * 0.4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xff868686), width: 1),
@@ -97,7 +100,7 @@ class _CustomCardActivityCityState extends State<CustomCardActivityCity> {
                     CustomFunctionFavourite(
                       indexIdFav: widget.activitesforcitiesModel.id!,
                       itemTypefav: Constants.itemTypefav,
-                      userIdfav: Constants.userid,
+                      userIdfav: CacheHelper().getData(key: Constants.userId),
                     )
                   ],
                 ),

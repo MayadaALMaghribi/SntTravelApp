@@ -71,7 +71,7 @@ class HomeViewBody extends StatelessWidget {
                 ),
               ),
               SliverToBoxAdapter(child: CategoriesRow()),
-              const SliverToBoxAdapter(child: SizedBox(height: 20)),
+              const SliverToBoxAdapter(child: SizedBox(height: 25)),
               const CategoriesCol(),
             ],
           ),

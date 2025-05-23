@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/widgets/custom_function_cart.dart';
+import '../../../../../core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
 
 class CustomCardActivityImage extends StatelessWidget {
   const CustomCardActivityImage(
-      {super.key, required this.imageUrl, required this.activityId,required this.numOfGuests});
+      {super.key,
+      required this.imageUrl,
+      required this.activityId,
+      required this.numOfGuests});
   final String imageUrl;
   final int activityId;
   final int numOfGuests;
@@ -34,8 +38,8 @@ class CustomCardActivityImage extends StatelessWidget {
                 ),
                 child: CustomFunctionCart(
                   activityId: activityId,
-                  numOfGeusts:numOfGuests,
-                  userId: Constants.userid,
+                  numOfGeusts: numOfGuests,
+                  userId: CacheHelper().getData(key: Constants.userId),
                 )),
           ),
         ],

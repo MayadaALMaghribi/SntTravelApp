@@ -14,12 +14,9 @@ class SideBarViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // استخدم height(context) و width(context) للحصول على الأبعاد
     double screenHeight = MediaQuery.of(context).size.height;
-    // double screenWidth = MediaQuery.of(context).size.width;
     const base = "http://tourism.runasp.net/";
-    //final imageUrl = Uri.encodeFull("${base}${image ?? ''}");
-    //final cubit = GetCubit(DioConsumer(dio: Dio()));
+
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(90),
@@ -47,16 +44,14 @@ class SideBarViewBody extends StatelessWidget {
               : state is GetuserprofileSuccess
                   ? ListView(children: [
                       Padding(
-                        padding: EdgeInsets.only(
-                            bottom:
-                                screenHeight * 0.1), // نسبة من ارتفاع الشاشة
+                        padding: EdgeInsets.only(bottom: screenHeight * 0.1),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CustomProfileImage(
                               icon: Icons.edit,
                               image: Uri.encodeFull(
-                                      "$base${state.getuserprofileModel.profilePicture}") //?? '' كان محطوط جوا القوس
+                                      "$base${state.getuserprofileModel.profilePicture}")
                                   .toString(),
                               radiusg: 75,
                               radiuss: 70,

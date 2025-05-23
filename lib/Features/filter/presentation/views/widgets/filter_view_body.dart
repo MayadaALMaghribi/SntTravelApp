@@ -8,12 +8,10 @@ class FilterViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Material(
-        color: Colors.transparent, // عشان يخلي الخلفيه الى قبلها شفافه
+        color: Colors.transparent,
         child: Container(
-          height:
-              MediaQuery.of(context).size.height * 0.8, // 80 في الميه من الطول
-          width:
-              MediaQuery.of(context).size.width * 0.9, // 90 في الميه من العرض
+          height: MediaQuery.of(context).size.height * 0.8,
+          width: MediaQuery.of(context).size.width * 0.9,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.white,

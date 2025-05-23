@@ -10,17 +10,21 @@ import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
+import '../../../../../core/utils/constant.dart';
+
 class CustomCardRoom extends StatelessWidget {
   const CustomCardRoom({super.key, required this.roomsModel});
   final HotelRoomsModel roomsModel;
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final cardWidth = screenWidth * 0.9; // 90% من عرض الشاشة
+
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Container(
-        width: 360,
-        height: 450,
+        width: cardWidth,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: const Color(0xff868686), width: 1),
@@ -32,8 +36,7 @@ class CustomCardRoom extends StatelessWidget {
               imageurl: "${EndPoint.baseImageUrl}${roomsModel.roomImageUrl!}",
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                  top: 8, left: 12, right: 12, bottom: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -42,10 +45,13 @@ class CustomCardRoom extends StatelessWidget {
                       roomsModel.roomName!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Styles.textStyle14
-                          .copyWith(fontSize: 18, fontWeight: FontWeight.w600),
+                      style: Styles.textStyle14.copyWith(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
+                  SizedBox(width: 8),
                   Text(
                     '${roomsModel.pricePerNight} \$ Per Night',
                     style: Styles.textStyle14,
@@ -54,14 +60,16 @@ class CustomCardRoom extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 14),
-              child: Text(roomsModel.description!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Styles.textStyle12),
+              padding: const EdgeInsets.only(left: 8, bottom: 8),
+              child: Text(
+                roomsModel.description!,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Styles.textStyle12,
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 5),
+              padding: const EdgeInsets.only(left: 8, bottom: 4),
               child: Row(
                 children: [
                   Text(
@@ -75,7 +83,7 @@ class CustomCardRoom extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 5),
+              padding: const EdgeInsets.only(left: 8, bottom: 4),
               child: Row(
                 children: [
                   Text(
@@ -89,7 +97,7 @@ class CustomCardRoom extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 5),
+              padding: const EdgeInsets.only(left: 8, bottom: 4),
               child: Row(
                 children: [
                   Text(
@@ -97,28 +105,23 @@ class CustomCardRoom extends StatelessWidget {
                     style: Styles.textStyle14
                         .copyWith(fontWeight: FontWeight.w600),
                   ),
-                  roomsModel.isAvailable == true
-                      ? Text(
-                          "available",
-                          style: Styles.textStyle20.copyWith(fontSize: 18),
-                        )
-                      : Text(
-                          "not available",
-                          style: Styles.textStyle20.copyWith(
-                            color: Colors.red,
-                            fontSize: 18,
-                          ),
-                        ),
+                  Text(
+                    roomsModel.isAvailable == true
+                        ? "available"
+                        : "not available",
+                    style: Styles.textStyle20.copyWith(
+                      fontSize: 18,
+                      color: roomsModel.isAvailable == true
+                          ? Colors.blueAccent
+                          : Colors.red,
+                    ),
+                  ),
                 ],
               ),
             ),
             BlocListener<BookingRoomCubit, BookingRoomState>(
               listener: (context, state) {
-                if (state is BookingRoomLoading) {
-                  const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is BookingRoomFailure) {
+                if (state is BookingRoomFailure) {
                   CustomSnackBar.show(context, state.errmessage, isError: true);
                 } else if (state is BookingRoomSuccess) {
                   CustomSnackBar.show(
@@ -129,8 +132,7 @@ class CustomCardRoom extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PaymentView(), //SucessView
-                    ),
+                        builder: (context) => const PaymentView()),
                   );
                   CacheHelper().saveData(
                       key: Constants.transcationId,
@@ -142,20 +144,19 @@ class CustomCardRoom extends StatelessWidget {
                 ontap: () {
                   DateTime parsedStartDate = DateTime.parse(
                       CacheHelper().getData(key: Constants.fromDate));
-                  DateTime parsedFormDate = DateTime.parse(
+                  DateTime parsedEndDate = DateTime.parse(
                       CacheHelper().getData(key: Constants.toDate));
                   String formattedStartDate = parsedStartDate.toIso8601String();
-                  String formattedFormDate = parsedFormDate.toIso8601String();
+                  String formattedEndDate = parsedEndDate.toIso8601String();
                   context.read<BookingRoomCubit>().bookingRoom(
-                      startdate: formattedStartDate,
-                      enddate: formattedFormDate,
-                      userid: Constants.userid,
-                      roomid: roomsModel.roomId!,
-                      paymethod: 1,
-                      numofguest: CacheHelper().getData(key: Constants.guests));
-                  print(
-                    "STARTDATE$formattedFormDate",
-                  );
+                        startdate: formattedStartDate,
+                        enddate: formattedEndDate,
+                        userid: CacheHelper().getData(key: Constants.userId),
+                        roomid: roomsModel.roomId!,
+                        paymethod: 1,
+                        numofguest:
+                            CacheHelper().getData(key: Constants.guests),
+                      );
                 },
               ),
             ),

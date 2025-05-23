@@ -5,6 +5,9 @@ import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
 
+import '../../../../../core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
+
 part 'getfav_state.dart';
 
 class GetfavCubit extends Cubit<GetfavState> {
@@ -14,8 +17,8 @@ class GetfavCubit extends Cubit<GetfavState> {
   fetchGetFav() async {
     try {
       emit(GetfavLoading());
-      final response = await apiConsumer
-          .get(EndPoint.getfav + Constants.userid.toString());
+      final response = await apiConsumer.get(EndPoint.getfav +
+          CacheHelper().getData(key: Constants.userId).toString());
       if (response == null) {
         emit(GetfavFauiler(errmessage: "response are NuLL"));
       } else {
