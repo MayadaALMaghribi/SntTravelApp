@@ -25,6 +25,7 @@ class BookingActivityViewBody extends StatelessWidget {
             CustomSnackBar.show(context, state.errmessage);
           });
         } else if (state is GetAllActivityCartSuccess) {
+          final int price = state.allactivitycartmodel.first.totalPrice ?? 0;
           final activities = state.allactivitycartmodel.first.data ?? [];
           return Scaffold(
             backgroundColor: Colors.white,
@@ -96,6 +97,7 @@ class BookingActivityViewBody extends StatelessWidget {
                                   builder: (context) => TripPlannerView(
                                     prepareActivityBookingModel:
                                         state.prepareActivityBookingModel,
+                                    price: price,
                                   ),
                                 ),
                               );

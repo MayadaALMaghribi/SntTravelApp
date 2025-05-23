@@ -7,18 +7,22 @@ import 'package:sntegpito/Features/Booking_activity_cart/data/models/get_activit
 import 'package:sntegpito/Features/Booking_activity_cart/data/models/prepare_activity_model.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/confirm_activity_booking/confirm_activity_booking_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
+import 'package:sntegpito/Features/payment/data/models/orginzation_models_booking/activity_booking_data.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
 import '../../../../../core/widgets/them_date.dart';
+import '../../../../payment/presentation/views/widgets/payment_method_bottom_sheet.dart';
 
 class TripPlannerViewBody extends StatefulWidget {
   const TripPlannerViewBody(
-      {super.key, required this.prepareActivityBookingModel});
+      {super.key,
+      required this.prepareActivityBookingModel,
+      required this.price});
   final PrepareActivityBookingModel prepareActivityBookingModel;
-
+  final int price;
   @override
   _TripPlannerScreenState createState() => _TripPlannerScreenState();
 }
@@ -261,6 +265,19 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                   child: ReserveRoomButton(
                     text: "Confirm Booking",
                     ontap: () {
+                      ActivityBookingData bookingDataActivity =
+                          ActivityBookingData(
+                              price: widget.price.toDouble(),
+                              activityname: "Activity");
+                      showModalBottomSheet(
+                          backgroundColor: Colors.white,
+                          context: context,
+                          builder: (context) {
+                            return PaymentMethodBottomSheet(
+                              baseBookingData: bookingDataActivity,
+                              //state.detailsBookingBeforePaymentModel,
+                            );
+                          });
                       final List<Map<String, dynamic>> activitiesToSend = [];
                       for (int i = 0; i < dailyActivities.length; i++) {
                         for (var activity in dailyActivities[i]) {
