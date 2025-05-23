@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
 import 'package:flutter/material.dart';
-
 import 'package:sntegpito/Features/Home/presentation/views/widgets/details_page.dart';
 
 class CategoriesRow extends StatelessWidget {
@@ -9,10 +8,16 @@ class CategoriesRow extends StatelessWidget {
   // قائمة الصور المحلية
   final List<String> imageList = [
     'assets/images_home/downtown.jpg',
+    'assets/images_home/korba.jpg',
+    'assets/images_home/pic2.jpg',
     'assets/images_home/sea.jpg',
-    'assets/images_home/BaronPlace.jpg',
+    'assets/images_home/div.jpg',
     'assets/images_home/laxuor.jpeg',
-    'assets/images_home/Al-Moez.jpg',
+    'assets/images_home/korba.jpg',
+    'assets/images_home/medical2.jpg',
+    'assets/images_home/medical1.jpg',
+    'assets/images_home/cairo1.jpg',
+    'assets/images_home/cairo2.jpg',
   ];
 
   final List<Widget> pagesList = [

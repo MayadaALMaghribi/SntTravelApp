@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/list_payment_method_card.dart';
 
-import '../../../data/models/details_booking_before_payment_model.dart';
 import '../../../data/models/orginzation_models_booking/base_abstract_booking_data.dart';
 
 class PaymentMethodBottomSheet extends StatelessWidget {

@@ -9,7 +9,10 @@ import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/co
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
+
+import '../../../../../core/widgets/them_date.dart';
 
 class TripPlannerViewBody extends StatefulWidget {
   const TripPlannerViewBody(
@@ -98,6 +101,9 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                               firstDate: DateTime.now(),
                               lastDate:
                                   DateTime.now().add(const Duration(days: 365)),
+                              builder: (BuildContext context, Widget? child) {
+                                return ThemeofDate(context, child);
+                              },
                             );
                             if (picked != null) {
                               setState(() {
@@ -113,10 +119,15 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                               });
                             }
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 223, 234, 244),
+                          ),
                           child: Text(
                             startDate == null
                                 ? "Select Start Date"
                                 : formatDate(startDate!),
+                            style: Styles.textStyle15,
                           ),
                         ),
                       ],
@@ -132,8 +143,12 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                               context: context,
                               initialDate: startDate ?? DateTime.now(),
                               firstDate: startDate ?? DateTime.now(),
-                              lastDate:
-                                  DateTime.now().add(const Duration(days: 365)),
+                              lastDate: DateTime.now().add(
+                                const Duration(days: 365),
+                              ),
+                              builder: (BuildContext context, Widget? child) {
+                                return ThemeofDate(context, child);
+                              },
                             );
                             if (picked != null &&
                                 startDate != null &&
@@ -147,10 +162,15 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                               });
                             }
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 223, 234, 244),
+                          ),
                           child: Text(
                             endDate == null
                                 ? "Select End Date"
                                 : formatDate(endDate!),
+                            style: Styles.textStyle15,
                           ),
                         ),
                       ],

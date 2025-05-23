@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/widgets/them_date.dart';
+
 // ignore: must_be_immutable
 class CustomDatePicker extends StatelessWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -50,24 +52,6 @@ class CustomDatePicker extends StatelessWidget {
           textController.text = picked.toString().split('T')[0];
         }
       },
-    );
-  }
-
-  Theme ThemeofDate(BuildContext context, Widget? child) {
-    return Theme(
-      data: Theme.of(context).copyWith(
-        colorScheme: const ColorScheme.light(
-          primary: Colors.blueAccent,
-          onPrimary: Colors.white,
-          onSurface: Colors.black,
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            foregroundColor: Colors.blueAccent,
-          ),
-        ),
-      ),
-      child: child!,
     );
   }
 }
