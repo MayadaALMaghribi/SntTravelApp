@@ -83,8 +83,7 @@ class FeatureCustomFeedtime extends StatelessWidget {
                   userIdfav: CacheHelper().getData(key: Constants.userId),
                   itemTypefav: typefav,
                   context: context);
-              CacheHelper()
-                  .saveData(key: "${typefav}_${itemfav}", value: false);
+              CacheHelper().saveData(key: "${typefav}_$itemfav", value: false);
             },
             icon: const Icon(Icons.close_outlined),
             color: Colors.black,

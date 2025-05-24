@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/list_view_tab_bar_activity.dart';
-import 'package:sntegpito/Features/Destionations/presentation/views/widgets/list_view_tab_bar_hotel.dart';
 import 'package:sntegpito/core/api/dio_consumer.dart';
 
 import '../../manager/activities_for_all_city_cubit/activites_for_all_city_cubit.dart';

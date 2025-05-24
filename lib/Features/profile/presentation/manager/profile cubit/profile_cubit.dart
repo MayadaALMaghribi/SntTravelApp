@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,7 +19,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   XFile? profilePic;
   picturemodel? picmodel;
   final TextEditingController newusernameController = TextEditingController();
-  AuthModel? newuser,updatepass;
+  AuthModel? newuser, updatepass;
 
   final TextEditingController oldpasswordController = TextEditingController();
   final TextEditingController updatePasswordController =
@@ -53,9 +55,8 @@ class ProfileCubit extends Cubit<ProfileState> {
       final response = await apiConsumer.post(
         EndPoint.updateusername,
         data: {
-          ApiKey.newusername = newusernameController.text,
+          ApiKey.newusername: newusernameController.text,
         },
-        isFromData: true,
       );
       newuser = AuthModel.fromJson(response);
       emit(UpdateusernameSuccess(message: newuser!.message));
@@ -64,18 +65,15 @@ class ProfileCubit extends Cubit<ProfileState> {
     }
   }
 
-
-
-
   updatepassword() async {
     try {
       emit(UpdatepasswordLoading());
       final response = await apiConsumer.post(
         EndPoint.updatepassword,
         data: {
-          ApiKey.oldpassword = oldpasswordController.text,
-          ApiKey.newpassword = updatePasswordController.text,
-          ApiKey.confirmpassword = confirmeupdatepassController.text
+          ApiKey.oldpassword: oldpasswordController.text,
+          ApiKey.newpassword: updatePasswordController.text,
+          ApiKey.confirmpassword: confirmeupdatepassController.text
         },
         isFromData: true,
       );
@@ -86,3 +84,120 @@ class ProfileCubit extends Cubit<ProfileState> {
     }
   }
 }
+/**
+ * 
+ * 
+ * import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradution/cache/cache_helper.dart';
+import 'package:gradution/core/api/api_consumer.dart';
+import 'package:gradution/core/api/end_ponits.dart';
+import 'package:gradution/core/errors/exceptions.dart';
+import 'package:gradution/core/functions/upload_image_to_api.dart';
+import 'package:gradution/models/auth_model.dart';
+import 'package:gradution/models/picture_model.dart';
+import 'package:gradution/screens/cubit/profile_state.dart';
+import 'package:image_picker/image_picker.dart';
+
+class ProfileCubit extends Cubit<ProfileState> {
+  ProfileCubit(this.apiConsumer) : super(UploadProfilePictureIntial());
+  final ApiConsumer apiConsumer;
+  //Profile Pic
+  XFile? profilePic;
+  picturemodel? picmodel;
+  final TextEditingController newusernameController = TextEditingController();
+  AuthModel? newuser,updatepass;
+
+  final TextEditingController oldpasswordController = TextEditingController();
+  final TextEditingController updatePasswordController =TextEditingController();
+  final TextEditingController confirmeupdatepassController = TextEditingController();
+
+  uploadProfilePic(XFile image) async {
+    profilePic = image;
+    // emit(UploadProfilePicture());
+    try {
+      emit(UploadProfilePictureLoading());
+      final response = await apiConsumer.post(
+        EndPoint.uploadpicture,
+        isFromData: true,
+        data: {ApiKey.poster: await uploadImageToApi(profilePic!)},
+      );
+      picmodel = picturemodel.fromJson(response);
+      CacheHelper().saveData(key: ApiKey.poster, value: picmodel!.imageUrl);
+      if (CacheHelper().getData(key: ApiKey.poster) != null) {
+        emit(UploadProfilePictureSuccess());
+        print(CacheHelper().getData(key: ApiKey.poster) +
+            "url picture from response");
+      }
+    } on ServerException catch (e) {
+      emit(UploadProfilePictureFailure(errmessage: e.errModel.errorMessage));
+    }
+  }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// in this projext
+  /**
+   * class ProfileCubit extends Cubit<ProfileState> {
+  ProfileCubit(this.apiConsumer) : super(UploadProfilePictureIntial());
+  final ApiConsumer apiConsumer;
+  //Profile Pic
+  XFile? profilePic;
+  picturemodel? picmodel;
+  final TextEditingController newusernameController = TextEditingController();
+  AuthModel? newuser, updatepass;
+
+  final TextEditingController oldpasswordController = TextEditingController();
+  final TextEditingController updatePasswordController =
+      TextEditingController();
+  final TextEditingController confirmeupdatepassController =
+      TextEditingController();
+
+  uploadProfilePic(XFile image) async {
+    profilePic = image;
+    // emit(UploadProfilePicture());
+    try {
+      emit(UploadProfilePictureLoading());
+      final response = await apiConsumer.post(
+        EndPoint.uploadpicture,
+        isFromData: true,
+        data: {ApiKey.profilepic: await uploadImageToApi(profilePic!)},
+      );
+      picmodel = picturemodel.fromJson(response);
+      CacheHelper().saveData(key: ApiKey.profilepic, value: picmodel!.imageUrl);
+      if (CacheHelper().getData(key: ApiKey.profilepic) != null) {
+        emit(UploadProfilePictureSuccess());
+        print(CacheHelper().getData(key: ApiKey.profilepic) +
+            "url picture from response");
+      }
+    } on ServerException catch (e) {
+      emit(UploadProfilePictureFailure(errmessage: e.errModel.errorMessage));
+    }
+  }
+
+  updateusername() async {
+    try {
+      emit(UpdateusernameLoading());
+      final response = await apiConsumer.post(
+        EndPoint.updateusername,
+        data: {
+          ApiKey.newusername: newusernameController.text,
+        },
+      );
+      newuser = AuthModel.fromJson(response);
+      emit(UpdateusernameSuccess(message: newuser!.message));
+    } on ServerException catch (e) {
+      emit(UpdateusernameFailure(errmessage: e.errModel.errorMessage));
+    }
+  }
+   */

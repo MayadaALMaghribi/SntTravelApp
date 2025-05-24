@@ -55,7 +55,7 @@ class SideBarViewBody extends StatelessWidget {
                                   .toString(),
                               radiusg: 75,
                               radiuss: 70,
-                              fun: () {},
+                              fun: () => {},
                             ),
                             SizedBox(height: screenHeight * 0.02),
                             Text(
