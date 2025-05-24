@@ -49,7 +49,6 @@ class EditProfileViewBody extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: SingleChildScrollView(
-                // استخدام SingleChildScrollView
                 child: Column(
                   children: [
                     context.read<ProfileCubit>().profilePic == null

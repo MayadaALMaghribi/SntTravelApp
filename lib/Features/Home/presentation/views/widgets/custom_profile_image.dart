@@ -16,8 +16,6 @@ class CustomProfileImage extends StatelessWidget {
   final Function fun;
   @override
   Widget build(BuildContext context) {
-    // final base = "http://tourism.runasp.net/";
-    // final imageurl = Uri.encodeFull("${base}${image ?? ''}");
     return Stack(
       children: [
         CircleAvatar(
@@ -25,14 +23,14 @@ class CustomProfileImage extends StatelessWidget {
           radius: radiusg, //100
           child: CircleAvatar(
             radius: radiuss, //95
-            backgroundImage: image is String ? NetworkImage(image):image,
+            backgroundImage: image is String ? NetworkImage(image) : image,
           ),
         ),
         Positioned(
           bottom: 12, // قريب من الحافة السفلى
           right: 25, // قريب من الحافة اليمنى
           child: InkWell(
-            onTap: ()=>fun(),
+            onTap: () => fun(),
             child: Container(
               decoration: const BoxDecoration(
                 color: Colors.blueAccent,

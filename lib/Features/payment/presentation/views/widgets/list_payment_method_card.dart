@@ -10,6 +10,7 @@ import 'package:sntegpito/Features/payment/presentation/views/widgets/custoum_pa
 import 'package:sntegpito/core/utils/api_keys_payment.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../../room/presentation/manager/room_cubit/roomshotel_cubit.dart';
 import '../../../data/models/item_list_paypall_model.dart';
 import '../../../data/models/orginzation_models_booking/base_abstract_booking_data.dart';
 
@@ -39,6 +40,7 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
         if (state is ConfirmPaymentFailure) {
           CustomSnackBar.show(context, state.errorMessage);
         } else if (state is ConfirmPaymentSucess) {
+          context.read<RoomsHotelCubit>().getHotelRoomsById();
           CustomSnackBar.show(context, state.confirmPaymentModel.message!);
         } else if (state is ConfirmPaymentloading) {
           const Center(

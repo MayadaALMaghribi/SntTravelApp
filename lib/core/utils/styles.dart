@@ -46,4 +46,6 @@ abstract class Styles {
     fontSize: 15,
     color: Colors.black,
   );
+  static const textstyle18 =
+      TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
 }

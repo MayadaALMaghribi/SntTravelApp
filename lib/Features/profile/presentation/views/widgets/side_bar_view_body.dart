@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/profile/presentation/views/widgets/about_us.dart';
 import 'package:sntegpito/Features/profile/presentation/views/widgets/custom_logout_dialog.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_profile_image.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
@@ -107,7 +108,12 @@ class SideBarViewBody extends StatelessWidget {
                             ListSideBar(
                               text: "About US",
                               icon: Icons.info_outline,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const AboutUs();
+                                }));
+                              },
                             ),
                             Divider(
                               color: Colors.grey[400],
