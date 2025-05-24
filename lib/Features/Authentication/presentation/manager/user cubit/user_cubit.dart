@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
@@ -60,17 +60,16 @@ class UserCubit extends Cubit<UserState> {
       if (response.containsKey(ApiKey.token) &&
           response.containsKey(ApiKey.expiration)) {
         user = SignInModel.fromJson(response);
-
+        CacheHelper().saveData(key: Constants.isLogin, value: 1);
         final decodedToken = JwtDecoder.decode(user!.token);
         var touristId = decodedToken["TouristId"];
-        //int.parse(touristId);
         CacheHelper()
             .saveData(key: Constants.userId, value: int.parse(touristId));
         if (response.containsKey("token")) {
           CacheHelper().saveData(key: ApiKey.token, value: user!.token);
         } else {
           emit(SignInFailure(errmessage: "Token not found"));
-
+          CacheHelper().saveData(key: Constants.isLogin, value: 0);
           return;
         }
 

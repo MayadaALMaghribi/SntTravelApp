@@ -17,7 +17,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   XFile? profilePic;
   picturemodel? picmodel;
   final TextEditingController newusernameController = TextEditingController();
-  AuthModel? newuser,updatepass;
+  AuthModel? newuser, updatepass;
 
   final TextEditingController oldpasswordController = TextEditingController();
   final TextEditingController updatePasswordController =
@@ -53,9 +53,8 @@ class ProfileCubit extends Cubit<ProfileState> {
       final response = await apiConsumer.post(
         EndPoint.updateusername,
         data: {
-          ApiKey.newusername = newusernameController.text,
+          ApiKey.newusername: newusernameController.text,
         },
-        isFromData: true,
       );
       newuser = AuthModel.fromJson(response);
       emit(UpdateusernameSuccess(message: newuser!.message));
@@ -64,18 +63,15 @@ class ProfileCubit extends Cubit<ProfileState> {
     }
   }
 
-
-
-
   updatepassword() async {
     try {
       emit(UpdatepasswordLoading());
       final response = await apiConsumer.post(
         EndPoint.updatepassword,
         data: {
-          ApiKey.oldpassword = oldpasswordController.text,
-          ApiKey.newpassword = updatePasswordController.text,
-          ApiKey.confirmpassword = confirmeupdatepassController.text
+          ApiKey.oldpassword: oldpasswordController.text,
+          ApiKey.newpassword: updatePasswordController.text,
+          ApiKey.confirmpassword: confirmeupdatepassController.text
         },
         isFromData: true,
       );

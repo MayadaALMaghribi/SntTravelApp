@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,7 @@ class EditProfileViewBody extends StatelessWidget {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(90),
         child: CustomAppBar(
-          text: "Edit Text",
+          text: "Edit Profile",
           page: SideBarView(),
         ),
       ),
@@ -34,11 +35,13 @@ class EditProfileViewBody extends StatelessWidget {
           if (state is UploadProfilePictureSuccess) {
             CustomSnackBar.show(
                 context, 'Profile picture updated successfully');
+            log("pic done");
             context.read<GetCubit>().getuserprofile();
           } else if (state is UploadProfilePictureFailure) {
             CustomSnackBar.show(
                 context, 'update picture failed: ${state.errmessage}',
                 isError: true);
+            log("not done");
           }
         },
         builder: (context, state) {
@@ -46,7 +49,6 @@ class EditProfileViewBody extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: SingleChildScrollView(
-                // استخدام SingleChildScrollView
                 child: Column(
                   children: [
                     context.read<ProfileCubit>().profilePic == null
@@ -125,17 +127,40 @@ class EditProfileViewBody extends StatelessWidget {
                       },
                     ),
                     const SizedBox(height: 20),
-                    SizedBox(
-                      height: 50,
-                      width: 300,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xff49AEE4),
-                        ),
-                        onPressed: () {},
-                        child: const Text(
-                          "Edit profile",
-                          style: TextStyle(color: Colors.white),
+                    BlocListener<ProfileCubit, ProfileState>(
+                      listener: (context, state) {
+                        if (state is UpdateusernameSuccess) {
+                          CustomSnackBar.show(context, state.message);
+                          context.read<GetCubit>().getuserprofile();
+                        } else if (state is UpdateusernameFailure) {
+                          CustomSnackBar.show(
+                              context, state.errmessage.toString());
+                        }
+                      },
+                      child: SizedBox(
+                        height: 50,
+                        width: 300,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xff49AEE4),
+                          ),
+                          onPressed: () {
+                            context.read<GetCubit>().getuserprofile();
+                            context.read<ProfileCubit>().updateusername();
+                          },
+                          child: state is UpdateusernameLoading
+                              ? const SizedBox(
+                                  height: 24,
+                                  width: 24,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 2.5,
+                                  ),
+                                )
+                              : const Text(
+                                  "Edit profile",
+                                  style: TextStyle(color: Colors.white),
+                                ),
                         ),
                       ),
                     )

@@ -58,7 +58,7 @@ class ApiKey {
   static String newpassword = "newPassword";
   static String confirmpassword = "confirmPassword";
   static String poster = "Poster";
-  static String profilepic = "imageUrl";
+  static String profilepic = "Poster";
   static String getusername = "userName";
   static String getprofilepicture = "profilePicture";
   static String newusername = "newUserName";

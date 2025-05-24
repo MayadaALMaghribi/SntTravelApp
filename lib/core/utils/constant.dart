@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Constants {
   static String itemTypefav = "Activity";
   static String idhotel = "hotel_id";

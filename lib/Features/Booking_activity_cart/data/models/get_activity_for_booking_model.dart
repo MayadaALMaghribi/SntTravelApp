@@ -77,17 +77,17 @@ class GetActivityForBookingModel {
     if (json['activities'] != null) {
       activities = <Activities>[];
       json['activities'].forEach((v) {
-        activities!.add(new Activities.fromJson(v));
+        activities!.add(Activities.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['statusCode'] = this.statusCode;
-    data['message'] = this.message;
-    if (this.activities != null) {
-      data['activities'] = this.activities!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['statusCode'] = statusCode;
+    data['message'] = message;
+    if (activities != null) {
+      data['activities'] = activities!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -122,14 +122,14 @@ class Activities {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['activityId'] = this.activityId;
-    data['activityName'] = this.activityName;
-    data['activityPrice'] = this.activityPrice;
-    data['activityImageUrl'] = this.activityImageUrl;
-    data['activityStartDate'] = this.activityStartDate;
-    data['activityEndDate'] = this.activityEndDate;
-    data['numberOfGuests'] = this.numberOfGuests;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['activityId'] = activityId;
+    data['activityName'] = activityName;
+    data['activityPrice'] = activityPrice;
+    data['activityImageUrl'] = activityImageUrl;
+    data['activityStartDate'] = activityStartDate;
+    data['activityEndDate'] = activityEndDate;
+    data['numberOfGuests'] = numberOfGuests;
     return data;
   }
 }
