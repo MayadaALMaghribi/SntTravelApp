@@ -89,9 +89,9 @@ class SucessCard extends StatelessWidget {
                 text: "Payment Status",
                 value: booking.paymentStatus ?? '',
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              // const SizedBox(
+              //   height: 3,
+              // ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

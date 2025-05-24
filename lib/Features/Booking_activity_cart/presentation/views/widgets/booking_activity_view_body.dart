@@ -6,8 +6,9 @@ import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/pr
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/trip_planner_view.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/widgets/custom_card_activity_booked.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
-import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
+import '../../../../../core/utils/constant.dart';
 
 class BookingActivityViewBody extends StatelessWidget {
   const BookingActivityViewBody({super.key});
@@ -103,7 +104,9 @@ class BookingActivityViewBody extends StatelessWidget {
                               );
                               context
                                   .read<GetActivityForBookingCubit>()
-                                  .getActivityBooking(userid: Constants.userid);
+                                  .getActivityBooking(
+                                      userid: CacheHelper()
+                                          .getData(key: Constants.userId));
                             }
                           },
                           child: ReserveRoomButton(
@@ -111,7 +114,9 @@ class BookingActivityViewBody extends StatelessWidget {
                             ontap: () {
                               context
                                   .read<PrepareActivityBeforeBookingCubit>()
-                                  .prepare(userId: Constants.userid);
+                                  .prepare(
+                                      userId: CacheHelper()
+                                          .getData(key: Constants.userId));
                             },
                           ),
                         ),

@@ -6,6 +6,8 @@ import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
 
+import '../../../../../core/utils/constant.dart';
+
 part 'get_details_booking_before_payment_state.dart';
 
 class GetDetailsBookingBeforePaymentCubit

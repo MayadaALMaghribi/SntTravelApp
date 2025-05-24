@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
@@ -9,6 +10,7 @@ import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
+import 'package:sntegpito/core/utils/constant.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit(this.apiConsumer) : super(SignInInitial());
@@ -55,27 +57,27 @@ class UserCubit extends Cubit<UserState> {
         ApiKey.password: signInPassword.text,
       });
 
-      // التحقق من وجود البيانات المطلوبة في الاستجابة
       if (response.containsKey(ApiKey.token) &&
           response.containsKey(ApiKey.expiration)) {
         user = SignInModel.fromJson(response);
 
-        // فك التشفير والتأكد من وجود الـ id في الـ token
         final decodedToken = JwtDecoder.decode(user!.token);
+        var touristId = decodedToken["TouristId"];
+        //int.parse(touristId);
+        CacheHelper()
+            .saveData(key: Constants.userId, value: int.parse(touristId));
         if (response.containsKey("token")) {
           CacheHelper().saveData(key: ApiKey.token, value: user!.token);
-          //print(response);
         } else {
-          //  print(" Token not found ");
           emit(SignInFailure(errmessage: "Token not found"));
-          //  print(response);
+
           return;
         }
-        //print("success 1");
+
         signInEmail.clear();
         signInPassword.clear();
         emit(SignInSuccess(successmessage: "login success"));
-        //print("success 2");
+        CacheHelper().saveData(key: Constants.isLogin, value: 1);
       } else {
         emit(SignInFailure(errmessage: "Invalid response from server"));
       }
@@ -101,14 +103,11 @@ class UserCubit extends Cubit<UserState> {
         },
       );
 
-      // التحقق من نوع الاستجابة
       if (response is Map<String, dynamic>) {
-        // إذا كانت الاستجابة JSON
         signupmodel = AuthModel.fromJson(response);
 
         emit(SignUpSuccess(message: signupmodel!.message));
       } else if (response is String) {
-        // إذا كانت الاستجابة نصاً
         try {
           final jsonResponse = jsonDecode(response);
           signupmodel = AuthModel.fromJson(jsonResponse);
@@ -192,7 +191,7 @@ class UserCubit extends Cubit<UserState> {
           ApiKey.confirmpassword: confirmPasswordController.text,
         },
       );
-      //newpass = AuthModel.fromJson(response);
+
       emit(resetpassSuccess(message: "Password reset successful."));
     } on ServerException catch (e) {
       emit(resetpassFailure(errmessage: e.errModel.errorMessage));

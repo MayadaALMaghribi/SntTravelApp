@@ -3,6 +3,7 @@ import 'package:sntegpito/Features/hotels/data/models/search_hotel_by_name_model
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/hotel_details_view_body.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../Destionations/presentation/views/widgets/custom_card_hotel_image.dart';
 import '../../../../Destionations/presentation/views/widgets/rating_test.dart';
@@ -26,8 +27,8 @@ class CustomCardHotel extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
         child: Container(
-          width: 350,
-          height: 265,
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: MediaQuery.of(context).size.height * 0.32,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xff868686), width: 1),

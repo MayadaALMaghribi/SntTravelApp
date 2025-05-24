@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/widgets/feature_custom_feedtime.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
+
+import '../../../../../core/utils/constant.dart';
 
 class FavouriteViewBody extends StatelessWidget {
   const FavouriteViewBody({super.key});
@@ -28,10 +31,16 @@ class FavouriteViewBody extends StatelessWidget {
               backgroundColor: Colors.blueAccent,
             ));
           } else if (state is GetfavFauiler) {
-            InitalWidgets(
+            // لازم ترجع الويجت هنا
+            return InitalWidgets(
               text: state.errmessage.toString(),
             );
           } else if (state is GetfavSucess) {
+            if (state.get_fav_model.data == null ||
+                state.get_fav_model.data!.isEmpty) {
+              return const Center(
+                  child: InitalWidgets(text: "Favourite is empty"));
+            }
             return CustomScrollView(
               slivers: [
                 SliverList(
@@ -50,24 +59,33 @@ class FavouriteViewBody extends StatelessWidget {
 
                     String add = state.get_fav_model.data![index].itemDetails
                             ?.description ??
-                        "NO descrotion";
+                        "NO description";
 
                     String image =
                         "${state.get_fav_model.data![index].itemDetails?.image?.toString()}" ??
                             "No image";
-
+                    String itemtype =
+                        state.get_fav_model.data![index].itemType ?? "null";
+                    int iditemfav =
+                        state.get_fav_model.data![index].itemId ?? 0;
+                    CacheHelper().saveData(
+                        key: Constants.idfav,
+                        value: state.get_fav_model.data![index].isFavorite ??
+                            false);
                     return FeatureCustomFeedtime(
                       price: price,
                       headName: headName,
                       add: add,
                       image: image,
+                      typefav: itemtype,
+                      itemfav: iditemfav,
                     );
                   }),
                 )
               ],
             );
           }
-          return const SizedBox.shrink();
+          return const InitalWidgets(text: "Favourite is empty");
         },
       ),
     );
@@ -83,6 +101,8 @@ class InitalWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center, // عشان يظهر في النص
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
           "assets/images_home/favourite.jpg",
@@ -96,7 +116,7 @@ class InitalWidgets extends StatelessWidget {
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
-          textAlign: TextAlign.center, // توسيط النص داخل Text widget
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 10),
         const Text(
@@ -105,7 +125,7 @@ class InitalWidgets extends StatelessWidget {
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
-          textAlign: TextAlign.center, // توسيط النص داخل Text widget
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 10),
         const Text(
@@ -114,7 +134,7 @@ class InitalWidgets extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
-          textAlign: TextAlign.center, // توسيط النص داخل Text widget
+          textAlign: TextAlign.center,
         ),
       ],
     );

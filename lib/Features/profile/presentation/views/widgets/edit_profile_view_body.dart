@@ -13,13 +13,13 @@ import 'package:sntegpito/Features/profile/presentation/views/update_password_vi
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
 class EditProfileViewBody extends StatelessWidget {
   const EditProfileViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-   // const base = "http://tourism.runasp.net/";
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: const PreferredSize(
@@ -32,16 +32,13 @@ class EditProfileViewBody extends StatelessWidget {
       body: BlocConsumer<ProfileCubit, ProfileState>(
         listener: (context, state) {
           if (state is UploadProfilePictureSuccess) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                  content: Text("Profile picture updated successfully")),
-            );
+            CustomSnackBar.show(
+                context, 'Profile picture updated successfully');
             context.read<GetCubit>().getuserprofile();
           } else if (state is UploadProfilePictureFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                  content: Text('update picture failed: ${state.errmessage}')),
-            );
+            CustomSnackBar.show(
+                context, 'update picture failed: ${state.errmessage}',
+                isError: true);
           }
         },
         builder: (context, state) {

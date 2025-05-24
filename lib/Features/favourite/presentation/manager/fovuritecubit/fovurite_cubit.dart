@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
@@ -9,15 +11,16 @@ import '../../../data/models/add_fav_models.dart';
 
 part 'fovurite_state.dart';
 
-class AddfovuriteCubit extends Cubit<AddfovuriteState> {
-  AddfovuriteCubit(this.apiConsumer) : super(AddfovuriteInitial());
+class FovuriteCubit extends Cubit<AddfovuriteState> {
+  FovuriteCubit(this.apiConsumer) : super(AddfovuriteInitial());
   final ApiConsumer apiConsumer;
   AddFavouriteModel? addFavouriteModel;
   ErrorModel? errorModel;
   addfavourite(
       {required int itemIdfav,
       required String itemTypefav,
-      required int userIdfav}) async {
+      required int userIdfav,
+      required BuildContext context}) async {
     try {
       emit(AddfovuriteLoading());
       final response =
@@ -36,6 +39,7 @@ class AddfovuriteCubit extends Cubit<AddfovuriteState> {
         addFavouriteModel = AddFavouriteModel.fromJson(response);
         emit(AddfovuriteSucess(
             sucessmessage: addFavouriteModel!.message.toString()));
+        context.read<GetfavCubit>().fetchGetFav();
       }
     } on ServerException catch (e) {
       print("ERORR${e.errModel.errorMessage}");
@@ -47,7 +51,8 @@ class AddfovuriteCubit extends Cubit<AddfovuriteState> {
   RemoveFav(
       {required int itemIdfav,
       required int userIdfav,
-      required String itemTypefav}) async {
+      required String itemTypefav,
+      required BuildContext context}) async {
     try {
       emit(RemovefavLoading());
       final response = await apiConsumer.delete(EndPoint.removefav, data: {
@@ -61,6 +66,7 @@ class AddfovuriteCubit extends Cubit<AddfovuriteState> {
       } else {
         errorModel = ErrorModel.fromJson(response);
         emit(RemovefavSucess(errorModel: errorModel!));
+        context.read<GetfavCubit>().fetchGetFav();
       }
     } on ServerException {
       emit(RemovefavFailure(errorModel: errorModel!));

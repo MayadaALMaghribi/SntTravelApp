@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
 import 'package:sntegpito/Features/imboroading/presentation/views/imboroading_view.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
+import 'package:sntegpito/core/utils/constant.dart';
 
 import '../../../../../core/cache/cache_helper.dart';
 
@@ -45,14 +45,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     // Navigate after 3 seconds
     Timer(const Duration(seconds: 3), () {
-      if (CacheHelper().getData(key: "islogin") == 1) {
+      if (CacheHelper().getData(key: Constants.isLogin) == 1) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
               builder: (context) =>
                   const HomeBottomBar()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
         );
-      } else if (CacheHelper().getData(key: "islogin") == 0) {
+      } else if (CacheHelper().getData(key: Constants.isLogin) == 0) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(

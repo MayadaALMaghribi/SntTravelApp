@@ -9,10 +9,10 @@ import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/co
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
 import 'package:sntegpito/Features/payment/data/models/orginzation_models_booking/activity_booking_data.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
-import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
-
+import '../../../../../core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../../../core/widgets/them_date.dart';
 import '../../../../payment/presentation/views/widgets/payment_method_bottom_sheet.dart';
 
@@ -297,7 +297,8 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                           .read<ConfirmActivityBookingCubit>()
                           .confirmBooking(
                             context: context,
-                            userid: Constants.userid,
+                            userid:
+                                CacheHelper().getData(key: Constants.userId),
                             activities: activitiesToSend,
                           );
                     },

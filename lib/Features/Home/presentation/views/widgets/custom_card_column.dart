@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:sntegpito/Features/Home/data/model/tourism_type_model.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_card_image_col.dart';
-import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/styles.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../../../core/widgets/custom_function_favourite.dart';
 import '../../../../../core/widgets/custom_snak_bar.dart';
+import '../../../../entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
 import '../../../../entertainment/presentation/views/widgets/entertainment_view_body.dart';
 import '../../../../favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
 import '../../../../favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
@@ -18,13 +19,14 @@ class CustomCardColumn extends StatelessWidget {
   const CustomCardColumn({super.key, required this.tourismType});
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AddfovuriteCubit, AddfovuriteState>(
+    return BlocListener<FovuriteCubit, AddfovuriteState>(
       listener: (context, state) {
         if (state is AddfovuriteSucess) {
           CustomSnackBar.show(context, state.sucessmessage);
           context.read<GetfavCubit>().fetchGetFav();
         } else if (state is RemovefavSucess) {
           CustomSnackBar.show(context, state.errorModel.errorMessage);
+
           context.read<GetfavCubit>().fetchGetFav();
         } else if (state is RemovefavFailure || state is AddfovuriteFailure) {
           CustomSnackBar.show(
@@ -44,14 +46,16 @@ class CustomCardColumn extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => EntertainmentViewBody(),
+
               //tourismViews[tourismType.id! - 1],
             ),
           );
+          context.read<EntertainmentCubit>().getImageDiscount();
         },
         child: Container(
           margin: const EdgeInsets.only(bottom: 15),
-          width: 450,
-          height: 310,
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: MediaQuery.of(context).size.height * 0.35,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xff868686), width: 1),
@@ -90,7 +94,7 @@ class CustomCardColumn extends StatelessWidget {
                     CustomFunctionFavourite(
                       indexIdFav: tourismType.id!,
                       itemTypefav: "TourismType",
-                      userIdfav: Constants.userid,
+                      userIdfav: CacheHelper().getData(key: Constants.userId),
                     ),
                   ],
                 ),

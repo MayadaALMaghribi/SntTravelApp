@@ -37,6 +37,7 @@ class CustomListViewSearchHotel extends StatelessWidget {
               if (hotels.isEmpty) {
                 return _buildErrorWidget("No Hotels exist");
               }
+              //context.read<HotelFilterCubit>().filterHotelsByDate();
 
               return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
