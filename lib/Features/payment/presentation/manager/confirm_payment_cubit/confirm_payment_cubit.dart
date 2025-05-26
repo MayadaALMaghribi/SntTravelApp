@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
 
 import '../../../../../core/utils/constant.dart';
@@ -16,8 +17,8 @@ class ConfirmPaymentCubit extends Cubit<ConfirmPaymentState> {
   verifyconfirmpayment() async {
     try {
       emit(ConfirmPaymentloading());
-      final response = await apiConsumer
-          .post(EndPoint.confirmpayment + Constants.transcationId.toString());
+      final response = await apiConsumer.post(EndPoint.confirmpayment +
+          CacheHelper().getData(key: Constants.transcationId.toString()));
       if (response == null) {
         emit(ConfirmPaymentFailure(errorMessage: "Response are Null Data"));
       } else {
