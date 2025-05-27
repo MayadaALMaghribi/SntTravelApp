@@ -10,7 +10,6 @@ import 'package:sntegpito/Features/payment/presentation/views/widgets/custoum_pa
 import 'package:sntegpito/core/utils/api_keys_payment.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../../room/presentation/manager/room_cubit/roomshotel_cubit.dart';
 import '../../../data/models/item_list_paypall_model.dart';
 import '../../../data/models/orginzation_models_booking/base_abstract_booking_data.dart';
 
@@ -38,9 +37,10 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
     return BlocListener<ConfirmPaymentCubit, ConfirmPaymentState>(
       listener: (context, state) {
         if (state is ConfirmPaymentFailure) {
+          log("not done confirm");
           CustomSnackBar.show(context, state.errorMessage);
         } else if (state is ConfirmPaymentSucess) {
-          context.read<RoomsHotelCubit>().getHotelRoomsById();
+          log("done confirm");
           CustomSnackBar.show(context, state.confirmPaymentModel.message!);
         } else if (state is ConfirmPaymentloading) {
           const Center(
@@ -59,6 +59,7 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
               padding: const EdgeInsets.only(left: 40, right: 20),
               child: GestureDetector(
                 onTap: () {
+                  // context.read<ConfirmPaymentCubit>().verifyconfirmpayment();
                   var transcationData = getTranscationData();
                   if (index == 0) {
                     executePaypallMethod(context, transcationData);
@@ -106,6 +107,7 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
             log("onSuccess: $params");
+            context.read<ConfirmPaymentCubit>().verifyconfirmpayment();
             Navigator.pop(context);
             WidgetsBinding.instance.addPostFrameCallback((_) {
               CustomSnackBar.show(context, "paypall done");
