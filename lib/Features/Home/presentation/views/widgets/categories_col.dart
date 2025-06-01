@@ -23,7 +23,6 @@ class CategoriesCol extends StatelessWidget {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                //CacheHelper().saveData(key: "tourismTypeId", value: index);
                 return CustomCardColumn(tourismType: state.tourismTypes[index]);
               },
               childCount: state.tourismTypes.length,

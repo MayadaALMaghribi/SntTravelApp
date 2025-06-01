@@ -11,5 +11,6 @@ class Constants {
   static String isLogin = "isLogin";
   static String userId = "userId";
   static String idfav = "isFav";
+  static String tourism_id = "selected_tourism_id";
   //height(context) * 0.37
 }
