@@ -13,6 +13,7 @@ class BuildFilterForm extends StatelessWidget {
   BuildFilterForm({super.key});
 
   final _formKey = GlobalKey<FormState>();
+  static bool verify_filter = false;
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +128,9 @@ class BuildFilterForm extends StatelessWidget {
               context.read<HotelFilterCubit>().guestsText.text,
             ),
           );
-          CacheHelper().saveData(key: Constants.verify_filter, value: true);
+          verify_filter = true;
+          CacheHelper()
+              .saveData(key: Constants.verify_filter, value: verify_filter);
         }
       },
       style: ElevatedButton.styleFrom(

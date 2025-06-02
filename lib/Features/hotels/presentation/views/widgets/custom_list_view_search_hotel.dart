@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
@@ -35,7 +37,11 @@ class CustomListViewSearchHotel extends StatelessWidget {
               if (hotelfilter.isEmpty) {
                 return _buildErrorWidget("No Hotels exist");
               }
-
+              if (CacheHelper().getData(key: Constants.cityName) == null) {
+                log("cityName are NULLL" +
+                    CacheHelper().getData(key: Constants.cityName).toString());
+                return _buildErrorWidget("Please Enter Name of Hotel or city");
+              }
               return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
                 child: CustomScrollView(
@@ -62,7 +68,13 @@ class CustomListViewSearchHotel extends StatelessWidget {
               if (hotels.isEmpty) {
                 return _buildErrorWidget("No Hotels exist");
               }
-
+              if (CacheHelper().getData(key: Constants.verify_filter) != true) {
+                log("filter are false" +
+                    CacheHelper()
+                        .getData(key: Constants.verify_filter)
+                        .toString());
+                return _buildErrorWidget("Please Apply filter");
+              }
               //context.read<HotelFilterCubit>().filterHotelsByDate();
 
               return SizedBox(
