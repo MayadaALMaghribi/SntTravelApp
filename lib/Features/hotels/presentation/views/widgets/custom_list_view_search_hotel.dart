@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_card_hotel.dart';
 import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
+import 'package:sntegpito/core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomListViewSearchHotel extends StatelessWidget {
@@ -28,15 +30,39 @@ class CustomListViewSearchHotel extends StatelessWidget {
             // لو فيه Error في الفلتر (لو انتي بتعملي كده)
             else if (filterState is HotelFilterFailure) {
               return _buildErrorWidget(filterState.message);
+            } else if (filterState is HotelFilterSuccess) {
+              final hotelfilter = filterState.hotelFilter;
+              if (hotelfilter.isEmpty) {
+                return _buildErrorWidget("No Hotels exist");
+              }
+
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.8,
+                child: CustomScrollView(
+                  slivers: [
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          return CustomCardHotel(
+                            searchHotelByNameModel: hotelfilter[index],
+                          );
+                        },
+                        childCount: hotelfilter.length,
+                      ),
+                    ),
+                  ],
+                ),
+              );
             }
 
-            // لو السيرش نجح وفلتر شغال أو مش مفعّل
+            //HotelFilterSuccess
             else if (searchState is SearchHotelByNameSucess) {
               final hotels = searchState.searchHotelByNameModel;
 
               if (hotels.isEmpty) {
                 return _buildErrorWidget("No Hotels exist");
               }
+
               //context.read<HotelFilterCubit>().filterHotelsByDate();
 
               return SizedBox(

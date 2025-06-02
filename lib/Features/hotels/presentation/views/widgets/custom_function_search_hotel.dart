@@ -16,7 +16,6 @@ class CustomFunctionSearchHotel extends StatefulWidget {
 
 class _CustomFunctionSearchHotelState extends State<CustomFunctionSearchHotel> {
   String? selectedCity;
-
   @override
   void initState() {
     super.initState();
