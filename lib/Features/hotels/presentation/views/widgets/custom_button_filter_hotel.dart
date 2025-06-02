@@ -12,11 +12,10 @@ class CustombuttonFilterHotel extends StatelessWidget {
       onTap: () {
         showGeneralDialog(
           context: context,
-          barrierDismissible: true, // يسمح بالإغلاق عند النقر خارج النافذة
-          barrierLabel: "Close Filters", // ✅ إصلاح الخطأ هنا
-          barrierColor: Colors.black.withOpacity(0.5), // تأثير الشفافية
-          transitionDuration:
-              const Duration(milliseconds: 300), // مدة الأنيميشن
+          barrierDismissible: true,
+          barrierLabel: "Close Filters",
+          barrierColor: Colors.black.withOpacity(0.5),
+          transitionDuration: const Duration(milliseconds: 300),
           pageBuilder: (context, animation, secondaryAnimation) {
             return const FilterView();
           },
