@@ -59,7 +59,7 @@ class _CustomCardActivityCityState extends State<CustomCardActivityCity> {
         padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
         child: Container(
           width: MediaQuery.of(context).size.width * 0.9,
-          height: MediaQuery.of(context).size.height * 0.4,
+          height: MediaQuery.of(context).size.height * 0.42,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xff868686), width: 1),

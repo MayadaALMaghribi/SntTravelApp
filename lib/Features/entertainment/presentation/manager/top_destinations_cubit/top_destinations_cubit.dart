@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
-
 import '../../../../../core/cache/cache_helper.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../data/models/top_destinations_model.dart';
 
 part 'top_destinations_state.dart';
@@ -17,7 +19,8 @@ class TopDestinationsCubit extends Cubit<TopDestinationsState> {
       emit(TopDestinationsLoading());
       final response = await apiConsumer.get(
           EndPoint.getAllLocationsByTourismTypeID +
-              CacheHelper().getData(key: "selected_tourism_id").toString());
+              CacheHelper().getData(key: Constants.tourism_id).toString());
+      log("topdestionation${CacheHelper().getData(key: Constants.tourism_id)}");
       topDestination = (response as List)
           .map((e) => TopDestinationModel.fromJson(e))
           .toSet()

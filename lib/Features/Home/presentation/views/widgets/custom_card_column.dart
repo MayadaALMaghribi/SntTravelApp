@@ -9,6 +9,7 @@ import '../../../../../core/utils/constant.dart';
 import '../../../../../core/widgets/custom_function_favourite.dart';
 import '../../../../../core/widgets/custom_snak_bar.dart';
 import '../../../../entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
+import '../../../../entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
 import '../../../../entertainment/presentation/views/widgets/entertainment_view_body.dart';
 import '../../../../favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
 import '../../../../favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
@@ -41,7 +42,7 @@ class CustomCardColumn extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           CacheHelper()
-              .saveData(key: 'selected_tourism_id', value: tourismType.id);
+              .saveData(key: Constants.tourism_id, value: tourismType.id);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -51,11 +52,12 @@ class CustomCardColumn extends StatelessWidget {
             ),
           );
           context.read<EntertainmentCubit>().getImageDiscount();
+          context.read<TopDestinationsCubit>().fetchTopDestinations();
         },
         child: Container(
           margin: const EdgeInsets.only(bottom: 15),
           width: MediaQuery.of(context).size.width * 0.9,
-          height: MediaQuery.of(context).size.height * 0.35,
+          height: MediaQuery.of(context).size.height * 0.37,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xff868686), width: 1),

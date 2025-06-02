@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sntegpito/Features/Destionations/presentation/views/widgets/links_car.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/list_view_tab_bar_activity.dart';
 import 'package:sntegpito/core/api/dio_consumer.dart';
 
@@ -26,12 +27,12 @@ class CustomListTabBar extends StatelessWidget {
             //ListViewTabBarHotel(),
 
             ListViewTabBarActivity(),
-            Center(
-              child: Text(
-                "Favorites Page",
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
+            Center(child: LinksCar()
+                // Text(
+                //   "Favorites Page",
+                //   style: TextStyle(fontSize: 20),
+                // ),
+                ),
           ],
         ),
       ),

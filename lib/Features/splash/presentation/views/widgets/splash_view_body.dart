@@ -6,6 +6,7 @@ import 'package:sntegpito/Features/imboroading/presentation/views/imboroading_vi
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
 import 'package:sntegpito/core/utils/constant.dart';
 
+import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/cache/cache_helper.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -46,7 +47,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     // Navigate after 3 seconds
     Timer(const Duration(seconds: 3), () {
-      if (CacheHelper().getData(key: Constants.isLogin) == 1) {
+      if (CacheHelper().getData(key: ApiKey.token) != null) {
         log(CacheHelper().getData(key: Constants.isLogin).toString());
         Navigator.pushReplacement(
           context,
@@ -54,7 +55,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
               builder: (context) =>
                   const HomeBottomBar()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
         );
-      } else if (CacheHelper().getData(key: Constants.isLogin) == 0) {
+      } else if (CacheHelper().getData(key: ApiKey.token) == null) {
         log(CacheHelper().getData(key: Constants.isLogin).toString());
         Navigator.pushReplacement(
           context,
