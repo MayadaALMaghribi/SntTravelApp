@@ -1,13 +1,13 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
-import 'package:sntegpito/Features/imboroading/presentation/views/imboroading_view.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
-import 'package:sntegpito/core/utils/constant.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../../../../core/api/end_ponits.dart';
-import '../../../../../core/cache/cache_helper.dart';
+import '../../../../../core/widgets/custom_snak_bar.dart';
+import '../../manager/cubit/verifyauthrization_cubit.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -47,31 +47,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     // Navigate after 3 seconds
     Timer(const Duration(seconds: 3), () {
-      if (CacheHelper().getData(key: ApiKey.token) != null) {
-        log(CacheHelper().getData(key: Constants.isLogin).toString());
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) =>
-                  const HomeBottomBar()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
-        );
-      } else if (CacheHelper().getData(key: ApiKey.token) == null) {
-        log(CacheHelper().getData(key: Constants.isLogin).toString());
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) =>
-                  const WelcomeView()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
-        );
-      } else {
-        log(CacheHelper().getData(key: Constants.isLogin).toString());
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) =>
-                  const ImboroadingView()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
-        );
-      }
+      context.read<VerifyauthrizationCubit>().validToken();
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(
+      //       builder: (context) =>
+      //           const HomeBottomBar()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
+      // );
     });
   }
 
@@ -83,19 +65,48 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Center(
-          child: FadeTransition(
-            opacity: _fadeAnimation,
-            child: ScaleTransition(
-              scale: _scaleAnimation,
-              child: Image.asset(
-                "assets/images/Splash.png",
-                width: 250,
-                height: 250,
+    return BlocListener<VerifyauthrizationCubit, VerifyauthrizationState>(
+      listener: (context, state) {
+        if (state is VerifyauthrizationLoading) {
+          Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Colors.blueAccent,
+            ),
+          );
+        } else if (state is VerifyauthrizationSucess) {
+          CustomSnackBar.show(context, state.validAuthtoApp.valid.toString());
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    const HomeBottomBar()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
+          );
+        } else if (state is VerifyauthrizationFailure) {
+          CacheHelper().removeData(key: ApiKey.token);
+          CustomSnackBar.show(context, state.errmessage, isError: true);
+
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    const WelcomeView()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
+          );
+        }
+      },
+      child: Scaffold(
+        body: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Center(
+            child: FadeTransition(
+              opacity: _fadeAnimation,
+              child: ScaleTransition(
+                scale: _scaleAnimation,
+                child: Image.asset(
+                  "assets/images/Splash.png",
+                  width: 250,
+                  height: 250,
+                ),
               ),
             ),
           ),

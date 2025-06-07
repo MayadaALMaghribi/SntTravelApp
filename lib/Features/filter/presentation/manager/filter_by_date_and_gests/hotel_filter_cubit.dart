@@ -3,7 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:sntegpito/Features/hotels/data/models/search_hotel_by_name_model.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/errors/exceptions.dart';
+import 'package:sntegpito/core/utils/constant.dart';
 
 part 'hotel_filter_state.dart';
 
@@ -57,6 +59,10 @@ class HotelFilterCubit extends Cubit<HotelFilterState> {
       }
       if (selectedRating != null) {
         queryParams[ApiKey.minStarsFilter] = selectedRating.toString();
+      }
+      if (CacheHelper().getData(key: Constants.cityName) != null) {
+        queryParams[ApiKey.cityname] =
+            CacheHelper().getData(key: Constants.cityName).toString();
       }
 
       final response = await apiConsumer.get(
