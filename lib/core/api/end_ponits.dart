@@ -39,6 +39,7 @@ class EndPoint {
       "BookingsActivity/get-activities-for-booking";
   static String confirmmActivityBooking =
       "BookingsActivity/confirm-activity-booking";
+  static String validateToken = "http://tourism.runasp.net/api/ValidateToken";
 }
 
 class ApiKey {
@@ -77,5 +78,9 @@ class ApiKey {
   static String paymentmethod = "paymentMethodId";
   static String numberofguests = "numberOfGuests";
   static String activityId = "activityId";
+
   static String cityName = "cityName";
+
+  static String cityname = "cityName";
+
 }

@@ -79,6 +79,7 @@ class UserCubit extends Cubit<UserState> {
         CacheHelper().saveData(key: Constants.isLogin, value: 1);
       } else {
         emit(SignInFailure(errmessage: "Invalid response from server"));
+        CacheHelper().removeData(key: ApiKey.token);
       }
     } on ServerException catch (e) {
       emit(SignInFailure(errmessage: e.errModel.errorMessage));

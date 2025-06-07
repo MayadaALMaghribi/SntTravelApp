@@ -69,8 +69,12 @@ class CustomListViewSearchHotel extends StatelessWidget {
               if (CacheHelper().getData(key: Constants.verify_filter) != true) {
                 return _buildErrorWidget("Please Apply filter");
               }
+
               context.read<HotelFilterCubit>().filterHotelsByDate();
               log("from hotel search");
+
+              // context.read<HotelFilterCubit>().filterHotelsByDate();
+
 
               return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
