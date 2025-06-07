@@ -128,6 +128,7 @@ class BuildFilterForm extends StatelessWidget {
               context.read<HotelFilterCubit>().guestsText.text,
             ),
           );
+
           verify_filter = true;
           CacheHelper()
               .saveData(key: Constants.verify_filter, value: verify_filter);

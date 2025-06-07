@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/search_hotel.dart';
 
 import '../../../../../core/cache/cache_helper.dart';
 import '../../../../../core/utils/constant.dart';
+import '../../../../filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 
 class CustomFunctionSearchHotel extends StatefulWidget {
   const CustomFunctionSearchHotel({
@@ -26,6 +28,7 @@ class _CustomFunctionSearchHotelState extends State<CustomFunctionSearchHotel> {
   void _loadCityName() {
     final cachedCity = CacheHelper().getData(key: Constants.cityName);
     CacheHelper().saveData(key: Constants.verify_filter, value: false);
+
     setState(() {
       selectedCity = cachedCity;
     });
