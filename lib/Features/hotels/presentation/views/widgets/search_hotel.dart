@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../../../../core/utils/constant.dart';
+import '../../../../filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 import '../../manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 
 class SearchHotel extends SearchDelegate {
@@ -32,6 +33,7 @@ class SearchHotel extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     context.read<SearchHotelByNameCubit>().fetchHotelsByName(cityName: query);
     CacheHelper().saveData(key: Constants.cityName, value: query);
+    context.read<HotelFilterCubit>().filterHotelsByDate();
     Future.microtask(() => close(context, query));
 
     return Container();

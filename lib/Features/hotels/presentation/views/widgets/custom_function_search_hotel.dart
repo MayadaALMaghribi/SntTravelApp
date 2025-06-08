@@ -28,7 +28,7 @@ class _CustomFunctionSearchHotelState extends State<CustomFunctionSearchHotel> {
   void _loadCityName() {
     final cachedCity = CacheHelper().getData(key: Constants.cityName);
     CacheHelper().saveData(key: Constants.verify_filter, value: false);
-    context.read<HotelFilterCubit>().filterHotelsByDate();
+
     setState(() {
       selectedCity = cachedCity;
     });

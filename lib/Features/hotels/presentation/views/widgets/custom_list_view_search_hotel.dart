@@ -30,16 +30,14 @@ class CustomListViewSearchHotel extends StatelessWidget {
 
             // لو فيه Error في الفلتر (لو انتي بتعملي كده)
             else if (filterState is HotelFilterFailure) {
+              if (CacheHelper().getData(key: Constants.cityName) == null) {
+                return _buildErrorWidget("Please Enter Name of Hotel or city");
+              }
               return _buildErrorWidget(filterState.message);
             } else if (filterState is HotelFilterSuccess) {
               final hotelfilter = filterState.hotelFilter;
               if (hotelfilter.isEmpty) {
                 return _buildErrorWidget("No Hotels exist");
-              }
-              if (CacheHelper().getData(key: Constants.cityName) == null) {
-                log("cityName are NULLL" +
-                    CacheHelper().getData(key: Constants.cityName).toString());
-                return _buildErrorWidget("Please Enter Name of Hotel or city");
               }
 
               return SizedBox(
@@ -69,10 +67,6 @@ class CustomListViewSearchHotel extends StatelessWidget {
                 return _buildErrorWidget("No Hotels exist");
               }
               if (CacheHelper().getData(key: Constants.verify_filter) != true) {
-                log("filter are false" +
-                    CacheHelper()
-                        .getData(key: Constants.verify_filter)
-                        .toString());
                 return _buildErrorWidget("Please Apply filter");
               }
               context.read<HotelFilterCubit>().filterHotelsByDate();
