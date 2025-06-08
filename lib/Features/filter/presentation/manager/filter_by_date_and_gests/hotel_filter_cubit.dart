@@ -61,11 +61,7 @@ class HotelFilterCubit extends Cubit<HotelFilterState> {
         queryParams[ApiKey.minStarsFilter] = selectedRating.toString();
       }
       if (CacheHelper().getData(key: Constants.cityName) != null) {
-
-        queryParams[ApiKey.cityName] =
-
         queryParams[ApiKey.cityname] =
-
             CacheHelper().getData(key: Constants.cityName).toString();
       }
 

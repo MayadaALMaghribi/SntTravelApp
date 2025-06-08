@@ -48,12 +48,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     // Navigate after 3 seconds
     Timer(const Duration(seconds: 3), () {
       context.read<VerifyauthrizationCubit>().validToken();
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(
-      //       builder: (context) =>
-      //           const HomeBottomBar()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
-      // );
     });
   }
 
