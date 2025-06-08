@@ -19,7 +19,6 @@ class SearchHotelByNameCubit extends Cubit<SearchHotelByNameState> {
       final response =
           await apiConsumer.get(EndPoint.getHotelsByLocationName + cityName);
       for (var item in response["data"]) {
-        //books.add(BookModel.fromJson(item));
         searchHotelByNameModel.add(SearchHotelByNameModel.fromJson(item));
         emit(SearchHotelByNameSucess(
             searchHotelByNameModel: searchHotelByNameModel));
