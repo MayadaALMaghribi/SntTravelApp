@@ -41,6 +41,7 @@ class CustomListViewSearchHotel extends StatelessWidget {
                     CacheHelper().getData(key: Constants.cityName).toString());
                 return _buildErrorWidget("Please Enter Name of Hotel or city");
               }
+
               return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
                 child: CustomScrollView(
@@ -74,7 +75,8 @@ class CustomListViewSearchHotel extends StatelessWidget {
                         .toString());
                 return _buildErrorWidget("Please Apply filter");
               }
-              //context.read<HotelFilterCubit>().filterHotelsByDate();
+              context.read<HotelFilterCubit>().filterHotelsByDate();
+              log("from hotel search");
 
               return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,

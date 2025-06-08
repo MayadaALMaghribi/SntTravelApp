@@ -77,4 +77,5 @@ class ApiKey {
   static String paymentmethod = "paymentMethodId";
   static String numberofguests = "numberOfGuests";
   static String activityId = "activityId";
+  static String cityName = "cityName";
 }
