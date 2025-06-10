@@ -7,6 +7,7 @@ import 'package:sntegpito/core/utils/constant.dart';
 import 'package:string_similarity/string_similarity.dart';
 import '../../../../../core/helpers/faq_chat_bot.dart';
 
+// finally i made it
 class ChatViewBody extends StatefulWidget {
   const ChatViewBody({super.key, required this.userName});
   final String userName;
