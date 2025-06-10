@@ -9,7 +9,7 @@ class AboutUs extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 191, 224, 236),
+        backgroundColor: const Color.fromARGB(255, 134, 197, 249),
         elevation: 0,
         title: Text(
           "About US",

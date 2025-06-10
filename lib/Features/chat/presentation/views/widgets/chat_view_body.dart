@@ -5,7 +5,6 @@ import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/assests.dart';
 import 'package:sntegpito/core/utils/constant.dart';
 import 'package:string_similarity/string_similarity.dart';
-
 import '../../../../../core/helpers/faq_chat_bot.dart';
 
 class ChatViewBody extends StatefulWidget {
@@ -17,11 +16,10 @@ class ChatViewBody extends StatefulWidget {
 }
 
 class _ChatViewBodyState extends State<ChatViewBody> {
-  // final ChatUser _user = ChatUser(id: '1', firstName: 'you');
   late ChatUser _user;
   final ChatUser _bot = ChatUser(
     id: '2',
-    //firstName: 'SNT Bot',
+    firstName: 'SNT Bot',
     profileImage: AssetsData.chat_bot,
   );
   @override
@@ -116,7 +114,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff1f1f1),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 134, 197, 249),
         title: Text('🤖 SNT ChatBot'),
