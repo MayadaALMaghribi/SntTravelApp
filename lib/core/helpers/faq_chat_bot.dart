@@ -35,5 +35,5 @@ final List<Map<String, String>> faq = [
     "question": "Welcome chat",
     "answer": "Hello! How can I help you today? 😊",
   },
-  {"question": "hey", "answer": "hey mayada"},
+  {"question": "hey", "answer": "hey How can i help you"},
 ];

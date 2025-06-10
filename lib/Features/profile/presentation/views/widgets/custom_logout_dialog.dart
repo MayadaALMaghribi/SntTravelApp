@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
-import 'package:sntegpito/core/cache/cache_helper.dart';
-
-import '../../../../../core/api/end_ponits.dart';
 
 class CustomLogoutDialog extends StatelessWidget {
   const CustomLogoutDialog({super.key});
@@ -15,9 +12,9 @@ class CustomLogoutDialog extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       child: Container(
-        padding: const EdgeInsets.all(20), // لإضافة مساحة حول المحتوى
+        padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisSize: MainAxisSize.min, // يجعل حجم الـ Container ديناميكي
+          mainAxisSize: MainAxisSize.min,
           children: [
             const Icon(
               Icons.logout_outlined,
@@ -27,7 +24,7 @@ class CustomLogoutDialog extends StatelessWidget {
             const SizedBox(height: 20),
             const Text(
               "Are you sure you want to leave?",
-              textAlign: TextAlign.center, // توسيط النص
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
@@ -40,15 +37,13 @@ class CustomLogoutDialog extends StatelessWidget {
                 // زر NO
                 ElevatedButton(
                   onPressed: () {
-                    // أكشن تسجيل الخروج
-                    Navigator.of(context).pop(); // مثال لإغلاق النافذة
+                    Navigator.of(context).pop();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     minimumSize: const Size(155, 40),
-
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10), // حجم الزر
+                        horizontal: 20, vertical: 10),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(22),
                     ),
@@ -61,13 +56,10 @@ class CustomLogoutDialog extends StatelessWidget {
                 // زر YES
                 ElevatedButton(
                   onPressed: () {
-                    // أكشن تسجيل الخروج
-                    CacheHelper().clearData(key: ApiKey.token);
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const WelcomeView()),
-                      //(route) => false,
                     ); // مثال لإغلاق النافذة
                   },
                   style: ElevatedButton.styleFrom(

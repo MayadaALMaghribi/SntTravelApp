@@ -141,41 +141,43 @@ class InitalWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          "assets/images_home/cart.png",
-          width: 350,
-          height: 450,
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          "You don't have any",
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+    return Center(
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/images_home/cart.png",
+            width: 350,
+            height: 450,
           ),
-          textAlign: TextAlign.center, // توسيط النص داخل Text widget
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          "Activities",
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+          const SizedBox(height: 10),
+          const Text(
+            "You don't have any",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center, // توسيط النص داخل Text widget
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          "The Cart Is Empty",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+          const SizedBox(height: 10),
+          const Text(
+            "Activities",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center, // توسيط النص داخل Text widget
-        ),
-      ],
+          const SizedBox(height: 10),
+          const Text(
+            "The Cart Is Empty",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }
