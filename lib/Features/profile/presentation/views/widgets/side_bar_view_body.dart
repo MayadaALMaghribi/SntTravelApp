@@ -113,7 +113,7 @@ class SideBarViewBody extends StatelessWidget {
                             SizedBox(height: screenHeight * 0.01),
                             ListSideBar(
                               text: "Help",
-                              icon: Icons.chat_bubble_outline_outlined,
+                              icon: Icons.chat_bubble_outline_outlined, //done
                               onTap: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
