@@ -22,7 +22,6 @@ class EditProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(90),
@@ -46,40 +45,82 @@ class EditProfileViewBody extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-            child: SingleChildScrollView(
+          return SingleChildScrollView(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
               child: Stack(
                 children: [
                   // 1- الخلفية
-                  ClipPath(
-                    clipper: WaveClipperOne(),
-                    child: Container(
-                      height: 200,
-                      width: double.infinity,
-                      color: const Color.fromARGB(255, 171, 218, 240),
-                    ),
-                  ),
-                  ClipPath(
-                    clipper: WaveClipperOne(),
-                    child: Container(
-                      height: 165,
-                      width: double.infinity,
-                      color: const Color.fromARGB(255, 179, 221, 240),
-                    ),
-                  ),
-                  ClipPath(
-                    clipper: WaveClipperOne(flip: true),
-                    child: Container(
-                      height: 100,
-                      width: double.infinity,
-                      color: const Color.fromARGB(255, 195, 231, 248),
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: ClipPath(
+                      clipper: WaveClipperOne(),
+                      child: Container(
+                        height: 250,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFE0F7FA),
+                              Color(0xFFB3E5FC),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
 
+                  Positioned(
+                    top: 60,
+                    left: 0,
+                    right: 0,
+                    child: ClipPath(
+                      clipper: WaveClipperOne(reverse: true),
+                      child: Container(
+                        height: 190,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFB3E5FC),
+                              Color(0xFF81D4FA),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Positioned(
+                    top: 30,
+                    left: 0,
+                    right: 0,
+                    child: ClipPath(
+                      clipper: WaveClipperOne(flip: true),
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFE0F7FA),
+                              Color(0xFFB3E5FC),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   // 2- المحتوى
                   Padding(
                     padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
                         top: 150), // نسيب مساحة فوق للـ wave
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,6 +201,10 @@ class EditProfileViewBody extends StatelessWidget {
                               onPressed: () {
                                 context.read<GetCubit>().getuserprofile();
                                 context.read<ProfileCubit>().updateusername();
+                                context
+                                    .read<ProfileCubit>()
+                                    .newusernameController
+                                    .clear();
                               },
                               child: state is UpdateusernameLoading
                                   ? const SizedBox(
