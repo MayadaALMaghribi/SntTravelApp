@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sntegpito/Features/profile/presentation/views/side_bar_view.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/custom_profile_image.dart';
@@ -24,7 +25,7 @@ class EditProfileViewBody extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(30),
+        preferredSize: Size.fromHeight(90),
         child: CustomAppBar(
           text: "Edit Profile",
           page: SideBarView(),
@@ -48,10 +49,43 @@ class EditProfileViewBody extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
             child: SingleChildScrollView(
-              child: Column(
+              child: Stack(
                 children: [
-                  context.read<ProfileCubit>().profilePic == null
-                      ? CustomProfileImage(
+                  // 1- الخلفية
+                  ClipPath(
+                    clipper: WaveClipperOne(),
+                    child: Container(
+                      height: 200,
+                      width: double.infinity,
+                      color: const Color.fromARGB(255, 171, 218, 240),
+                    ),
+                  ),
+                  ClipPath(
+                    clipper: WaveClipperOne(),
+                    child: Container(
+                      height: 165,
+                      width: double.infinity,
+                      color: const Color.fromARGB(255, 179, 221, 240),
+                    ),
+                  ),
+                  ClipPath(
+                    clipper: WaveClipperOne(flip: true),
+                    child: Container(
+                      height: 100,
+                      width: double.infinity,
+                      color: const Color.fromARGB(255, 195, 231, 248),
+                    ),
+                  ),
+
+                  // 2- المحتوى
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 150), // نسيب مساحة فوق للـ wave
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // الصورة
+                        CustomProfileImage(
                           icon: Icons.camera_alt,
                           image: context.read<ProfileCubit>().profilePic == null
                               ? CacheHelper()
@@ -63,7 +97,6 @@ class EditProfileViewBody extends StatelessWidget {
                           radiusg: 100,
                           radiuss: 95,
                           fun: () {
-                            print("upload");
                             ImagePicker()
                                 .pickImage(source: ImageSource.gallery)
                                 .then((value) {
@@ -73,95 +106,81 @@ class EditProfileViewBody extends StatelessWidget {
                                     .uploadProfilePic(value);
                               }
                             });
-                            // الأكشن عند الضغط على الأيقونة
-                            print("Change Profile Picture");
                           },
-                        )
-                      : state is UploadProfilePictureLoading
-                          ? const Center(child: CircularProgressIndicator())
-                          : CustomProfileImage(
-                              icon: Icons.camera_alt,
-                              image: FileImage(File(context
-                                  .read<ProfileCubit>()
-                                  .profilePic!
-                                  .path)),
-                              radiusg: 100,
-                              radiuss: 95,
-                              fun: () {
-                                ImagePicker()
-                                    .pickImage(source: ImageSource.gallery)
-                                    .then((value) {
-                                  if (value != null) {
-                                    context
-                                        .read<ProfileCubit>()
-                                        .uploadProfilePic(value);
-                                  }
-                                });
-                                // الأكشن عند الضغط على الأيقونة
-                                print("Change Profile Picture");
-                              },
-                            ),
-                  const SizedBox(height: 35),
-                  SizedBox(
-                    width: 350,
-                    child: CustomTextfield(
-                      obscureText: false,
-                      icon: Icons.person,
-                      texthint: "Enter your name",
-                      controller:
-                          context.read<ProfileCubit>().newusernameController,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  SizedBox(height: screenHeight * 0.01),
-                  ListSideBar(
-                    text: "update password",
-                    icon: Icons.arrow_back,
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const UpdatePasswordView();
-                      }));
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  BlocListener<ProfileCubit, ProfileState>(
-                    listener: (context, state) {
-                      if (state is UpdateusernameSuccess) {
-                        CustomSnackBar.show(context, state.message);
-                        context.read<GetCubit>().getuserprofile();
-                      } else if (state is UpdateusernameFailure) {
-                        CustomSnackBar.show(
-                            context, state.errmessage.toString());
-                      }
-                    },
-                    child: SizedBox(
-                      height: 50,
-                      width: 300,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xff49AEE4),
                         ),
-                        onPressed: () {
-                          context.read<GetCubit>().getuserprofile();
-                          context.read<ProfileCubit>().updateusername();
-                        },
-                        child: state is UpdateusernameLoading
-                            ? const SizedBox(
-                                height: 24,
-                                width: 24,
-                                child: CircularProgressIndicator(
-                                  color: Colors.white,
-                                  strokeWidth: 2.5,
-                                ),
-                              )
-                            : const Text(
-                                "Edit profile",
-                                style: TextStyle(color: Colors.white),
+                        const SizedBox(height: 35),
+
+                        // Textfield
+                        SizedBox(
+                          width: 350,
+                          child: CustomTextfield(
+                            obscureText: false,
+                            icon: Icons.person,
+                            texthint: "Enter your name",
+                            controller: context
+                                .read<ProfileCubit>()
+                                .newusernameController,
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        // Update password
+                        ListSideBar(
+                          text: "update password",
+                          icon: Icons.arrow_back,
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const UpdatePasswordView();
+                            }));
+                          },
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        // Edit profile button
+                        BlocListener<ProfileCubit, ProfileState>(
+                          listener: (context, state) {
+                            if (state is UpdateusernameSuccess) {
+                              CustomSnackBar.show(context, state.message);
+                              context.read<GetCubit>().getuserprofile();
+                            } else if (state is UpdateusernameFailure) {
+                              CustomSnackBar.show(
+                                  context, state.errmessage.toString());
+                            }
+                          },
+                          child: SizedBox(
+                            height: 50,
+                            width: 300,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xff49AEE4),
                               ),
-                      ),
+                              onPressed: () {
+                                context.read<GetCubit>().getuserprofile();
+                                context.read<ProfileCubit>().updateusername();
+                              },
+                              child: state is UpdateusernameLoading
+                                  ? const SizedBox(
+                                      height: 24,
+                                      width: 24,
+                                      child: CircularProgressIndicator(
+                                        color: Colors.white,
+                                        strokeWidth: 2.5,
+                                      ),
+                                    )
+                                  : const Text(
+                                      "Edit profile",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                      ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

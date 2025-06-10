@@ -8,7 +8,10 @@ import 'package:sntegpito/Features/Home/presentation/views/widgets/list_title_si
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_cubit.dart';
 import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_state.dart';
 import 'package:sntegpito/Features/profile/presentation/views/edit_profile_view.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
+
+import '../../../../chat/presentation/views/chat_view.dart';
 
 class SideBarViewBody extends StatelessWidget {
   const SideBarViewBody({super.key});
@@ -35,6 +38,9 @@ class SideBarViewBody extends StatelessWidget {
           } else if (state is GetuserprofileSuccess) {
             // طباعة البيانات عشان نتاكد إنها جاية صح
             print("User profile data: ${state.getuserprofileModel.username}");
+            CacheHelper().saveData(
+                key: "Profile_user",
+                value: "$base${state.getuserprofileModel.profilePicture}");
           }
         },
         builder: (context, state) {
@@ -101,6 +107,20 @@ class SideBarViewBody extends StatelessWidget {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
                                   return const HomeBottomBar();
+                                }));
+                              },
+                            ),
+                            SizedBox(height: screenHeight * 0.01),
+                            ListSideBar(
+                              text: "Help",
+                              icon: Icons.info_outline,
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return ChatView(
+                                    userName:
+                                        state.getuserprofileModel.username,
+                                  );
                                 }));
                               },
                             ),

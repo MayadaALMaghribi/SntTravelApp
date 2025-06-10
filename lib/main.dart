@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/add_cart/cart_cubit.dart';
@@ -28,9 +29,13 @@ import 'package:sntegpito/core/api/dio_consumer.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 import 'package:sntegpito/core/utils/constant.dart';
+import 'package:sntegpito/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await CacheHelper().init();
 
   final hotelId = CacheHelper().getData(key: Constants.idhotel);
