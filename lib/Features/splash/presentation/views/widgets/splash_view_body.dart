@@ -7,6 +7,7 @@ import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/widgets/custom_snak_bar.dart';
+import '../../../../imboroading/presentation/views/widgets/imboroading_view_body.dart';
 import '../../manager/cubit/verifyauthrization_cubit.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -83,7 +84,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    const WelcomeView()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
+                    const ImboroadingViewBody()), // page after splashهنا هتحطي اول صفحة اللي هي ال umborading بعد ما يخلص ال splash يروح عليها
           );
         }
       },
