@@ -14,6 +14,7 @@ class Constants {
   static String tourism_id = "selected_tourism_id";
   static String verify_city_name = "verify_city_name";
   static String verify_filter = "verify_filter";
+  static String isDark = "isDark";
 
   //height(context) * 0.37
 }

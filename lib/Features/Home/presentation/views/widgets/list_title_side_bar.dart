@@ -6,12 +6,12 @@ class ListSideBar extends StatelessWidget {
     super.key,
     required this.text,
     required this.icon,
-    required this.onTap, // إضافة دالة يتم استدعاؤها عند الضغط
+    required this.onTap,
   });
 
   final String text;
   final IconData icon;
-  final Function() onTap; // دالة النقر
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,9 @@ class ListSideBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           color: const Color.fromARGB(255, 75, 154, 237).withOpacity(0.3),
         ),
-        child: IconButton(
-          icon: Icon(icon),
-          onPressed: () {},
-          iconSize: width(context) * 0.06,
+        child: Icon(
+          icon,
+          size: width(context) * 0.06,
         ),
       ),
       onTap: onTap, // استدعاء الدالة عند النقر

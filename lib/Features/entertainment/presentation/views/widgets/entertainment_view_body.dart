@@ -15,7 +15,7 @@ class EntertainmentViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffFFFFFF),
+        // backgroundColor: const Color(0xffFFFFFF),
         body: BlocBuilder<EntertainmentCubit, EntertainmentState>(
           builder: (context, state) {
             if (state is ImageDiscountLoading) {

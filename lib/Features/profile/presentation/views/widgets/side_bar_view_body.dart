@@ -10,7 +10,6 @@ import 'package:sntegpito/Features/profile/presentation/manager/get%20cubit/get_
 import 'package:sntegpito/Features/profile/presentation/views/edit_profile_view.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
-
 import '../../../../chat/presentation/views/chat_view.dart';
 
 class SideBarViewBody extends StatelessWidget {
@@ -113,7 +112,7 @@ class SideBarViewBody extends StatelessWidget {
                             SizedBox(height: screenHeight * 0.01),
                             ListSideBar(
                               text: "Help",
-                              icon: Icons.chat_bubble_outline_outlined, //done
+                              icon: Icons.chat_bubble_outline_outlined,
                               onTap: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
