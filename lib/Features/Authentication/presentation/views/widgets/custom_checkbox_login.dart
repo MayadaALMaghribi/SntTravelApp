@@ -14,17 +14,17 @@ class _CustomCheckboxLoginState extends State<CustomCheckboxLogin> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Checkbox(
-          activeColor: const Color(0xff49AEE4),
-          checkColor: Colors.white,
-          value: isChecked,
-          onChanged: (bool? value) {
-            setState(() {
-              isChecked = value ?? false;
-            });
-          },
-        ),
-        const Text('Remember Me'),
+        // Checkbox(
+        //   activeColor: const Color(0xff49AEE4),
+        //   checkColor: Colors.white,
+        //   value: isChecked,
+        //   onChanged: (bool? value) {
+        //     setState(() {
+        //       isChecked = value ?? false;
+        //     });
+        //   },
+        // ),
+        // const Text('Remember Me'),
         TextButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
