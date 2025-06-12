@@ -3,13 +3,14 @@ Travel Application
 
 A free mobile application built using [Flutter] that helps you [explore different types of tourism in Egypt, organize trips, and book hotels].
 
-Advantage 
+Advantages:
 
 1- explore different tourisms in Egypt 
 2- booking hotels 
 3- booking activity 
 4- plan your trip
 5-simple,easy to use user interface 
+6-There is a chatbot to help the user if he has a question about the program.
 
 Install this application 
 You can download the APK file directly from the following link: https://drive.google.com/file/d/1JC4Jk7aebpqaR1hxP-hJeF_QfsKq-b7o/view?usp=drive_link
