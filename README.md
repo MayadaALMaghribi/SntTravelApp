@@ -12,14 +12,14 @@ Advantage
 5-simple,easy to use user interface 
 
 Install this application 
-You can download the APK file directly from the following link: https://drive.google.com/file/d/17TSk9j5WbDNDCrsAifPRxyiHuMjhhmTJ/view?usp=drive_link
+You can download the APK file directly from the following link: https://drive.google.com/file/d/1JC4Jk7aebpqaR1hxP-hJeF_QfsKq-b7o/view?usp=drive_link
 
 
 Important notes:
 
-Make sure to activate the “Install apps from unknown sources” option from your phone settings.
-
-Then open the file after downloading it, and click Install.
+1-Make sure to activate the “Install apps from unknown sources” option from your phone settings.
+2-Then open the file after downloading it, and click Install.
+3-passport must be 8 numbers
 
 Run the project locally (for developers):
 
