@@ -5,6 +5,7 @@ import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cu
 import 'package:sntegpito/Features/Authentication/presentation/views/login_view.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/verify_forget_view.dart';
 import 'package:sntegpito/core/widgets/custom_app_bar.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import 'package:sntegpito/core/widgets/custom_textformfield.dart';
 
 class ForgetViewBody extends StatelessWidget {
@@ -29,9 +30,8 @@ class ForgetViewBody extends StatelessWidget {
             );
           }));
         } else if (state is forgetFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(state.errmessage),
-          ));
+          CustomSnackBar.show(context, state.errmessage.toString(),
+              isError: true);
         }
       },
       child: Scaffold(
@@ -121,32 +121,6 @@ class ForgetViewBody extends StatelessWidget {
                                 style: TextStyle(color: Colors.white),
                               ),
                       ),
-                      // CustomButton(
-                      //   title: 'Verify',
-                      //   ontap: () {
-                      //     if (context
-                      //         .read<UserCubit>()
-                      //         .forgetformKey
-                      //         .currentState!
-                      //         .validate()) {
-                      //       Navigator.push(context,
-                      //           MaterialPageRoute(builder: (context) {
-                      //         return VerifyCodePage(
-                      //           check: 2,
-                      //           email: "",
-                      //         );
-                      //       }));
-                      //       // عرض رسالة تأكيد
-                      //       ScaffoldMessenger.of(context).showSnackBar(
-                      //         const SnackBar(
-                      //           content: Text(
-                      //               'Verification email sent successfully!'),
-                      //         ),
-                      //       );
-                      //     }
-                      //   },
-                      //   width: double.infinity,
-                      // ),
                     ),
                   ],
                 );

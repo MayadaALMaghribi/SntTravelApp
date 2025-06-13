@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_cubit.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_state.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/resetpassword_view.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
 class VerifyForgetView extends StatelessWidget {
   final String email;
@@ -13,20 +14,16 @@ class VerifyForgetView extends StatelessWidget {
     return BlocListener<UserCubit, UserState>(
       listener: (context, state) {
         if (state is otpSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.message),
-            ),
-          );
+          CustomSnackBar.show(context, state.message);
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
                   builder: (context) => const ResetPasswordView()),
               (Route) => false);
         } else if (state is otpFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('verification failed: ${state.errmessage}')),
-          );
+          CustomSnackBar.show(
+              context, "verification failed: ${state.errmessage}",
+              isError: true);
         }
       },
       child: Scaffold(
