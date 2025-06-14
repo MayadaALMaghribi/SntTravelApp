@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
+import 'package:sntegpito/core/cache/cache_helper.dart';
+
+import '../../../../../core/api/end_ponits.dart';
 
 class CustomLogoutDialog extends StatelessWidget {
   const CustomLogoutDialog({super.key});
@@ -56,6 +59,7 @@ class CustomLogoutDialog extends StatelessWidget {
                 // زر YES
                 ElevatedButton(
                   onPressed: () {
+                    CacheHelper().removeData(key: ApiKey.token);
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
