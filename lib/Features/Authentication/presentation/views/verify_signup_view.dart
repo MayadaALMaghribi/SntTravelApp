@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_cubit.dart';
 import 'package:sntegpito/Features/Authentication/presentation/manager/user%20cubit/user_state.dart';
 import 'package:sntegpito/Features/Authentication/presentation/views/login_view.dart';
+import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 
 class VerifySignupView extends StatelessWidget {
   final String email;
@@ -13,21 +14,16 @@ class VerifySignupView extends StatelessWidget {
     return BlocListener<UserCubit, UserState>(
       listener: (context, state) {
         if (state is VerifySuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.message),
-            ),
-          );
-
+          CustomSnackBar.show(context, state.message);
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
                   builder: (context) => const LoginView()), //HomeBottomBar
               (Route) => false);
         } else if (state is VerifyFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('verification failed: ${state.errmessage}')),
-          );
+          CustomSnackBar.show(
+              context, "verification failed: ${state.errmessage}",
+              isError: true);
         }
       },
       child: Scaffold(

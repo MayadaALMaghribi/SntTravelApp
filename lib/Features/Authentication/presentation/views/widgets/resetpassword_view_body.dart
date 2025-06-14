@@ -98,46 +98,6 @@ class ResetpasswordViewBody extends StatelessWidget {
                               .read<UserCubit>()
                               .confirmPasswordController,
                         ),
-                        // TextFormField(
-                        //   controller: context.read<UserCubit>().confirmPasswordController,
-                        //   obscureText: _obscureConfirmPassword,
-                        //   cursorColor: Colors.black,
-                        //   decoration: InputDecoration(
-                        //     fillColor: const Color.fromARGB(255, 241, 238, 238),
-                        //     filled: true,
-                        //     border: OutlineInputBorder(
-                        //       borderRadius: BorderRadius.circular(30),
-                        //       borderSide: const BorderSide(
-                        //         color: Colors.grey,
-                        //       ),
-                        //     ),
-                        //     enabledBorder: OutlineInputBorder(
-                        //       borderRadius: BorderRadius.circular(30),
-                        //       borderSide: const BorderSide(
-                        //         color: Colors.grey,
-                        //       ),
-                        //     ),
-                        //     focusedBorder: OutlineInputBorder(
-                        //       borderRadius: BorderRadius.circular(30),
-                        //       borderSide: const BorderSide(
-                        //         color: Colors.black,
-                        //       ),
-                        //     ),
-                        //     suffixIcon: IconButton(
-                        //       icon: Icon(
-                        //         _obscureConfirmPassword
-                        //             ? Icons.visibility_off
-                        //             : Icons.visibility,
-                        //       ),
-                        //       onPressed: () {
-                        //         setState(() {
-                        //           _obscureConfirmPassword =
-                        //               !_obscureConfirmPassword;
-                        //         });
-                        //       },
-                        //     ),
-                        //   ),
-                        // ),
                       ),
                       const SizedBox(height: 10),
 
