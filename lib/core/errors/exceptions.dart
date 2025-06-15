@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:sntegpito/core/errors/error_model.dart';
 
@@ -45,7 +47,7 @@ void handleDioExceptions(DioException e) {
               errModel: ErrorModel.fromJson(e.response!.data));
         case 500: // Server exception
           throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+              errModel: ErrorModel.fromJson(jsonDecode(e.response!.data)));
         case 504: // Server exception
           throw ServerException(
               errModel: ErrorModel.fromJson(e.response!.data));
