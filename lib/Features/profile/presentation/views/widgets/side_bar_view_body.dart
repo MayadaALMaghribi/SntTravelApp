@@ -120,10 +120,13 @@ class SideBarViewBody extends StatelessWidget {
                               text: "Home Page",
                               icon: Icons.home,
                               onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return const HomeBottomBar();
-                                }));
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                      builder: (BuildContext context) =>
+                                          const HomeBottomBar()),
+                                  ModalRoute.withName('/'),
+                                );
                               },
                             ),
                             SizedBox(height: screenHeight * 0.01),

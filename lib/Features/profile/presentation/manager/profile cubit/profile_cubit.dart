@@ -73,7 +73,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           ApiKey.newpassword: updatePasswordController.text,
           ApiKey.confirmpassword: confirmeupdatepassController.text
         },
-        isFromData: true,
+        isFromData: false,
       );
       updatepass = AuthModel.fromJson(response);
       emit(UpdatepasswordSuccess(message: updatepass!.message));

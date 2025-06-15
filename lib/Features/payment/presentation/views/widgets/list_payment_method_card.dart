@@ -112,7 +112,7 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               CustomSnackBar.show(context, "paypall done");
             });
-            //context.read<ConfirmPaymentCubit>().verifyconfirmpayment();
+            context.read<ConfirmPaymentCubit>().verifyconfirmpayment();
           },
           onError: (error) {
             log("onError: $error");

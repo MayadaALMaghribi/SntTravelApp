@@ -1,3 +1,6 @@
+import 'package:sntegpito/core/cache/cache_helper.dart';
+import 'package:sntegpito/core/utils/constant.dart';
+
 final List<Map<String, String>> faq = [
   {
     "question": "How do I book?",
@@ -32,8 +35,52 @@ final List<Map<String, String>> faq = [
     "answer": "You're welcome, if you need anything else, I'm here."
   },
   {
-    "question": "Welcome chat",
-    "answer": "Hello! How can I help you today? 😊",
+    "question": "Hello chat",
+    "answer":
+        "Hello! How can I help you today ${CacheHelper().getData(key: Constants.usernamechat)}? 😊",
   },
-  {"question": "hey", "answer": "hey How can i help you"},
+  {
+    "question": "hey",
+    "answer":
+        "Hey How can i help ${CacheHelper().getData(key: Constants.usernamechat)}😊?"
+  },
+  {
+    "question": "welcom",
+    "answer":
+        " Welcome,  How can i help ${CacheHelper().getData(key: Constants.usernamechat)}😊?"
+  },
+  {
+    "question": "How can change password?",
+    "answer":
+        "You can change password from profile and then edit profile you cav change password"
+  },
+  {
+    "question": "How can modify password?",
+    "answer":
+        "You can change password from profile and then edit profile you cav change password"
+  },
+  {
+    "question": "chat help me i forget my password",
+    "answer":
+        " Ok, Relax ...You can change password from profile and then edit profile you cav change password"
+  },
+  {
+    "question": "How are you chat?",
+    "answer":
+        "Fine How can i help ${CacheHelper().getData(key: Constants.usernamechat)}😊?",
+  },
+  {
+    "question": "what tell me about you chat ",
+    "answer":
+        "I'm chat bot to help you if you have a problem in app or any question about app",
+  },
+  {
+    "question": "what are you chat ",
+    "answer":
+        "I'm chat bot to help you if you have a problem in app or any question about app",
+  },
+  {
+    "question": "OK ",
+    "answer": "OK, if you need anything else, I'm here.",
+  }
 ];

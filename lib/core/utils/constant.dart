@@ -17,6 +17,7 @@ class Constants {
   static String verify_city_name = "verify_city_name";
   static String verify_filter = "verify_filter";
   static String isDark = "isDark";
+  static String usernamechat = "userNameChat";
 
   //height(context) * 0.37
 }

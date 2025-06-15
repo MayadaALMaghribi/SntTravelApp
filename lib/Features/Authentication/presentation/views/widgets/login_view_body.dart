@@ -22,10 +22,16 @@ class LoginViewBody extends StatelessWidget {
       listener: (context, state) {
         if (state is SignInSuccess) {
           CustomSnackBar.show(context, "Login Successful");
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) {
-            return const HomeBottomBar();
-          }));
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute<void>(
+                builder: (BuildContext context) => const HomeBottomBar()),
+            ModalRoute.withName('/'),
+          );
+          // Navigator.pushReplacement(context,
+          //     MaterialPageRoute(builder: (context) {
+          //   return const HomeBottomBar();
+          // }));
         } else if (state is SignInFailure) {
           CustomSnackBar.show(context, 'Login failed: ${state.errmessage}');
         }
