@@ -35,7 +35,14 @@ class FeatureCardDestinations extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(Icons.place_outlined, size: 22),
-              Text(topDestinationModel.name!, style: Styles.textStyle17),
+              Flexible(
+                child: Text(
+                  topDestinationModel.name!,
+                  style: Styles.textStyle17,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ],
           ),
           const SizedBox(
