@@ -24,8 +24,6 @@ class CustomListTabBar extends StatelessWidget {
         height: 400,
         child: TabBarView(
           children: [
-            //ListViewTabBarHotel(),
-
             ListViewTabBarActivity(),
             Center(child: LinksCar()
                 // Text(
