@@ -5,7 +5,7 @@ import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/ge
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/prepare_activity_booking/prepare_activity_before_booking_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/trip_planner_view.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/views/widgets/custom_card_activity_booked.dart';
-import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
+import 'package:sntegpito/core/widgets/custom_room_button.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import '../../../../../core/utils/constant.dart';
@@ -109,7 +109,7 @@ class BookingActivityViewBody extends StatelessWidget {
                                           .getData(key: Constants.userId));
                             }
                           },
-                          child: ReserveRoomButton(
+                          child: CustomRoomButton(
                             text: "Book Now",
                             ontap: () {
                               context

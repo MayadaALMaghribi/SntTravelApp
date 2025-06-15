@@ -7,7 +7,7 @@ import 'package:sntegpito/Features/payment/presentation/views/widgets/custom_dis
 import 'package:sntegpito/Features/payment/presentation/views/widgets/payment_method_bottom_sheet.dart';
 import 'package:sntegpito/Features/payment/presentation/views/widgets/success_card.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
-import '../../../../room/presentation/view/widgets/reserve_room_button.dart';
+import '../../../../../core/widgets/custom_room_button.dart';
 import '../../../data/models/orginzation_models_booking/room_data_booking_going_topay.dart';
 
 class PaymentViewBody extends StatefulWidget {
@@ -63,7 +63,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                     right: 0,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: ReserveRoomButton(
+                      child: CustomRoomButton(
                         text: "Confirm Payment",
                         ontap: () {
                           RoomBookingData bookingData = RoomBookingData(
@@ -125,7 +125,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
         right: 0,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ReserveRoomButton(
+          child: CustomRoomButton(
             text: "Cancel Payment",
             ontap: () {
               context.read<CancelBookingCubit>().cancelBooking();

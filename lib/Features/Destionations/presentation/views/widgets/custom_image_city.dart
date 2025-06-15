@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../constants.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomeImageCity extends StatelessWidget {

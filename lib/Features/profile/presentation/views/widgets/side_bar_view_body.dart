@@ -21,11 +21,28 @@ class SideBarViewBody extends StatelessWidget {
     const base = "http://tourism.runasp.net/";
 
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(90),
-        child: CustomAppBar(
-          text: "Profile",
-          page: HomeBottomBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeBottomBar()),
+            ); //;
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 35,
+          ),
+        ),
+        title: Text(
+          "Profile",
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 25,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       body: BlocConsumer<GetCubit, GetState>(

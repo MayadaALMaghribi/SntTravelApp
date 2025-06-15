@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Constants {
   static String itemTypefav = "Activity";
   static String idhotel = "hotel_id";
@@ -18,3 +20,7 @@ class Constants {
 
   //height(context) * 0.37
 }
+
+double width(context) => MediaQuery.of(context).size.width;
+double height(context) => MediaQuery.of(context).size.height;
+const kprimaryColor = Color(0xff100B20);

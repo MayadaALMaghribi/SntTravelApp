@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
-import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_state.dart';
-import 'package:sntegpito/Features/entertainment/presentation/views/widgets/custom_image_entertainment_top.dart';
-import 'package:sntegpito/Features/entertainment/presentation/views/widgets/custom_row_text.dart';
-import 'package:sntegpito/Features/entertainment/presentation/views/widgets/feature_ist_view_destinations.dart';
-import 'package:sntegpito/Features/entertainment/presentation/views/widgets/feature_list_icon.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/manager/entertainment_cubit/entertainment_state.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/views/widgets/custom_image_entertainment_top.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/views/widgets/custom_row_text.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/views/widgets/feature_ist_view_destinations.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/views/widgets/feature_list_icon.dart';
 
-class EntertainmentViewBody extends StatelessWidget {
-  const EntertainmentViewBody({super.key});
+class TourismTypeViewBody extends StatelessWidget {
+  const TourismTypeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

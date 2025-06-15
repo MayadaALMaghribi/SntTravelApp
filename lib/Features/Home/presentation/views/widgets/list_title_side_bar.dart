@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sntegpito/constants.dart';
+import '../../../../../core/utils/constant.dart';
 
 class ListSideBar extends StatelessWidget {
   const ListSideBar({

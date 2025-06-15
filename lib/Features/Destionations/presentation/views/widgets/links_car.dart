@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import '../../../../../core/utils/open_app_orstore.dart';
-import '../../../../room/presentation/view/widgets/reserve_room_button.dart';
+import '../../../../../core/widgets/custom_room_button.dart';
 
 class LinksCar extends StatelessWidget {
   const LinksCar({super.key});
@@ -22,7 +22,7 @@ class LinksCar extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        ReserveRoomButton(
+        CustomRoomButton(
             text: "Uber",
             ontap: () => openOrInstallApp(
                   packageName: "com.ubercab",
@@ -30,7 +30,7 @@ class LinksCar extends StatelessWidget {
                       "https://play.google.com/store/apps/details?id=com.ubercab",
                 )),
         //openAppOrStore(packageName: "com.ubercab")),
-        ReserveRoomButton(
+        CustomRoomButton(
             text: "InDrive",
             ontap: () => openOrInstallApp(
                   packageName: "sinet.startup.inDriver",
@@ -38,7 +38,7 @@ class LinksCar extends StatelessWidget {
                       "https://play.google.com/store/apps/details?id=sinet.startup.inDriver",
                 )),
 
-        ReserveRoomButton(
+        CustomRoomButton(
             text: "Careem",
             ontap: () => openOrInstallApp(
                   packageName: "com.careem.acma",

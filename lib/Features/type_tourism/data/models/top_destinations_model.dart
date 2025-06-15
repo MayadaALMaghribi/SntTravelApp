@@ -1,4 +1,4 @@
-import 'package:sntegpito/Features/entertainment/data/models/tourism_type_model.dart';
+import 'package:sntegpito/Features/type_tourism/data/models/tourism_type_model.dart';
 
 class TopDestinationModel {
   int? id;

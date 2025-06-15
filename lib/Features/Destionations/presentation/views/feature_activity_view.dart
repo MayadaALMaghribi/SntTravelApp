@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/custom_image_city.dart';
 import 'package:sntegpito/Features/Destionations/presentation/views/widgets/feature_tab_bar_view_body.dart';
-import 'package:sntegpito/Features/entertainment/data/models/top_destinations_model.dart';
+import 'package:sntegpito/Features/type_tourism/data/models/top_destinations_model.dart';
 
 class FeatureActivityViewBody extends StatelessWidget {
   const FeatureActivityViewBody({super.key, required this.topDestinationModel});

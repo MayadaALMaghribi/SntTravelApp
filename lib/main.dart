@@ -8,8 +8,8 @@ import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/ge
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_all_activity_cart/get_all_activity_cart_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/prepare_activity_booking/prepare_activity_before_booking_cubit.dart';
 import 'package:sntegpito/Features/Home/presentation/manager/cubit/tourism_type_cubit.dart';
-import 'package:sntegpito/Features/entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
-import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/gallery_details_hotel_cubit/gallery_details_hotel_cubit.dart';

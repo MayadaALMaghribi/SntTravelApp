@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sntegpito/Features/entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
-import 'package:sntegpito/Features/entertainment/presentation/views/widgets/feature_card_destinations.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/views/widgets/feature_card_destinations.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../../../Destionations/presentation/views/feature_activity_view.dart';
