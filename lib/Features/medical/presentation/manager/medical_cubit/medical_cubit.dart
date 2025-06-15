@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:sntegpito/Features/entertainment/data/models/image_discount_tourism_model.dart';
+import 'package:sntegpito/Features/type_tourism/data/models/image_discount_tourism_model.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_state.dart';
 import 'package:sntegpito/core/api/api_consumer.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';

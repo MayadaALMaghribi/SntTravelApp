@@ -31,6 +31,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       firstName: widget.userName,
       profileImage: CacheHelper().getData(key: "Profile_user"),
     );
+    CacheHelper().saveData(key: Constants.usernamechat, value: widget.userName);
     loadMessageFromFirestore();
   }
 
@@ -39,7 +40,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
   String getBestMatch(String userInput) {
     double bestScore = 0.0;
     String bestAnswer =
-        "Sorry, I didn't understand that very well. I'll check it out and get back to you as soon as possible!";
+        "Sorry, I didn't understand that very well. I'll check it out and get back to you as soon as possible! you connet with support@sntapp.com";
 
     for (var item in faq) {
       double score = StringSimilarity.compareTwoStrings(

@@ -118,10 +118,8 @@ class EditProfileViewBody extends StatelessWidget {
                   ),
                   // 2- المحتوى
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20,
-                        right: 20,
-                        top: 150), // نسيب مساحة فوق للـ wave
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, top: 150),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [

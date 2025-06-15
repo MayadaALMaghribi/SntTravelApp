@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../constants.dart';
+import '../../../../../core/utils/constant.dart';
 
 class CustomImageBoroading extends StatelessWidget {
   const CustomImageBoroading({super.key, required this.imageUrl});

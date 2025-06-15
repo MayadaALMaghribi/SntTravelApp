@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/imboroading/presentation/views/widgets/custom_image_boroading.dart';
-
-import '../../../../../constants.dart';
+import '../../../../../core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../data/models/boroading_model.dart';
 

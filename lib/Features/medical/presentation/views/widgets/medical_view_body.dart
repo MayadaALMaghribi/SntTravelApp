@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
-import 'package:sntegpito/Features/entertainment/presentation/views/widgets/custom_row_text.dart';
+import 'package:sntegpito/Features/type_tourism/presentation/views/widgets/custom_row_text.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_cubit.dart';
 import 'package:sntegpito/Features/medical/presentation/manager/medical_cubit/medical_state.dart';
 import 'package:sntegpito/Features/medical/presentation/views/widgets/custom_image_medical_top.dart';

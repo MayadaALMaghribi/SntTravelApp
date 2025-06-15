@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
-
 import '../../../../../core/api/end_ponits.dart';
 
 class CustomLogoutDialog extends StatelessWidget {
@@ -60,11 +59,18 @@ class CustomLogoutDialog extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     CacheHelper().removeData(key: ApiKey.token);
-                    Navigator.pushReplacement(
+                    Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const WelcomeView()),
-                    ); // مثال لإغلاق النافذة
+                      MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              const WelcomeView()),
+                      ModalRoute.withName('/'),
+                    );
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const WelcomeView()),
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/room/data/models/hotel_rooms_model.dart';
 import 'package:sntegpito/Features/room/presentation/view/widgets/custom_card_room_image.dart';
-import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
+import 'package:sntegpito/core/widgets/custom_room_button.dart';
 import 'package:sntegpito/Features/payment/presentation/manager/booking_room/booking_room_cubit.dart';
 import 'package:sntegpito/Features/payment/presentation/views/payment_view.dart';
 import 'package:sntegpito/core/api/end_ponits.dart';
@@ -139,7 +139,7 @@ class CustomCardRoom extends StatelessWidget {
                       value: state.responseBookingRoomModel.transactionId);
                 }
               },
-              child: ReserveRoomButton(
+              child: CustomRoomButton(
                 text: "Reserve a room",
                 ontap: () {
                   DateTime parsedStartDate = DateTime.parse(

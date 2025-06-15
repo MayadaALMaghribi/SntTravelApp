@@ -8,9 +8,9 @@ import 'package:sntegpito/core/utils/styles.dart';
 import '../../../../../core/utils/constant.dart';
 import '../../../../../core/widgets/custom_function_favourite.dart';
 import '../../../../../core/widgets/custom_snak_bar.dart';
-import '../../../../entertainment/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
-import '../../../../entertainment/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
-import '../../../../entertainment/presentation/views/widgets/entertainment_view_body.dart';
+import '../../../../type_tourism/presentation/manager/entertainment_cubit/entertainment_cubit.dart';
+import '../../../../type_tourism/presentation/manager/top_destinations_cubit/top_destinations_cubit.dart';
+import '../../../../type_tourism/presentation/views/widgets/entertainment_view_body.dart';
 import '../../../../favourite/presentation/manager/fovuritecubit/fovurite_cubit.dart';
 import '../../../../favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 
@@ -46,7 +46,7 @@ class CustomCardColumn extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => EntertainmentViewBody(),
+              builder: (context) => TourismTypeViewBody(),
 
               //tourismViews[tourismType.id! - 1],
             ),

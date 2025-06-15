@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
-class ReserveRoomButton extends StatelessWidget {
-  const ReserveRoomButton({
+class CustomRoomButton extends StatelessWidget {
+  const CustomRoomButton({
     super.key,
     required this.text,
     required this.ontap,

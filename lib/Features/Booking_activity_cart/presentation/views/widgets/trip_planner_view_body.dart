@@ -8,7 +8,7 @@ import 'package:sntegpito/Features/Booking_activity_cart/data/models/prepare_act
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/confirm_activity_booking/confirm_activity_booking_cubit.dart';
 import 'package:sntegpito/Features/Booking_activity_cart/presentation/manager/get_activity_for_booking/get_activity_for_booking_cubit.dart';
 import 'package:sntegpito/Features/payment/data/models/orginzation_models_booking/activity_booking_data.dart';
-import 'package:sntegpito/Features/room/presentation/view/widgets/reserve_room_button.dart';
+import 'package:sntegpito/core/widgets/custom_room_button.dart';
 import 'package:sntegpito/core/utils/styles.dart';
 import 'package:sntegpito/core/widgets/custom_snak_bar.dart';
 import '../../../../../core/cache/cache_helper.dart';
@@ -262,7 +262,7 @@ class _TripPlannerScreenState extends State<TripPlannerViewBody> {
                           isError: false);
                     }
                   },
-                  child: ReserveRoomButton(
+                  child: CustomRoomButton(
                     text: "Confirm Booking",
                     ontap: () {
                       ActivityBookingData bookingDataActivity =
