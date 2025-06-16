@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sntegpito/core/api/end_ponits.dart';
 
 class CustomCardImageCol extends StatelessWidget {
   const CustomCardImageCol({super.key, required this.imagePath});
@@ -7,8 +8,8 @@ class CustomCardImageCol extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String url1 = "http://tourism.runasp.net/$imagePath";
-    final String url2 = "http://dashboardsamar.runasp.net/$imagePath";
+    final String url1 = "${EndPoint.baseImageUrl}$imagePath";
+    final String url2 = "${EndPoint.baseImageDash}$imagePath";
     //http://dashboardsamar.runasp.net/images/Home/samar.jpeg
 
     return ClipRRect(
@@ -29,7 +30,7 @@ class CustomCardImageCol extends StatelessWidget {
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               return Image.asset(
-                "assets/images/placeholder.jpg", // صورة افتراضية عندك في المشروع
+                "assets/images/activity_trip.jpg", // صورة افتراضية عندك في المشروع
                 width: double.infinity,
                 height: 220,
                 fit: BoxFit.cover,
