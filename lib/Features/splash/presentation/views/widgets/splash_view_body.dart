@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/Home/presentation/views/widgets/home_bottom_bar.dart';
-import 'package:sntegpito/Features/welcome_screen/presentation/views/welcome_view.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
 import '../../../../../core/api/end_ponits.dart';

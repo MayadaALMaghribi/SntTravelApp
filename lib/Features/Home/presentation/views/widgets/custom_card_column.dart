@@ -87,8 +87,9 @@ class CustomCardColumn extends StatelessWidget {
                   height: cardHeight * 0.68, // الصورة تاخد جزء من الكارد
                   width: double.infinity,
                   child: CustomCardImageCol(
-                    imageUrl:
-                        "http://tourism.runasp.net/${tourismType.imageUrl}",
+                    imagePath: tourismType.imageUrl ?? "",
+
+                    // "http://tourism.runasp.net/${tourismType.imageUrl}",
                   ),
                 ),
               ),

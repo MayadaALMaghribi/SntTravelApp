@@ -4,13 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/hotels/presentation/manager/search_hotel_by_name_cubit/search_hotel_by_name_cubit.dart';
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_card_hotel.dart';
 import 'package:sntegpito/Features/filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
+import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_function_search_hotel.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 import 'package:sntegpito/core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 
 class CustomListViewSearchHotel extends StatelessWidget {
-  const CustomListViewSearchHotel({super.key});
-
+  CustomListViewSearchHotel({super.key});
+  final GlobalKey<CustomFunctionSearchHotelState> searchHotelKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchHotelByNameCubit, SearchHotelByNameState>(
@@ -25,12 +26,14 @@ class CustomListViewSearchHotel extends StatelessWidget {
 
             // لو فيه Error في السيرش
             else if (searchState is SearchHotelByNameFailure) {
+              log("show in search failure");
               return _buildErrorWidget(searchState.errmessage);
             }
 
             // لو فيه Error في الفلتر (لو انتي بتعملي كده)
             else if (filterState is HotelFilterFailure) {
               if (CacheHelper().getData(key: Constants.cityName) == null) {
+                searchHotelKey.currentState?.validate();
                 return _buildErrorWidget("Please Enter Name of Hotel or city");
               }
               return _buildErrorWidget(filterState.message);
@@ -67,14 +70,13 @@ class CustomListViewSearchHotel extends StatelessWidget {
                 return _buildErrorWidget("No Hotels exist");
               }
               if (CacheHelper().getData(key: Constants.verify_filter) != true) {
-                return _buildErrorWidget("Please Apply filter");
+                log("show in search sucess");
               }
 
               context.read<HotelFilterCubit>().filterHotelsByDate();
               log("from hotel search");
 
               // context.read<HotelFilterCubit>().filterHotelsByDate();
-
 
               return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
