@@ -52,14 +52,14 @@ class FavouriteViewBody extends StatelessWidget {
                             ?.toString() ??
                         state.get_fav_model.data![index].itemDetails?.price
                             ?.toString() ??
-                        "0";
+                        "";
                     String headName =
                         state.get_fav_model.data![index].itemDetails?.name ??
                             "No name";
 
                     String add = state.get_fav_model.data![index].itemDetails
                             ?.description ??
-                        "NO description";
+                        "";
 
                     String image =
                         "${state.get_fav_model.data![index].itemDetails?.image?.toString()}" ??
