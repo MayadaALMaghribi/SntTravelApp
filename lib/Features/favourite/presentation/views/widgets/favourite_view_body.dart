@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/widgets/feature_custom_feedtime.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
-
 import '../../../../../core/utils/constant.dart';
 
 class FavouriteViewBody extends StatelessWidget {
@@ -72,6 +71,7 @@ class FavouriteViewBody extends StatelessWidget {
                         key: Constants.idfav,
                         value: state.get_fav_model.data![index].isFavorite ??
                             false);
+                    //are merge
                     return FeatureCustomFeedtime(
                       price: price,
                       headName: headName,
