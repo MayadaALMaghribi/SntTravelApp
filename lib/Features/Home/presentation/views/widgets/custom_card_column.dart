@@ -18,8 +18,24 @@ class CustomCardColumn extends StatelessWidget {
   final TourismTypeModel tourismType;
 
   const CustomCardColumn({super.key, required this.tourismType});
+
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        MediaQuery.of(context).padding.bottom;
+
+    final aspectRatio = screenHeight / screenWidth;
+
+    double cardHeight;
+    if (aspectRatio >= 2.1) {
+      cardHeight = screenWidth * 0.87;
+    } else if (aspectRatio >= 1.8) {
+      cardHeight = screenWidth * 0.9;
+    } else {
+      cardHeight = screenWidth * 1.15;
+    }
     return BlocListener<FovuriteCubit, AddfovuriteState>(
       listener: (context, state) {
         if (state is AddfovuriteSucess) {
@@ -27,7 +43,6 @@ class CustomCardColumn extends StatelessWidget {
           context.read<GetfavCubit>().fetchGetFav();
         } else if (state is RemovefavSucess) {
           CustomSnackBar.show(context, state.errorModel.errorMessage);
-
           context.read<GetfavCubit>().fetchGetFav();
         } else if (state is RemovefavFailure || state is AddfovuriteFailure) {
           CustomSnackBar.show(
@@ -47,8 +62,6 @@ class CustomCardColumn extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => TourismTypeViewBody(),
-
-              //tourismViews[tourismType.id! - 1],
             ),
           );
           context.read<EntertainmentCubit>().getImageDiscount();
@@ -56,8 +69,8 @@ class CustomCardColumn extends StatelessWidget {
         },
         child: Container(
           margin: const EdgeInsets.only(bottom: 15),
-          width: MediaQuery.of(context).size.width * 0.9,
-          height: MediaQuery.of(context).size.height * 0.37,
+          width: screenWidth * 0.95,
+          height: cardHeight,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: const Color(0xff868686), width: 1),
@@ -65,8 +78,19 @@ class CustomCardColumn extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomCardImageCol(
-                imageUrl: "http://tourism.runasp.net/${tourismType.imageUrl}",
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+                child: SizedBox(
+                  height: cardHeight * 0.68, // الصورة تاخد جزء من الكارد
+                  width: double.infinity,
+                  child: CustomCardImageCol(
+                    imageUrl:
+                        "http://tourism.runasp.net/${tourismType.imageUrl}",
+                  ),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8, left: 12, right: 12),
@@ -81,7 +105,7 @@ class CustomCardColumn extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10, right: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -101,6 +125,7 @@ class CustomCardColumn extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(height: 8),
             ],
           ),
         ),
