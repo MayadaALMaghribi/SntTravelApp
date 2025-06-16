@@ -100,43 +100,43 @@ class InitalWidgets extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center, // عشان يظهر في النص
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(
-          "assets/images_home/favourite.jpg",
-          width: 350,
-          height: 350,
-        ),
-        const SizedBox(height: 10),
-        Text(
-          text,
-          style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+    return Center(
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/images_home/favourite.jpg",
+            width: 350,
+            height: 350,
           ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          "Favourites",
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+          const SizedBox(height: 10),
+          Text(
+            text,
+            style: const TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          "Save what you like for later",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+          const SizedBox(height: 10),
+          const Text(
+            "Favourites",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+          const SizedBox(height: 10),
+          const Text(
+            "Save what you like for later",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }
