@@ -140,6 +140,9 @@ class SignupViewBody extends StatelessWidget {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your passport number';
                         }
+                        if (int.parse(value) > 8 || int.parse(value) < 8) {
+                          return "Must be eight numbers";
+                        }
                         return null;
                       },
                     ),
