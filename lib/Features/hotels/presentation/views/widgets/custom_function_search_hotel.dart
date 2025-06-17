@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/search_hotel.dart';
 
 import '../../../../../core/cache/cache_helper.dart';
 import '../../../../../core/utils/constant.dart';
-import '../../../../filter/presentation/manager/filter_by_date_and_gests/hotel_filter_cubit.dart';
 
 class CustomFunctionSearchHotel extends StatefulWidget {
   const CustomFunctionSearchHotel({
