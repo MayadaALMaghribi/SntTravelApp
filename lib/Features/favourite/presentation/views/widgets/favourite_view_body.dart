@@ -104,7 +104,7 @@ class InitalWidgets extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(
-            "assets/images/activity_trip.jpg",
+            "assets/images_home/favourite.jpg",
             width: 350,
             height: 350,
           ),
