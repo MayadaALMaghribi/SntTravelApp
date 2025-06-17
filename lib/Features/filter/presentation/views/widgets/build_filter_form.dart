@@ -83,6 +83,8 @@ class BuildFilterForm extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomBuildRatingButton(
+            initialRating:
+                context.watch<HotelFilterCubit>().selectedRating ?? 3,
             onRatingSelected: (int rating) {
               context.read<HotelFilterCubit>().updateRating(rating);
             },
