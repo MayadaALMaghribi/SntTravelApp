@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
+import 'package:sntegpito/Features/favourite/presentation/views/details_fav_view.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/widgets/feature_custom_feedtime.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
@@ -60,6 +62,12 @@ class FavouriteViewBody extends StatelessWidget {
                     String add = state.get_fav_model.data![index].itemDetails
                             ?.description ??
                         "";
+                    String getFormattedTime(String rawDate) {
+                      DateTime parsedDate =
+                          DateTime.parse(rawDate.split('.').first);
+                      return DateFormat('h:mm a')
+                          .format(parsedDate); // النتيجة: 8:51 AM
+                    }
 
                     String image =
                         "${state.get_fav_model.data![index].itemDetails?.image?.toString()}" ??
@@ -79,6 +87,46 @@ class FavouriteViewBody extends StatelessWidget {
                       image: image,
                       typefav: itemtype,
                       itemfav: iditemfav,
+                      time: getFormattedTime(
+                          state.get_fav_model.data![index].addedAt!),
+                      onTap: () {
+                        if (state.get_fav_model.data![index].itemType ==
+                            "Activity") {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsFavView(
+                                image: image,
+                                Type:
+                                    state.get_fav_model.data![index].itemType!,
+                                nameCity: "",
+                                name: headName,
+                                price: price,
+                                description: add,
+                                moreDescription: state.get_fav_model
+                                    .data![index].itemDetails!.moreDescription!,
+                              ),
+                            ),
+                          );
+                        } else if (state.get_fav_model.data![index].itemType ==
+                            "TourismType") {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsFavView(
+                                image: image,
+                                Type:
+                                    state.get_fav_model.data![index].itemType!,
+                                nameCity: "",
+                                name: headName,
+                                price: '',
+                                description: add,
+                                moreDescription: '',
+                              ),
+                            ),
+                          );
+                        }
+                      },
                     );
                   }),
                 )
