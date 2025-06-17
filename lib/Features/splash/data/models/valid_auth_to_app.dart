@@ -6,14 +6,14 @@ class ValidAuthtoApp {
 
   ValidAuthtoApp.fromJson(Map<String, dynamic> json) {
     valid = json['valid'];
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['valid'] = this.valid;
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['valid'] = valid;
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
     return data;
   }
@@ -33,10 +33,10 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['email'] = this.email;
-    data['userName'] = this.userName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['email'] = email;
+    data['userName'] = userName;
     return data;
   }
 }

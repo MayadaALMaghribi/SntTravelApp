@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
 import 'package:flutter/material.dart';
-import 'package:sntegpito/Features/Home/presentation/views/widgets/details_page.dart';
 
 class CategoriesRow extends StatelessWidget {
   CategoriesRow({super.key});

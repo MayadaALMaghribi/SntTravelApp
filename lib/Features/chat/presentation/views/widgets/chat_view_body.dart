@@ -63,7 +63,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
     await chat_message.add({
       'userId': message.user.id,
       'userName': message.user.firstName,
-      'createdBy': message.createdAt?.toIso8601String() ??
+      'createdBy': message.createdAt.toIso8601String() ??
           DateTime.now().toIso8601String(),
       'text': message.text,
       'profileImage': message.user.profileImage ?? '',

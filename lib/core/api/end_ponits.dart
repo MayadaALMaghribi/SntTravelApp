@@ -1,5 +1,6 @@
 class EndPoint {
   static String baseImageUrl = "http://tourism.runasp.net/";
+  static String baseImageDash = "http://dashboardsamar.runasp.net/";
   static String baseUrl = "http://tourism.runasp.net/api/";
   static String signIn = "Acount/login";
   static String signUp = "Acount/SendVerificationCode";
