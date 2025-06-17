@@ -4,8 +4,8 @@ import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_func
 import 'package:sntegpito/Features/hotels/presentation/views/widgets/custom_list_view_search_hotel.dart';
 
 class HomeHotelViewBody extends StatelessWidget {
-  const HomeHotelViewBody({super.key});
-
+  HomeHotelViewBody({super.key});
+  final searchFieldKey = GlobalKey<CustomFunctionSearchHotelState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,10 +31,12 @@ class HomeHotelViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustombuttonFilterHotel(),
-                  CustomFunctionSearchHotel(),
+                  // CustomFunctionSearchHotel(),
+                  CustomFunctionSearchHotel(key: searchFieldKey),
                 ],
               ),
-              CustomListViewSearchHotel()
+              CustomListViewSearchHotel(searchFieldKey: searchFieldKey),
+              //CustomListViewSearchHotel()
             ],
           ),
         ),
