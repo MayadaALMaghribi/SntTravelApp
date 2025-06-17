@@ -65,6 +65,7 @@ class _ListPaymentMethodCardState extends State<ListPaymentMethodCard> {
                     executePaypallMethod(context, transcationData);
                   } else if (index == 1) {
                     executePaymobMethod(context);
+                    context.read<ConfirmPaymentCubit>().verifyconfirmpayment();
                   }
                   activeindex = index;
 
