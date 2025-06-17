@@ -46,8 +46,12 @@ void handleDioExceptions(DioException e) {
           throw ServerException(
               errModel: ErrorModel.fromJson(e.response!.data));
         case 500: // Server exception
+          final data = e.response!.data;
+          final parsedData = data is String ? jsonDecode(data) : data;
+
           throw ServerException(
-              errModel: ErrorModel.fromJson(jsonDecode(e.response!.data)));
+            errModel: ErrorModel.fromJson(parsedData),
+          );
         case 504: // Server exception
           throw ServerException(
               errModel: ErrorModel.fromJson(e.response!.data));
