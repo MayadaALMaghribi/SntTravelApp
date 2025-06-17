@@ -9,10 +9,6 @@ class CustomImageEntertainmentTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String ur1 = "http://tourism.runasp.net/${imagemodel.imageUrl}";
-    final String ur2 =
-        "https://dashboard-samar.runasp.net${imagemodel.imageUrl}";
-
     return SizedBox(
       height: 185,
       child: AspectRatio(
