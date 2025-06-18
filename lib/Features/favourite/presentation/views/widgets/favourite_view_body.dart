@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:sntegpito/Features/favourite/presentation/manager/getfavouritecubit/getfav_cubit.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/details_fav_view.dart';
+import 'package:sntegpito/Features/favourite/presentation/views/widgets/details_torism.dart';
 import 'package:sntegpito/Features/favourite/presentation/views/widgets/feature_custom_feedtime.dart';
 import 'package:sntegpito/core/cache/cache_helper.dart';
 
@@ -113,15 +114,14 @@ class FavouriteViewBody extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailsFavView(
-                                image: image,
+                              builder: (context) => TourismTypeDetails(
+                                imageUrl: image,
                                 Type:
                                     state.get_fav_model.data![index].itemType!,
                                 nameCity: "",
                                 name: headName,
                                 price: '',
                                 description: add,
-                                moreDescription: '',
                               ),
                             ),
                           );
