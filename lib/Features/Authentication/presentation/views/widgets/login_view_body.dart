@@ -78,8 +78,15 @@ class LoginViewBody extends StatelessWidget {
                       controller: context.read<UserCubit>().signInEmail,
                       obscureText: false,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your username';
+                        final trimmedValue = value?.trim(); // حذف المسافات
+
+                        if (trimmedValue == null || trimmedValue.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        if (!RegExp(
+                                r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+                            .hasMatch(trimmedValue)) {
+                          return 'Please enter a valid email';
                         }
                         return null;
                       },
