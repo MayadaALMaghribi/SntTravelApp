@@ -108,12 +108,14 @@ class SignupViewBody extends StatelessWidget {
                       obscureText: false,
                       //hintText: 'Enter your email',
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
+                        final trimmedValue = value?.trim(); // حذف المسافات
+
+                        if (trimmedValue == null || trimmedValue.isEmpty) {
                           return 'Please enter your email';
                         }
                         if (!RegExp(
                                 r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
-                            .hasMatch(value)) {
+                            .hasMatch(trimmedValue)) {
                           return 'Please enter a valid email';
                         }
                         return null;
@@ -137,10 +139,11 @@ class SignupViewBody extends StatelessWidget {
                       obscureText: false,
                       //hintText: 'Enter your passport',
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
+                        final passpwortValue = value?.trim();
+                        if (passpwortValue == null || passpwortValue.isEmpty) {
                           return 'Please enter your passport number';
                         }
-                        if (!RegExp(r'^\d{8}$').hasMatch(value)) {
+                        if (!RegExp(r'^\d{8}$').hasMatch(passpwortValue)) {
                           return 'Passport number must be exactly 8 digits';
                         }
                         return null;
